@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home.js";
-import Start from "./pages/Start.js";
-import Room from "./pages/Room.js";
+import Home from "./pages/Home";
+import Start from "./pages/Start";
+import Room from "./pages/Room";
 import { Toaster } from "react-hot-toast";
 function App() {
   return (
