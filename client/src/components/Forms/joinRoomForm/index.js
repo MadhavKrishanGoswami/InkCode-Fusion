@@ -21,6 +21,12 @@ const JoinRoomForm = () => {
     // Redirect user to the specified room with the given username
     navigate(`/room/${roomId}`, { state: { userName } });
   };
+  // Function to handle enter key press
+  const handleInputEnter = (e) => {
+    if (e.key === "Enter") {
+      joinRoom(e);
+    }
+  };
 
   return (
     <form className="form col-md-12 mt-5">
@@ -31,16 +37,17 @@ const JoinRoomForm = () => {
           placeholder="Enter your Name"
           onChange={(e) => setUserName(e.target.value)}
           value={userName}
+          onKeyUp={handleInputEnter}
         />
       </div>
       <div className="form-group">
         <input
           type="text"
           className="form-control my-2"
-          disabled
           placeholder="Enter room code"
           onChange={(e) => setRoomId(e.target.value)}
           value={roomId}
+          onKeyUp={handleInputEnter}
         />
       </div>
       <button
