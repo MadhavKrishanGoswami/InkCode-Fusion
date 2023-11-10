@@ -1,7 +1,11 @@
 import React from "react";
-
+import Editor from "../components/Editor";
 const Room = () => {
-  return <div>Room Page</div>;
+  return (
+    <div>
+      <Editor />
+    </div>
+  );
 };
 
 export default Room;
