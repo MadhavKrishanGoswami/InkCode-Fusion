@@ -4,6 +4,7 @@ const Start = () => {
   return (
     <div className="startPageWrapper">
       <Forms />
+      {console.log("Start returned")}
     </div>
   );
 };
