@@ -15,9 +15,9 @@ import Editor from "../components/Editor"; // Import the Editor component
 const Room = () => {
   // Ref to hold the Socket.io connection
   const socketRef = useRef(null);
-
   // React Router hooks for managing the route
   const location = useLocation();
+
   const reactNavigate = useNavigate();
   const { roomId } = useParams();
 
@@ -43,17 +43,11 @@ const Room = () => {
       }
 
       // Emit a "join" event to the server
-      console.log("Emitting join event");
       socketRef.current.emit(ACTIONS.JOIN, {
         roomId,
         userName: location.state?.userName,
       });
-
-      // Define cleanup logic for when the component is unmounted
-      return () => {
-        console.log("Room component unmounted");
-        // Cleanup logic (if needed)
-      };
+      console.log("Emmited from Frontent to server... ");
     };
 
     // Call the init function when the component mounts

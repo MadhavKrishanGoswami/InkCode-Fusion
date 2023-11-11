@@ -27,7 +27,7 @@ function getAllConnectedClients(roomId) {
 
 // Event listener for when a new socket connection is established
 io.on("connection", (socket) => {
-  console.log("socket connected", socket.id);
+  console.log("got a connection on server", socket.id);
   // Event listener for the "JOIN" action
   socket.on(ACTIONS.JOIN, ({ roomId, userName }) => {
     // Map the user's socket ID to their username
