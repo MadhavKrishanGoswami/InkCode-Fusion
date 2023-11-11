@@ -57,6 +57,11 @@ const Room = () => {
           }
         }
       );
+      // Event listener for user leaving the room
+      socketRef.current.on(ACTIONS.DISCONNECTED, ({ socketId, userName }) => {
+        toast.success(`${userName} left the room`);
+        console.log(`${userName} left the room`); // Just for debugging
+      });
     };
 
     // Call the init function when the component mounts

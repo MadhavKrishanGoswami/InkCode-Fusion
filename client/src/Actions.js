@@ -1,9 +1,9 @@
 const ACTIONS = {
   JOIN: "join",
   JOINED: "joined",
-  DISCONNECTED: "disconnect",
-  CODE_CHANGED: "codeChanged",
-  SYNC_CODE: "syncCode",
+  DISCONNECTED: "disconnected",
+  CODE_CHANGE: "code-change",
+  SYNC_CODE: "sync-code",
   LEAVE: "leave",
 };
 

@@ -38,6 +38,7 @@ io.on("connection", (socket) => {
 
     // Get a list of all connected clients in the room
     const clients = getAllConnectedClients(roomId);
+    console.log("clients", clients);
     clients.forEach((socketId) => {
       io.to(socketId.socketId).emit(ACTIONS.JOINED, {
         clients,
@@ -45,6 +46,17 @@ io.on("connection", (socket) => {
         socketId,
       });
     });
+  });
+  socket.on("disconnecting", () => {
+    const rooms = [...socket.rooms];
+    rooms.forEach((roomId) => {
+      socket.in(roomId).emit(ACTIONS.DISCONNECTED, {
+        socketId: socket.id,
+        userName: userSocketMap[socket.id],
+      });
+    });
+    delete userSocketMap[socket.id];
+    socket.leave();
   });
 });
 
