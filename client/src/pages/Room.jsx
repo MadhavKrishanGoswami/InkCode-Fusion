@@ -17,7 +17,6 @@ const Room = () => {
   const socketRef = useRef(null);
   // React Router hooks for managing the route
   const location = useLocation();
-
   const reactNavigate = useNavigate();
   const { roomId } = useParams();
 
@@ -47,12 +46,22 @@ const Room = () => {
         roomId,
         userName: location.state?.userName,
       });
-      console.log("Emmited from Frontent to server... ");
+
+      // Event listener for user joining the room
+      socketRef.current.on(
+        ACTIONS.JOINED,
+        ({ clients, userName, socketId }) => {
+          if (userName !== location.state?.userName) {
+            toast.success(`${userName} joined the room`);
+            console.log(`${userName} joined the room`); // Just for debugging
+          }
+        }
+      );
     };
 
     // Call the init function when the component mounts
     init();
-  }, []);
+  }, [roomId, location.state?.userName, reactNavigate]);
 
   // Redirect to the "/start" route if location.state is not defined
   if (!location.state) {

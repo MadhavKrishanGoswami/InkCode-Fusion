@@ -38,12 +38,17 @@ io.on("connection", (socket) => {
 
     // Get a list of all connected clients in the room
     const clients = getAllConnectedClients(roomId);
-    console.log("clients", clients);
+    clients.forEach((socketId) => {
+      io.to(socketId.socketId).emit(ACTIONS.JOINED, {
+        clients,
+        userName,
+        socketId,
+      });
+    });
   });
 });
 
-// Determine the port on which the server will listen
+// Start the server
 const PORT = process.env.PORT || 4000;
 
-// Start the server and make it listen on the specified port
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
