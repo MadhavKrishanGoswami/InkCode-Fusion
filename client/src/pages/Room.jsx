@@ -66,7 +66,13 @@ const Room = () => {
 
     // Call the init function when the component mounts
     init();
-  }, [roomId, location.state?.userName, reactNavigate]);
+    return () => {
+      // Remove the event listeners and disconnect the Socket.io connection when the component unmounts
+      socketRef.current.off(ACTIONS.JOINED);
+      socketRef.current.off(ACTIONS.DISCONNECTED);
+      socketRef.current.disconnect();
+    };
+  }, []);
 
   // Redirect to the "/start" route if location.state is not defined
   if (!location.state) {
