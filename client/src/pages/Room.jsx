@@ -11,33 +11,23 @@ import {
 import toast from "react-hot-toast"; // Import toast notification library
 import Editor from "../components/Editor"; // Import the Editor component
 
-// Define the Room component
 const Room = () => {
-  // Ref to hold the Socket.io connection
   const socketRef = useRef(null);
-  // React Router hooks for managing the route
+  const codeRef = useRef(null);
   const location = useLocation();
   const reactNavigate = useNavigate();
   const { roomId } = useParams();
 
-  // useEffect to initialize the Socket.io connection when the component mounts
   useEffect(() => {
-    // Define the init function
     const init = async () => {
-      // Initialize the Socket.io connection and store it in the ref
       socketRef.current = await initSocket();
-
-      // Event listeners for Socket.io connection errors
       socketRef.current.on("connect_error", (err) => handleErrors(err));
       socketRef.current.on("connect_failed", (err) => handleErrors(err));
 
       // Define the handleErrors function
       function handleErrors(err) {
         console.log("socket error", err);
-        // Display a toast notification on Socket Connection Error
         toast.error("Socket Connection Error, Please try again");
-
-        // Navigate to the "/start" route on connection error
         reactNavigate("/start");
       }
 
@@ -82,7 +72,8 @@ const Room = () => {
   // Render the Room component
   return (
     <div>
-      <Editor /> {/* Render the Editor component */}
+      <Editor socketRef={socketRef} roomId={roomId} />{" "}
+      {/* Render the Editor component */}
     </div>
   );
 };
