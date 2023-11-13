@@ -3,12 +3,19 @@ const app = express();
 const http = require("http");
 const { Server } = require("socket.io");
 const ACTIONS = require("./Actions");
+const cors = require("cors");
+app.use(cors());
 
 // Create an HTTP server using the Express app
 const server = http.createServer(app);
 
 // Create a new instance of the Socket.io server by passing the HTTP server
-const io = new Server(server);
+const io = new Server(server, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
+});
 
 // Map to store the association between user socket IDs and their usernames
 const userSocketMap = {};
@@ -46,6 +53,9 @@ io.on("connection", (socket) => {
         socketId,
       });
     });
+  });
+  socket.on(ACTIONS.SEND_MESSAGE, (data) => {
+    socket.in(data.room).emit(ACTIONS.RECEIVE_MESSAGE, data);
   });
 
   socket.on(ACTIONS.CODE_CHANGE, ({ roomId, code }) => {

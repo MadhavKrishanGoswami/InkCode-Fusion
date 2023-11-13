@@ -23,28 +23,29 @@ const Editor = ({ socketRef, roomId }) => {
         const { origin } = changes;
         const code = instance.getValue();
         if (origin !== "setValue") {
-          socketRef.current.emit(ACTIONS.CODE_CHANGE, {
-            roomId,
-            code,
-          });
+          socketRef.current.emit(
+            ACTIONS.CODE_CHANGE,
+            {
+              roomId,
+              code,
+            },
+            console.log("code change")
+          );
         }
       });
     }
     init();
-  }, []);
+  });
 
   useEffect(() => {
-    if (socketRef.current !== null) {
+    if (socketRef.current) {
       socketRef.current.on(ACTIONS.CODE_CHANGE, ({ code }) => {
         if (code !== null) {
           editorRef.current.setValue(code);
         }
       });
     }
-    return () => {
-      socketRef.current.off(ACTIONS.CODE_CHANGE);
-    };
-  }, [socketRef.current]);
+  }, [socketRef]);
 
   return <textarea id="realTimeEditor"></textarea>;
 };

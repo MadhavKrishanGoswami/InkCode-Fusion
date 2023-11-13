@@ -1,22 +1,22 @@
-// Import necessary React hooks and components
-import React, { useEffect, useRef } from "react";
-import { initSocket } from "../socket"; // Import Socket.io initialization function
-import ACTIONS from "../Actions"; // Import action constants
+import React, { useRef, useEffect } from "react";
+import toast from "react-hot-toast";
+import ACTIONS from "../Actions";
+import Editor from "../components/Editor";
+import Chat from "../components/Chats/Chats";
+import { initSocket } from "../socket";
 import {
-  Navigate,
   useLocation,
   useNavigate,
+  Navigate,
   useParams,
-} from "react-router-dom"; // Import React Router hooks
-import toast from "react-hot-toast"; // Import toast notification library
-import Editor from "../components/Editor"; // Import the Editor component
+} from "react-router-dom";
 
 const Room = () => {
   const socketRef = useRef(null);
-  const codeRef = useRef(null);
   const location = useLocation();
   const reactNavigate = useNavigate();
   const { roomId } = useParams();
+  const userName = location.state?.userName;
 
   useEffect(() => {
     const init = async () => {
@@ -62,7 +62,7 @@ const Room = () => {
       socketRef.current.off(ACTIONS.DISCONNECTED);
       socketRef.current.disconnect();
     };
-  }, []);
+  });
 
   // Redirect to the "/start" route if location.state is not defined
   if (!location.state) {
@@ -72,7 +72,8 @@ const Room = () => {
   // Render the Room component
   return (
     <div>
-      <Editor socketRef={socketRef} roomId={roomId} />{" "}
+      {/* <Editor socketRef={socketRef} roomId={roomId} /> */}
+      <Chat socketRef={socketRef} roomId={roomId} userName={userName} />
       {/* Render the Editor component */}
     </div>
   );
