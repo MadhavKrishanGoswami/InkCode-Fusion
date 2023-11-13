@@ -25,7 +25,7 @@ const Chat = ({ socketRef, roomId, userName }) => {
     }
   };
   useEffect(() => {
-    if (socketRef.current !== null) {
+    if (socketRef.current) {
       socketRef.current.on(ACTIONS.RECEIVE_MESSAGE, (data) => {
         setMessageList((list) => [...list, data]);
       });
