@@ -3,7 +3,7 @@ import ScrollToBottom from "react-scroll-to-bottom";
 import ACTIONS from "../../Actions";
 import "./Chats.css";
 
-const Chat = ({ socketRef, roomId, userName }) => {
+const Chat = ({ socket, roomId, userName }) => {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
 
@@ -19,18 +19,18 @@ const Chat = ({ socketRef, roomId, userName }) => {
           new Date(Date.now()).getMinutes(),
       };
 
-      await socketRef.current.emit(ACTIONS.SEND_MESSAGE, messageData);
+      await socket.emit(ACTIONS.SEND_MESSAGE, messageData);
       setMessageList((list) => [...list, messageData]);
       setCurrentMessage("");
     }
   };
   useEffect(() => {
-    if (socketRef.current) {
-      socketRef.current.on(ACTIONS.RECEIVE_MESSAGE, (data) => {
+    if (socket) {
+      socket.on(ACTIONS.RECEIVE_MESSAGE, (data) => {
         setMessageList((list) => [...list, data]);
       });
     }
-  }, [socketRef]);
+  }, [socket]);
   return (
     <div className="chat-window">
       <div className="chat-header">
