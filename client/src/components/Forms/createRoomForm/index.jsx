@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import Form from "react-bootstrap/Form";
 
 const CreateRoomForm = () => {
   // State variables to store user input and room ID
@@ -38,41 +39,42 @@ const CreateRoomForm = () => {
   };
 
   return (
-    <form className="form col-md-12 mt-5">
-      <div className="form-group">
-        <input
+    <form className="form col-md-12 mt-5 px-2" >
+      <div className="form-group "data-bs-theme="dark">
+        <Form.Control
           type="text"
-          className="form-control my-2"
-          placeholder="Enter your Name"
+          size="lg"
+          className="form-control my-3"
+          placeholder="Name"
           onChange={(e) => setUserName(e.target.value)}
           value={userName}
           onKeyUp={handleInputEnter}
         />
       </div>
-      <div className="form-group border">
-        <div className="input-group d-flex align-items-center justify-content-center">
-          <input
+      <div className="form-group "data-bs-theme="dark">
+        <div className="input-group d-flex align-items-center justify-content-center"data-bs-theme="dark">
+          <Form.Control
             type="text"
-            className="form-control my-2 border-0"
-            disabled
-            placeholder="Generate room code"
+            size="lg"
+            className="form-control my-3"
+            placeholder="Room ID"
             value={roomId}
             onKeyUp={handleInputEnter}
           />
-          <div className="input-group-append">
+          <div className="">
             <button
-              className="btn btn-primary"
+              className="btn btn-dark"
               type="button"
               onClick={createNewRoom}
             >
               Generate
             </button>
-            <button className="btn btn-outline-danger btn-sm">copy</button>
+            <button className="btn btn-secondary btn-link btn-sm">copy</button>
           </div>
         </div>
       </div>
       <button
-        className="mt-4 btn-primary btn-block form-control"
+        className=" CreateButton mx-auto mt-12 my-3"
         onClick={joinRoom}
       >
         Create Room
@@ -81,3 +83,4 @@ const CreateRoomForm = () => {
   );
 };
 export default CreateRoomForm;
+

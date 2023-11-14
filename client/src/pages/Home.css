@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Montserrat:wght@500;600;900&display=swap');
+.Heading{
+position: relative;
+color: var(--black-0,191A1B);
+font-family: Inter;
+font-size: 144px;
+font-style: normal;
+font-weight: 600;
+line-height: 102%; /* 146.88px */
+letter-spacing: -4.32px;
+top: 100px;
+left: 40px;
+}
+.Tagline{
+  position: relative;
+  color: var(--black-0,191A1B);
+  font-family: Inter;
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 102%;
+  letter-spacing: -2.4px;
+  border: 0px;
+  top: 90px;
+  left: 40px;
+}
+img{
+   position: absolute;
+   bottom: 0px;
+   right: 0px;
+}
+.AboutButton{
+  position: relative;
+  top: 80px;
+  left: 1040px;
+}
+.StartButton{
+  position: relative;
+  top: 120px;
+  left: 40px;
+}
+body{
+  height: 100%;
+  min-height: 100%;
+  background-color:#ffff ;
+}
+.DeveloperName{
+  position: relative;
+  top: 300px;
+  color: #191A1B;
+  left: 40px;
+}
+.Id{
+  position: relative;
+  cursor: pointer;
+  color: #191A1B;
+  top: 300px;
+  left: 40px;
+}
+.StartButton{
+  width: 214px;
+  height: 81px;
+  flex-shrink: 0;
+border-radius: 70px;
+color: #FFF;
+font-family: Inter;
+font-size: 32px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+background-color: black;
+}
+.StartButton:hover{
+  background-color: #1e1e1f;
+}
+
+
+
+.StartPageWrapper{
+  width: 1200px;
+  height: 1000px;
+  flex-shrink: 0;
+  z-index: 1;
+}
