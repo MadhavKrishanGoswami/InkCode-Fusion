@@ -7,6 +7,7 @@ const ACTIONS = {
   LEAVE: "leave",
   RECEIVE_MESSAGE: "receive_message",
   SEND_MESSAGE: "send_message",
+  DRAW: "draw",
 };
 
 module.exports = ACTIONS;

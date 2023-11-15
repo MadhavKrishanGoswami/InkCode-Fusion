@@ -4,6 +4,7 @@ import ACTIONS from "../Actions";
 import io from "socket.io-client";
 import Editor from "../components/Editor";
 import Chat from "../components/Chats/Chats";
+import Whiteboard from "../components/WhiteBoard/Whiteboard";
 import {
   useLocation,
   useNavigate,
@@ -76,6 +77,7 @@ const Room = () => {
   return (
     <div>
       {/* <Editor socket={socket} roomId={roomId} /> */}
+      <Whiteboard socket={socket} />
       <Chat socket={socket} roomId={roomId} userName={userName} />
       {/* Render the Editor component */}
     </div>

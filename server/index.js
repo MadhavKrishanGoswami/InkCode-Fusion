@@ -61,6 +61,9 @@ io.on("connection", (socket) => {
   socket.on(ACTIONS.CODE_CHANGE, ({ roomId, code }) => {
     socket.in(roomId).emit(ACTIONS.CODE_CHANGE, { code });
   });
+  socket.on(ACTIONS.DRAW, (data) => {
+    socket.broadcast.emit(ACTIONS.DRAW, data);
+  });
   socket.on("disconnecting", () => {
     const rooms = [...socket.rooms];
     rooms.forEach((roomId) => {
