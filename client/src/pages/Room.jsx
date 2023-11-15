@@ -76,10 +76,9 @@ const Room = () => {
   // Render the Room component
   return (
     <div>
-      {/* <Editor socket={socket} roomId={roomId} /> */}
-      <Whiteboard socket={socket} />
-      <Chat socket={socket} roomId={roomId} userName={userName} />
-      {/* Render the Editor component */}
+      <Editor socket={socket} roomId={roomId} />
+      {/* <Whiteboard socket={socket} /> */}
+      {/* <Chat socket={socket} roomId={roomId} userName={userName} /> */}
     </div>
   );
 };

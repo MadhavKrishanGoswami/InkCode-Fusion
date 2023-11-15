@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+const fs = require("fs");
+const { PythonShell } = require("python-shell");
 const http = require("http");
 const { Server } = require("socket.io");
 const ACTIONS = require("./Actions");
@@ -56,6 +58,15 @@ io.on("connection", (socket) => {
   });
   socket.on(ACTIONS.SEND_MESSAGE, (data) => {
     socket.in(data.room).emit(ACTIONS.RECEIVE_MESSAGE, data);
+  });
+  socket.on(ACTIONS.RUN_CODE, ({ code, roomId }) => {
+    PythonShell.runString(code)
+      .then((data) => {
+        socket.in(roomId).emit(ACTIONS.OUTPUT, { data: data.toString() });
+      })
+      .catch((err) => {
+        socket.in(roomId).emit(ACTIONS.OUTPUT, { data: err.toString() });
+      });
   });
 
   socket.on(ACTIONS.CODE_CHANGE, ({ roomId, code }) => {

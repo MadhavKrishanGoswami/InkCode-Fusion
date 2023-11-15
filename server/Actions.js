@@ -8,6 +8,8 @@ const ACTIONS = {
   RECEIVE_MESSAGE: "receive_message",
   SEND_MESSAGE: "send_message",
   DRAW: "draw",
+  RUN_CODE: "run_code",
+  OUTPUT: "output",
 };
 
 module.exports = ACTIONS;
