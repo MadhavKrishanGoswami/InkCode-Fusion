@@ -63,6 +63,20 @@ const Whiteboard = ({ socket }) => {
     setUndos([]);
     setRedos([]);
   };
+  const downloadCanvas = () => {
+    if (canvas) {
+      const dataURL = canvas.toDataURL({
+        format: "png",
+      });
+
+      const downloadLink = document.createElement("a");
+      downloadLink.href = dataURL;
+      downloadLink.download = "whiteboard.jpg";
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      document.body.removeChild(downloadLink);
+    }
+  };
 
   useEffect(() => {
     if (socket && canvas) {
@@ -109,6 +123,7 @@ const Whiteboard = ({ socket }) => {
           value={color}
           onChange={(e) => handleColorChange(e.target.value)}
         />
+        <button onClick={downloadCanvas}>Download Canvas as JPG</button>
       </div>
     </div>
   );

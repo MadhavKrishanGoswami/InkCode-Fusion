@@ -77,8 +77,8 @@ const Room = () => {
   return (
     <div>
       <Editor socket={socket} roomId={roomId} />
-      {/* <Whiteboard socket={socket} /> */}
-      {/* <Chat socket={socket} roomId={roomId} userName={userName} /> */}
+      <Whiteboard socket={socket} />
+      <Chat socket={socket} roomId={roomId} userName={userName} />
     </div>
   );
 };
