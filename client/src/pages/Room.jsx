@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import ACTIONS from "../Actions";
 import io from "socket.io-client";
 import Editor from "../components/Editor";
 import Chat from "../components/Chats/Chats";
 import Whiteboard from "../components/WhiteBoard/Whiteboard";
+import VideoCall from "../components/Video/VideoCall";
 import {
   useLocation,
   useNavigate,
@@ -21,6 +22,7 @@ const server = process.env.REACT_APP_BACKEND_URL;
 const socket = io(server, options);
 
 const Room = () => {
+  const [inCall, setInCall] = useState(false);
   const location = useLocation();
   const reactNavigate = useNavigate();
   const { roomId } = useParams();
@@ -48,6 +50,7 @@ const Room = () => {
       socket.on(ACTIONS.JOINED, ({ clients, userName, socketId }) => {
         if (userName !== location.state?.userName) {
           toast.success(`${userName} joined the room`);
+          setInCall(true);
           console.log(`${userName} joined the room`); // Just for debugging
         }
       });
@@ -76,9 +79,10 @@ const Room = () => {
   // Render the Room component
   return (
     <div>
-      <Editor socket={socket} roomId={roomId} />
+      {/* <Editor socket={socket} roomId={roomId} />
       <Whiteboard socket={socket} />
-      <Chat socket={socket} roomId={roomId} userName={userName} />
+      <Chat socket={socket} roomId={roomId} userName={userName} /> */}
+      <VideoCall roomId={roomId} setInCall={true} />
     </div>
   );
 };
