@@ -79,10 +79,10 @@ const Room = () => {
   // Render the Room component
   return (
     <div>
-      {/* <Editor socket={socket} roomId={roomId} />
+      <Editor socket={socket} roomId={roomId} />
       <Whiteboard socket={socket} />
-      <Chat socket={socket} roomId={roomId} userName={userName} /> */}
-      <VideoCall roomId={roomId} setInCall={true} />
+      <Chat socket={socket} roomId={roomId} userName={userName} />
+      {/* <VideoCall roomId={roomId} setInCall={true} /> */}
     </div>
   );
 };

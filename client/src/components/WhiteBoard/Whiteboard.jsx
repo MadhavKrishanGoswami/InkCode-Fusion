@@ -66,15 +66,18 @@ const Whiteboard = ({ socket }) => {
   const downloadCanvas = () => {
     if (canvas) {
       const dataURL = canvas.toDataURL({
-        format: "png",
+        format: "jpeg",
+        quality: 1, // Adjust quality as needed
+        multiplier: 2, // Adjust multiplier as needed for better resolution
+        backgroundColor: "white", // Set background color to white
       });
 
-      const downloadLink = document.createElement("a");
-      downloadLink.href = dataURL;
-      downloadLink.download = "whiteboard.jpg";
-      document.body.appendChild(downloadLink);
-      downloadLink.click();
-      document.body.removeChild(downloadLink);
+      const link = document.createElement("a");
+      link.href = dataURL;
+      link.download = "whiteboard.jpg";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     }
   };
 

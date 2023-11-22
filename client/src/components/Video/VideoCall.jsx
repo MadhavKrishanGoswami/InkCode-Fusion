@@ -5,7 +5,7 @@ import Controls from "./Controls";
 import Video from "./Video";
 
 function VideoCall({ roomId, setInCall }) {
-  const appId = "3da6cda93a904025a290b01977919361";
+  const appId = process.env.AGORA_APP_ID;
   const channel = roomId;
   const [users, setUsers] = useState([]);
   const [start, setStart] = useState(false);
@@ -62,7 +62,6 @@ function VideoCall({ roomId, setInCall }) {
     }
 
     setStart(false);
-    setInCall(false);
   }, [channel, tracks, ready, client]);
 
   return (
