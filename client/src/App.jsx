@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Start from "./pages/Start";
 import Room from "./pages/Room";
+import End from "./pages/End";
 import { Toaster } from "react-hot-toast";
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/start" element={<Start />} />
           <Route path="/room/:roomId" element={<Room />} />
+          <Route path="/end" element={<End />} />
         </Routes>
       </BrowserRouter>
     </>
