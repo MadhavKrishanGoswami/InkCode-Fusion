@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import "./JoinRoomForm.css";
 
 const JoinRoomForm = () => {
   // State variables to store user input
@@ -29,31 +30,26 @@ const JoinRoomForm = () => {
   };
 
   return (
-    <form className="form col-md-12 mt-5">
-      <div className="form-group">
+    <form className="join-room-form">
+      <div className="input">
         <input
           type="text"
-          className="form-control my-2"
+          className="form-input"
           placeholder="Enter your Name"
           onChange={(e) => setUserName(e.target.value)}
           value={userName}
           onKeyUp={handleInputEnter}
         />
-      </div>
-      <div className="form-group">
         <input
           type="text"
-          className="form-control my-2"
+          className="form-input "
           placeholder="Enter room code"
           onChange={(e) => setRoomId(e.target.value)}
           value={roomId}
           onKeyUp={handleInputEnter}
         />
       </div>
-      <button
-        className="mt-4 btn-primary btn-block form-control"
-        onClick={joinRoom}
-      >
+      <button onClick={joinRoom} className="JoinButton">
         Join Room
       </button>
     </form>

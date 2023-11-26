@@ -3,25 +3,11 @@ body {
   font-family: "Dongle", sans-serif;
   margin: 0;
   padding: 0;
-}
-
-.text-container {
-  z-index: 100;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  position: absolute;
+  height: 100%;
+  width: 100%;
   top: 0;
   left: 0;
-  justify-content: center;
-  align-items: center;
-  font-size: 96px;
-  color: white;
-  opacity: 0.8;
-  user-select: none;
-  text-shadow: 1px 1px rgba(0, 0, 0, 0.1);
 }
-
 :root {
   --color-bg1: rgb(108, 0, 162);
   --color-bg2: rgb(0, 17, 82);

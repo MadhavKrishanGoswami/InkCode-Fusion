@@ -1,11 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Montserrat:wght@500;600;900&display=swap");
-
 .Hendding-container {
   position: relative;
   left: 2.96%; /* Adjusted for smaller left offset */
   width: 90%; /* Adjusted width to 90% of the screen */
   height: 52.85vh;
+  top: 6vw;
 }
 .Heading {
   position: relative;
@@ -16,7 +14,6 @@
   font-weight: 600;
   line-height: 102%;
   letter-spacing: -3px;
-  top: 8vw;
   left: 2vw;
 }
 .Tagline {
@@ -29,7 +26,6 @@
   border: 0px;
   font-size: 4.49vw;
   letter-spacing: -1.6px;
-  top: 7vw;
   left: 2vw;
 }
 
@@ -37,7 +33,7 @@
   position: relative;
   width: 13.1%;
   height: 13.85%;
-  top: 50%;
+  top: 30%;
   left: 3.45%;
   flex-shrink: 0;
   border-radius: 8vw;
@@ -49,15 +45,12 @@
   line-height: normal;
   background-color: black;
 }
-.StartButton:hover {
-  background-color: #1e1e1f;
-}
 /* GitHub */
 .auto-layer-column {
   position: relative;
   height: 16.28%;
   left: 4.93%; /* Adjusted for smaller left offset */
-  top: 90.07%; /* Adjusted for smaller top offset */
+  top: 70.07%; /* Adjusted for smaller top offset */
 }
 .madhav-krishan-goswami {
   position: absolute;

@@ -7,7 +7,7 @@ const Home = () => {
     <div>
       <Cursor />
       <div className="Hendding-container">
-        <h1 className="Heading ">InkCode</h1>
+        <h1 className="Heading">InkCode</h1>
         <h2 className="Tagline  ">
           Elevate your Technical
           <br />
@@ -16,12 +16,13 @@ const Home = () => {
         <button className="StartButton" onClick={() => Navigate("/Start")}>
           Start Now
         </button>
+
         <div className="auto-layer-column">
-          <span className="madhav-krishan-goswami">Saachi Badal</span>
+          <span className="madhav-krishan-goswami">Madhav Krishan Goswami</span>
           <div className="github-mark">
             <div className="vector" />
           </div>
-          <span className="text-2">@BadalSaachi12</span>
+          <span className="text-2">@MadhavKrishanGoswami</span>
         </div>
       </div>
     </div>

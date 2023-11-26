@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-
+import "./CreateRoomForm.css";
 const CreateRoomForm = () => {
   // State variables to store user input and room ID
   const [roomId, setRoomId] = useState("");
@@ -36,45 +36,51 @@ const CreateRoomForm = () => {
       joinRoom(e);
     }
   };
+  const copyRoomId = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(roomId);
+    toast.success("Room Id copied");
+  };
 
   return (
-    <form className="form col-md-12 mt-5">
-      <div className="form-group">
+    <form className="CreateRoomForm">
+      <div className="input">
         <input
           type="text"
-          className="form-control my-2"
+          className="form-input"
           placeholder="Enter your Name"
           onChange={(e) => setUserName(e.target.value)}
           value={userName}
           onKeyUp={handleInputEnter}
         />
-      </div>
-      <div className="form-group border">
-        <div className="input-group d-flex align-items-center justify-content-center">
-          <input
-            type="text"
-            className="form-control my-2 border-0"
-            disabled
-            placeholder="Generate room code"
-            value={roomId}
-            onKeyUp={handleInputEnter}
-          />
-          <div className="input-group-append">
-            <button
-              className="btn btn-primary"
-              type="button"
-              onClick={createNewRoom}
-            >
-              Generate
-            </button>
-            <button className="btn btn-outline-danger btn-sm">copy</button>
+        <div className="Generate-room">
+          <div className="input-wrapper">
+            <div className="form-input-container">
+              <input
+                type="text"
+                className="form-input generate-input"
+                disabled
+                placeholder="Generate room code"
+                value={
+                  roomId.length > 10 ? roomId.substring(0, 19) + "..." : roomId
+                }
+                onKeyUp={handleInputEnter}
+              />
+              <button onClick={copyRoomId} className="copy-btn">
+                Copy
+              </button>
+              <button
+                className="Generate-btn"
+                type="button"
+                onClick={createNewRoom}
+              >
+                Generate
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      <button
-        className="mt-4 btn-primary btn-block form-control"
-        onClick={joinRoom}
-      >
+      <button className="CreateButton" onClick={joinRoom}>
         Create Room
       </button>
     </form>
