@@ -1,47 +1,66 @@
-import React, { useEffect, useRef, useState } from "react";
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
+import React, { useEffect, useRef } from "react";
 import "codemirror/lib/codemirror.css";
 import "codemirror/mode/python/python";
 import "codemirror/theme/material.css";
 import "codemirror/addon/edit/closebrackets";
 import Codemirror from "codemirror";
 import ACTIONS from "../Actions";
+import Output from "./Editor/output";
 
 const Editor = ({ socket, roomId }) => {
   const editorRef = useRef(null);
   const codeRef = useRef(null);
-  const [output, setOutput] = useState("Output");
+
   useEffect(() => {
     async function init() {
-      editorRef.current = Codemirror.fromTextArea(
-        document.getElementById("realTimeEditor"),
-        {
-          mode: "python",
-          theme: "material",
-          lineNumbers: true,
-          autoCloseBrackets: true,
-        }
-      );
-      editorRef.current.on("change", (instance, changes) => {
-        const { origin } = changes;
-        const code = instance.getValue();
-        if (origin !== "setValue") {
-          socket.emit(ACTIONS.CODE_CHANGE, {
-            roomId,
-            code,
-          });
-        }
-        codeRef.current = code;
-      });
+      if (editorRef.current === null) {
+        editorRef.current = Codemirror.fromTextArea(
+          document.getElementById("realTimeEditor"),
+          {
+            mode: "python",
+            theme: "material",
+            lineNumbers: true,
+            autoCloseBrackets: true,
+          }
+        );
+
+        editorRef.current.on("change", (instance, changes) => {
+          const { origin } = changes;
+          const code = instance.getValue();
+          if (origin !== "setValue") {
+            socket.emit(ACTIONS.CODE_CHANGE, {
+              roomId,
+              code,
+            });
+          }
+          codeRef.current = code;
+        });
+        editorRef.current.setValue('print("Hello, world!")');
+        // Set custom styles for the editor
+        const wrapper = editorRef.current.getWrapperElement();
+        wrapper.style.backgroundColor = "#111316";
+        wrapper.style.color = "white";
+        wrapper.style.borderRadius = "30px";
+        wrapper.style.padding = "8px"; // Add padding
+        wrapper.style.height = "375px"; // Set height
+        wrapper.style.width = "900px"; // Set width
+
+        // Get gutter element and apply custom style for line strip color
+        const gutter = wrapper.getElementsByClassName("CodeMirror-gutters")[0];
+        gutter.style.backgroundColor = "#111316"; // Change line strip color
+
+        // Get line number elements and apply custom styles
+        const lineNumberElements = wrapper.getElementsByClassName(
+          "CodeMirror-linenumber"
+        );
+        Array.from(lineNumberElements).forEach((el) => {
+          el.style.fontFamily = "Consolas, Arial, sans-serif"; // Change font family
+          el.style.color = "#717888"; // Change line number color
+        });
+      }
     }
     init();
-  });
-  const runCode = async () => {
-    if (socket) {
-      await socket.emit(ACTIONS.RUN_CODE, { code: codeRef.current, roomId });
-    }
-  };
+  }, [roomId, socket]);
 
   useEffect(() => {
     if (socket) {
@@ -50,18 +69,13 @@ const Editor = ({ socket, roomId }) => {
           editorRef.current.setValue(code);
         }
       });
-      socket.on(ACTIONS.OUTPUT, ({ data }) => {
-        setOutput(data);
-      });
     }
   }, [socket]);
+
   return (
     <div>
       <textarea id="realTimeEditor"></textarea>
-      <Button variant="dark" onClick={runCode}>
-        Run
-      </Button>
-      <Form.Control type="text" placeholder="Output" readOnly value={output} />
+      <Output socket={socket} roomId={roomId} codeRef={codeRef} />
     </div>
   );
 };
