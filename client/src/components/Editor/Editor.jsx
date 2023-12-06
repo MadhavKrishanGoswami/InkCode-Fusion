@@ -43,7 +43,7 @@ const Editor = ({ socket, roomId }) => {
         wrapper.style.borderRadius = "30px";
         wrapper.style.padding = "8px"; // Add padding
         wrapper.style.height = "48vh"; // Set height
-        wrapper.style.width = "35%"; // Set width
+        wrapper.style.width = "45%"; // Set width
 
         // Get gutter element and apply custom style for line strip color
         const gutter = wrapper.getElementsByClassName("CodeMirror-gutters")[0];
