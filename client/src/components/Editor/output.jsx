@@ -6,11 +6,6 @@ import "./style.css";
 
 const Output = ({ socket, roomId, codeRef }) => {
   const [output, setOutput] = useState("");
-  const runCode = async () => {
-    if (socket) {
-      await socket.emit(ACTIONS.RUN_CODE, { code: codeRef.current, roomId });
-    }
-  };
 
   useEffect(() => {
     if (socket) {
@@ -20,14 +15,9 @@ const Output = ({ socket, roomId, codeRef }) => {
     }
   }, [socket]);
   return (
-    <div>
-      <button variant="dark" onClick={runCode} className="runButton">
-        Run
-      </button>
-      <div className="Output-div">
-        <input type="text" readOnly value={output} className="Output" />
-        <h1 className="outputText">OutPut</h1>
-      </div>
+    <div className="Output-div">
+      <textarea type="text" readOnly value={output} className="Output" />
+      <h1 className="outputText">OutPut</h1>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 .Room {
   background-color: #1f2228;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 .InkCode {
   color: #fff;
@@ -9,82 +9,20 @@
   font-size: 2.8vw;
   font-style: normal;
   font-weight: 600;
-  line-height: 102%; /* 65.28px */
+  line-height: 102%;
   letter-spacing: -1.92px;
   padding-left: 1.5vw;
   padding-top: 1vw;
 }
-.meeting-name {
+
+.people {
   position: relative;
-  align-items: center;
-  display: flex;
-  margin-top: 2vw;
-  margin-left: 1.5vw;
-  width: 25vw;
-  height: 10.4vh;
-  border-radius: 30px;
-  border-top: 1.405px solid rgba(217, 217, 217, 0.29);
-  border-bottom: 1.405px solid rgba(217, 217, 217, 0.29);
-  border-left: 1.405px solid rgba(217, 217, 217, 0.29);
-  background: #cfcfcf;
-}
-.meetingpng {
-  position: absolute;
-  width: 3vw;
-  margin-left: 2vw;
-}
-.meeting-line {
-  position: absolute;
-  width: 0.1vw;
-  height: 3.5vw;
-  margin-left: 6vw;
-  background: #e7e5e5;
-}
-.meeting-name-text {
-  position: absolute;
-  margin-left: 6.5vw;
-  top: 1.01vw;
-  color: #373131;
-  font-family: Inter;
-  font-size: 16.5px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-.meeting-date-time {
-  position: absolute;
-  color: #8c8989;
-  margin-left: 6.5vw;
-  top: 2.9vw;
-  font-family: Inter;
-  font-size: 16.5px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-.language {
-  position: relative;
-  margin-top: 0.7vw;
-  margin-left: 1.5vw;
-  display: flex;
+  z-index: 999;
+
   background-color: #111316;
   padding-left: 1.5vw;
   align-items: center;
   width: 9vw;
   height: 4.5vh;
   border-radius: 30px;
-}
-.python {
-  position: absolute;
-  color: #fff;
-  font-family: Syne;
-  padding-top: 0.5vh;
-  font-size: 20px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  text-transform: capitalize;
-}
-.Editor {
-  margin-left: 1.5vw;
 }

@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useRef } from "react";
-import meetingpng from "../Assets/images/meeting-logo.png";
 import "./style.css";
 import toast from "react-hot-toast";
 import ACTIONS from "../../Actions";
 import io from "socket.io-client";
-import Editor from "../../components/Editor";
+import Editor from "../../components/Editor/Editor";
 import Chat from "../../components/Chats/Chats";
 import Whiteboard from "../../components/WhiteBoard/Whiteboard";
 import VideoCall from "../../components/Video/VideoCall";
+import People from "../../components/People/people";
+import MeetingTitle from "../../components/MeetingTitle/MeetingTitle";
+import Python from "../../components/python/python";
+import Nav from "../../components/nav/nav";
 import {
   useLocation,
   useNavigate,
@@ -22,7 +25,6 @@ const options = {
 };
 const server = process.env.REACT_APP_BACKEND_URL;
 const socket = io(server, options);
-const date = new Date();
 
 const Room = () => {
   const inCall = useRef(false);
@@ -82,28 +84,13 @@ const Room = () => {
   // Render the Room component
   return (
     <div className="Room">
-      <nav>
-        <h1 className="InkCode">InkCode</h1>
-      </nav>
-      <div className="meeting-name">
-        <img src={meetingpng} alt="meeting" className="meetingpng" />
-        <div class="meeting-line"></div>
-        <h1 className="meeting-name-text">Interview(Technical Round)</h1>
-        <h2 className="meeting-date-time">
-          {" "}
-          {date.toLocaleString("default", { month: "long" })} {date.getDate()}
-          th, {date.getFullYear()} | {date.getHours()}:{date.getMinutes()}{" "}
-          {date.getHours() >= 12 ? "PM" : "AM"}{" "}
-        </h2>
-      </div>
-      <div className="language">
-        <h1 className="python">Python</h1>
-      </div>
-      <div className="Editor">
-        <Editor socket={socket} roomId={roomId} />
-      </div>
-      {/* <Whiteboard socket={socket} />
-      <Chat socket={socket} roomId={roomId} userName={userName} /> */}
+      <People />
+      <Nav />
+      <MeetingTitle />
+      <Python />
+      <Editor socket={socket} roomId={roomId} />
+      {/* <Whiteboard socket={socket} /> */}
+      {/* <Chat socket={socket} roomId={roomId} userName={userName} /> */}
       {/* <VideoCall roomId={roomId} setInCall={inCall} /> */}
     </div>
   );

@@ -4,9 +4,9 @@ import "codemirror/mode/python/python";
 import "codemirror/theme/material.css";
 import "codemirror/addon/edit/closebrackets";
 import Codemirror from "codemirror";
-import ACTIONS from "../Actions";
-import Output from "./Editor/output";
-
+import ACTIONS from "../../Actions";
+import Output from "./output";
+import "./Editor.css";
 const Editor = ({ socket, roomId }) => {
   const editorRef = useRef(null);
   const codeRef = useRef(null);
@@ -42,8 +42,8 @@ const Editor = ({ socket, roomId }) => {
         wrapper.style.color = "white";
         wrapper.style.borderRadius = "30px";
         wrapper.style.padding = "8px"; // Add padding
-        wrapper.style.height = "375px"; // Set height
-        wrapper.style.width = "900px"; // Set width
+        wrapper.style.height = "48vh"; // Set height
+        wrapper.style.width = "35%"; // Set width
 
         // Get gutter element and apply custom style for line strip color
         const gutter = wrapper.getElementsByClassName("CodeMirror-gutters")[0];
@@ -71,10 +71,18 @@ const Editor = ({ socket, roomId }) => {
       });
     }
   }, [socket]);
+  const runCode = async () => {
+    if (socket) {
+      await socket.emit(ACTIONS.RUN_CODE, { code: codeRef.current, roomId });
+    }
+  };
 
   return (
-    <div>
-      <textarea id="realTimeEditor"></textarea>
+    <div className="Editor-Wrapper">
+      <textarea id="realTimeEditor" className="Editor-Text"></textarea>
+      <button onClick={runCode} className="runButton">
+        Run
+      </button>
       <Output socket={socket} roomId={roomId} codeRef={codeRef} />
     </div>
   );
