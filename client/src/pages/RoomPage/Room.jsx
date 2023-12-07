@@ -84,7 +84,7 @@ const Room = () => {
   // Render the Room component
   return (
     <div className="Room">
-      <People />
+      <People roomId={roomId} socket={socket} />
       <Nav />
       <MeetingTitle />
       <Python />

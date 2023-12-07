@@ -5,8 +5,8 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.14.18",
-    "@mui/material": "^5.14.18",
+    "@mui/icons-material": "^5.14.19",
+    "@mui/material": "^5.14.20",
     "@mui/styled-engine-sc": "^6.0.0-alpha.6",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -23,6 +23,7 @@
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
+    "react-nice-avatar": "^1.5.0",
     "react-router-dom": "^6.18.0",
     "react-scripts": "^5.0.1",
     "react-scroll-to-bottom": "^4.2.0",

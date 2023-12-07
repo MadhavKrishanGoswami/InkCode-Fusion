@@ -1,7 +1,12 @@
 import React from "react";
-
-const Avatar = () => {
-  return <div>Avatar</div>;
+import Avatar, { genConfig } from "react-nice-avatar";
+const UserAvatar = () => {
+  const config = genConfig();
+  return (
+    <div>
+      <Avatar style={{ width: "2.8vw", height: "2.8vw" }} {...config} />
+    </div>
+  );
 };
 
-export default Avatar;
+export default UserAvatar;

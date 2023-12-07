@@ -1,9 +1,11 @@
 import React from "react";
-import Avatar from "./Avatar";
-const Clients = (userName) => {
+import UserAvatar from "./Avatar";
+import "./style.css";
+
+const Clients = ({ userName }) => {
   return (
     <div className="client">
-      <Avatar />
+      <UserAvatar />
       <span className="username">{userName}</span>
     </div>
   );
