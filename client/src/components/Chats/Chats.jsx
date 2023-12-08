@@ -5,7 +5,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import SendIcon from "@mui/icons-material/Send";
 import "./Chats.css";
 
-const Chat = ({ socket, roomId, userName }) => {
+const Chat = ({ socket, roomId, userName, setShowChat }) => {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   console.log(messageList);
@@ -46,7 +46,7 @@ const Chat = ({ socket, roomId, userName }) => {
     <div className="chat-window">
       <div className="Header">
         <h1 className="PrivateRooms">In-room messages</h1>
-        <CloseIcon className="CloseIcon" />
+        <CloseIcon className="CloseIcon" onClick={() => setShowChat(false)} />
       </div>
       <div className="chatTtitle">
         <div className="chatTtitleInner">

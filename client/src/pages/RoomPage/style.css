@@ -14,14 +14,3 @@
   padding-left: 1.5vw;
   padding-top: 1vw;
 }
-
-.people {
-  position: relative;
-  z-index: 999;
-  background-color: #111316;
-  padding-left: 1.5vw;
-  align-items: center;
-  width: 9vw;
-  height: 4.5vh;
-  border-radius: 30px;
-}

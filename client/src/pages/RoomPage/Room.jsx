@@ -18,6 +18,7 @@ import {
   Navigate,
   useParams,
 } from "react-router-dom";
+import MountComponents from "../../components/MountComponents/MountComponents";
 const options = {
   "force new connection": true,
   reconnectionAttempt: "Infinity",
@@ -88,13 +89,12 @@ const Room = () => {
   // Render the Room component
   return (
     <div className="Room">
-      <Chat socket={socket} roomId={roomId} userName={userName} />
-      {/* <People roomId={roomId} socket={socket} /> */}
       <Nav />
       <MeetingTitle />
       <Python />
       <Editor socket={socket} roomId={roomId} />
       <Buttons leaveRoom={leaveRoom} />
+      <MountComponents socket={socket} roomId={roomId} userName={userName} />
       {/* <Whiteboard socket={socket} /> */}
       {/* <VideoCall roomId={roomId} setInCall={inCall} /> */}
     </div>

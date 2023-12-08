@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Client from "./clients";
 import "./style.css";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CloseIcon from "@mui/icons-material/Close";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import HdrStrongIcon from "@mui/icons-material/HdrStrong";
@@ -9,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import toast from "react-hot-toast";
 import ACTIONS from "../../Actions";
 
-const People = ({ roomId, socket }) => {
+const People = ({ roomId, socket, setShowPeople }) => {
   const [clients, setClients] = useState([]);
   socket.on(ACTIONS.JOINED, ({ clients, userName, socketId }) => {
     setClients(clients);
@@ -27,9 +26,8 @@ const People = ({ roomId, socket }) => {
   return (
     <div className="People-wrapper">
       <div className="Header">
-        <ArrowBackIcon className="ArrowBackIcon" style={{ fill: "#202124" }} />
         <h1 className="PrivateRooms">Private Rooms</h1>
-        <CloseIcon className="CloseIcon" />
+        <CloseIcon className="CloseIcon" onClick={() => setShowPeople(false)} />
       </div>
       <div className="addPeopl-div">
         <IconButton>
