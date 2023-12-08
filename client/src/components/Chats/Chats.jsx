@@ -1,11 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import ACTIONS from "../../Actions";
+import CloseIcon from "@mui/icons-material/Close";
+import SendIcon from "@mui/icons-material/Send";
 import "./Chats.css";
 
 const Chat = ({ socket, roomId, userName }) => {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+  console.log(messageList);
+  const messagesEndRef = useRef(null);
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   const sendMessage = async () => {
     if (currentMessage !== "") {
@@ -31,13 +38,29 @@ const Chat = ({ socket, roomId, userName }) => {
       });
     }
   }, [socket]);
+  useEffect(() => {
+    scrollToBottom(); // Scroll to bottom on initial render
+  }, []);
+
   return (
     <div className="chat-window">
-      <div className="chat-header">
-        <p>Live Chat</p>
+      <div className="Header">
+        <h1 className="PrivateRooms">In-room messages</h1>
+        <CloseIcon className="CloseIcon" />
+      </div>
+      <div className="chatTtitle">
+        <div className="chatTtitleInner">
+          <h1 className="chatTtitleInnerh1">Main Meet Messages</h1>
+        </div>
       </div>
       <div className="chat-body">
         <ScrollToBottom className="message-container">
+          <div className="info">
+            <span className="infotext">
+              Messages can only be seen by people in the call and are deleted
+              when the call ends.
+            </span>
+          </div>
           {messageList.map((messageContent) => {
             return (
               <div
@@ -48,10 +71,10 @@ const Chat = ({ socket, roomId, userName }) => {
                   <div className="message-content">
                     <p>{messageContent.message}</p>
                   </div>
-                  <div className="message-meta">
+                  {/* <div className="message-meta">
                     <p id="time">{messageContent.time}</p>
                     <p id="author">{messageContent.author}</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             );
@@ -61,8 +84,9 @@ const Chat = ({ socket, roomId, userName }) => {
       <div className="chat-footer">
         <input
           type="text"
+          className="message-input"
           value={currentMessage}
-          placeholder="Hey..."
+          placeholder="Send a message to everyone"
           onChange={(event) => {
             setCurrentMessage(event.target.value);
           }}
@@ -70,7 +94,7 @@ const Chat = ({ socket, roomId, userName }) => {
             event.key === "Enter" && sendMessage();
           }}
         />
-        <button onClick={sendMessage}>&#9658;</button>
+        <SendIcon onClick={sendMessage} />
       </div>
     </div>
   );

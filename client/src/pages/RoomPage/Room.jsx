@@ -88,14 +88,14 @@ const Room = () => {
   // Render the Room component
   return (
     <div className="Room">
-      <People roomId={roomId} socket={socket} />
+      <Chat socket={socket} roomId={roomId} userName={userName} />
+      {/* <People roomId={roomId} socket={socket} /> */}
       <Nav />
       <MeetingTitle />
       <Python />
       <Editor socket={socket} roomId={roomId} />
       <Buttons leaveRoom={leaveRoom} />
       {/* <Whiteboard socket={socket} /> */}
-      {/* <Chat socket={socket} roomId={roomId} userName={userName} /> */}
       {/* <VideoCall roomId={roomId} setInCall={inCall} /> */}
     </div>
   );
