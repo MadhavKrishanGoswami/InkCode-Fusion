@@ -3,6 +3,7 @@ import "codemirror/lib/codemirror.css";
 import "codemirror/mode/python/python";
 import "codemirror/theme/material.css";
 import "codemirror/addon/edit/closebrackets";
+import { IconButton } from "@mui/material";
 import Codemirror from "codemirror";
 import ACTIONS from "../../Actions";
 import Output from "./output";
@@ -80,9 +81,9 @@ const Editor = ({ socket, roomId }) => {
   return (
     <div className="Editor-Wrapper">
       <textarea id="realTimeEditor" className="Editor-Text"></textarea>
-      <button onClick={runCode} className="runButton">
+      <div onClick={runCode} className="runButton">
         Run
-      </button>
+      </div>
       <Output socket={socket} roomId={roomId} codeRef={codeRef} />
     </div>
   );

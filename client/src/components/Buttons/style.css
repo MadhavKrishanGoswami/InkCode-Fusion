@@ -1,0 +1,47 @@
+.buttons {
+  display: flex;
+  position: absolute;
+  justify-content: space-between;
+  align-items: center;
+  top: 91%;
+  left: 70%;
+  justify-content: center;
+  align-items: center;
+  gap: 11vw;
+}
+.leave {
+  width: 6.9vw;
+  height: 6vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 73px;
+  background: #eb5757;
+  color: #fff;
+  font-family: Inter;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 22px; /* 110% */
+}
+.button {
+  display: flex;
+  height: 6vh;
+  width: 6vw;
+  padding: 5px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background: #3c4043;
+}
+.but {
+  display: flex;
+  height: 6vh;
+  width: 6vw;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 0;
+  gap: 0.3vw;
+  margin-top: 9px;
+}

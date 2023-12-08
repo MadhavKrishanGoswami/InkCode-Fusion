@@ -1,7 +1,7 @@
 .Room {
   background-color: #1f2228;
-  height: 100%;
-  width: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 .InkCode {
   color: #fff;
@@ -18,7 +18,6 @@
 .people {
   position: relative;
   z-index: 999;
-
   background-color: #111316;
   padding-left: 1.5vw;
   align-items: center;

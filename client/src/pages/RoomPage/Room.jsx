@@ -11,6 +11,7 @@ import People from "../../components/People/people";
 import MeetingTitle from "../../components/MeetingTitle/MeetingTitle";
 import Python from "../../components/python/python";
 import Nav from "../../components/nav/nav";
+import Buttons from "../../components/Buttons/Buttons";
 import {
   useLocation,
   useNavigate,
@@ -80,6 +81,9 @@ const Room = () => {
   if (!location.state) {
     return <Navigate to="/start" />;
   }
+  const leaveRoom = () => {
+    reactNavigate("/end");
+  };
 
   // Render the Room component
   return (
@@ -89,6 +93,7 @@ const Room = () => {
       <MeetingTitle />
       <Python />
       <Editor socket={socket} roomId={roomId} />
+      <Buttons leaveRoom={leaveRoom} />
       {/* <Whiteboard socket={socket} /> */}
       {/* <Chat socket={socket} roomId={roomId} userName={userName} /> */}
       {/* <VideoCall roomId={roomId} setInCall={inCall} /> */}
