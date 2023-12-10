@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import toast from "react-hot-toast";
 import ACTIONS from "../../Actions";
 
-const People = ({ roomId, socket, setShowPeople }) => {
+const People = ({ roomId, socket, setShowPeople, userName }) => {
   const [clients, setClients] = useState([]);
   socket.on(ACTIONS.JOINED, ({ clients, userName, socketId }) => {
     setClients(clients);
@@ -20,8 +20,12 @@ const People = ({ roomId, socket, setShowPeople }) => {
   });
   const copyRoomId = (e) => {
     e.preventDefault();
-    navigator.clipboard.writeText(roomId);
-    toast.success("Room ID Copied");
+    navigator.clipboard.writeText(
+      userName +
+        " Invited You To a InkCode Meeting 🚀:\n\nJoin the meeting at https://inkcode.io/\nRoomId ID: " +
+        roomId
+    );
+    toast.success("Share the meeting invite with your friends! 🚀");
   };
   return (
     <div className="People-wrapper">
@@ -44,7 +48,11 @@ const People = ({ roomId, socket, setShowPeople }) => {
       <h1 className="Inroom">In room</h1>
       <div className="clients">
         {clients.map((client) => (
-          <Client key={client.socketId} userName={client.userName} />
+          <Client
+            key={client.socketId}
+            userName={client.userName}
+            You={client.userName === userName}
+          />
         ))}
       </div>
     </div>

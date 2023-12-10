@@ -9,42 +9,39 @@ import "./style.css";
 const MountComponents = ({ socket, roomId, userName }) => {
   const [showChat, setShowChat] = useState(false);
   const [showPeople, setShowPeople] = useState(false);
+  const handleShowChat = () => {
+    setShowChat(!showChat);
+  };
+  const handleShowPeople = () => {
+    setShowPeople(!showPeople);
+  };
 
   return (
     <div>
       <div className="controls">
         <IconButton>
-          <ChatIcon
-            style={{ fill: "#FFFFFF" }}
-            onClick={() => (showChat ? setShowChat(false) : setShowChat(true))}
-          />
+          <ChatIcon style={{ fill: "#FFFFFF" }} onClick={handleShowChat} />
         </IconButton>
         <IconButton>
-          <PeopleIcon
-            style={{ fill: "#FFFFFF" }}
-            onClick={() =>
-              showPeople ? setShowPeople(false) : setShowPeople(true)
-            }
-          />
+          <PeopleIcon style={{ fill: "#FFFFFF" }} onClick={handleShowPeople} />
         </IconButton>
       </div>
-
-      {showChat ? (
+      <div className={`component-wrapper ${showChat ? "visible" : ""}`}>
         <Chat
           socket={socket}
           roomId={roomId}
           userName={userName}
           setShowChat={setShowChat}
         />
-      ) : (
-        ""
-      )}
-
-      {showPeople ? (
-        <People roomId={roomId} socket={socket} setShowPeople={setShowPeople} />
-      ) : (
-        ""
-      )}
+      </div>
+      <div className={`component-wrapper ${showPeople ? "visible" : ""}`}>
+        <People
+          roomId={roomId}
+          socket={socket}
+          setShowPeople={handleShowPeople}
+          userName={userName}
+        />
+      </div>
     </div>
   );
 };

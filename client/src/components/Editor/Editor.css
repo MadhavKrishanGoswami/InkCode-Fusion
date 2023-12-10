@@ -2,6 +2,7 @@
   position: absolute;
   top: 67%;
   left: 37%;
+  cursor: pointer;
 }
 .Editor-Wrapper {
   margin-left: 1.5vw;

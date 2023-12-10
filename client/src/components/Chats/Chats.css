@@ -139,7 +139,7 @@
 /* CHAT */
 .message-container {
   font: 14px;
-  font-family: Roboto;
+  font-family: sans-serif;
   padding: 0 10px;
   margin-top: 20px;
   font-weight: 400;
@@ -164,7 +164,7 @@
   -ms-border-radius: 10px 10px 10px 0px;
   border-radius: 12px 12px 12px 0px;
   background-color: #e5e5ea;
-  color: #ffffff;
+  color: black;
 }
 
 #other:before {

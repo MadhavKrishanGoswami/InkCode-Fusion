@@ -9,3 +9,14 @@
   align-items: center;
   gap: 1vw;
 }
+.component-wrapper {
+  position: absolute;
+  right: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: right 0.3s ease-in-out;
+}
+.visible {
+  right: 0;
+}
