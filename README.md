@@ -1,13 +1,3 @@
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
 # InkCode Fusion
 
 InkCode Fusion is a comprehensive web application designed as a one-stop solution for technical interviews and collaborative coding sessions. It offers a versatile platform that combines a suite of powerful features aimed at facilitating seamless communication, code collaboration, and interactive problem-solving.
