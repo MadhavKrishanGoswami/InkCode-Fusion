@@ -29,7 +29,6 @@ const server = process.env.REACT_APP_BACKEND_URL;
 const socket = io(server, options);
 
 const Room = () => {
-  const inCall = useRef(false);
   const location = useLocation();
   const reactNavigate = useNavigate();
   const { roomId } = useParams();
@@ -57,7 +56,6 @@ const Room = () => {
       socket.on(ACTIONS.JOINED, ({ clients, userName, socketId }) => {
         if (userName !== location.state?.userName) {
           toast.success(`${userName} joined the room`);
-          inCall.current = true;
           console.log(`${userName} joined the room`); // Just for debugging
         }
       });
@@ -96,7 +94,7 @@ const Room = () => {
       <Buttons leaveRoom={leaveRoom} />
       <MountComponents socket={socket} roomId={roomId} userName={userName} />
       {/* <Whiteboard socket={socket} /> */}
-      {/* <VideoCall roomId={roomId} setInCall={inCall} /> */}
+      <VideoCall roomId={roomId} />
     </div>
   );
 };
