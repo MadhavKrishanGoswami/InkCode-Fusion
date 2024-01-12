@@ -4,11 +4,6 @@ InkCode Fusion is a comprehensive web application designed as a one-stop solutio
 
 ## Features
 
-### Whiteboard Functionality
-
-- Real-time whiteboard for explaining thought processes, algorithms, and visual representations.
-- Tools for drawing, text annotations, shapes, and more.
-
 ### Real-time Code Editor
 
 - Synced code editor allowing multiple users to code simultaneously.
