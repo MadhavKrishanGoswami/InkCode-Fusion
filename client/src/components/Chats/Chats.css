@@ -61,14 +61,6 @@
     color: #202124;
   }
 }
-.Chats {
-  width: 100vw;
-  height: 100vh;
-  background: #fff;
-  color: #212121;
-  display: grid;
-  place-items: center;
-}
 .chat-body {
   flex: 1;
   overflow-y: auto;

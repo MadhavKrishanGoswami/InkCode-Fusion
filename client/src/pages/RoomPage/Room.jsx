@@ -4,10 +4,8 @@ import toast from "react-hot-toast";
 import ACTIONS from "../../Actions";
 import io from "socket.io-client";
 import Editor from "../../components/Editor/Editor";
-import Chat from "../../components/Chats/Chats";
 import Whiteboard from "../../components/WhiteBoard/Whiteboard";
 import VideoCall from "../../components/Video/VideoCall";
-import People from "../../components/People/people";
 import MeetingTitle from "../../components/MeetingTitle/MeetingTitle";
 import Python from "../../components/python/python";
 import Nav from "../../components/nav/nav";
@@ -86,14 +84,14 @@ const Room = () => {
 
   // Render the Room component
   return (
-    <div className="Room">
+    <div className="Room overflow-hidden h-full">
       <Nav />
       <MeetingTitle />
       <Python />
-      <Editor socket={socket} roomId={roomId} />
       <Buttons leaveRoom={leaveRoom} />
       <MountComponents socket={socket} roomId={roomId} userName={userName} />
       {/* <Whiteboard socket={socket} /> */}
+      <Editor socket={socket} roomId={roomId} />
       <VideoCall roomId={roomId} />
     </div>
   );

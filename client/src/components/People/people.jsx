@@ -8,7 +8,7 @@ import IconButton from "@mui/material/IconButton";
 import toast from "react-hot-toast";
 import ACTIONS from "../../Actions";
 
-const People = ({ roomId, socket, setShowPeople, userName }) => {
+const People = ({ roomId, socket, setShowPeople, userName, isVisible }) => {
   const [clients, setClients] = useState([]);
   socket.on(ACTIONS.JOINED, ({ clients, userName, socketId }) => {
     setClients(clients);
@@ -28,25 +28,39 @@ const People = ({ roomId, socket, setShowPeople, userName }) => {
     toast.success("Share the meeting invite with your friends! 🚀");
   };
   return (
-    <div className="People-wrapper">
-      <div className="Header">
-        <h1 className="PrivateRooms">Private Rooms</h1>
-        <CloseIcon className="CloseIcon" onClick={() => setShowPeople(false)} />
+    <div className="People-wrapper flex flex-col absolute z-50 left-[72%] top-[5%] w-1/4  h-[85%] flex-shrink-0 rounded-2xl bg-white ">
+      <div className="Header flex w-full">
+        <h1 className="PrivateRooms font-Roboto text-xl font-medium leading-normal">
+          People
+        </h1>
+        <CloseIcon
+          className="CloseIcon cursor-pointer ml-auto"
+          onClick={() => setShowPeople(false)}
+        />
       </div>
-      <div className="addPeopl-div">
+      <div className="addPeopl-div flex w-full ml-1 justify-between items-center">
         <IconButton>
-          <div className="addframe" onClick={copyRoomId}>
+          <div
+            className="addframe flex flex-col h-full w-full"
+            onClick={copyRoomId}
+          >
             <PersonAddIcon />
-            <h3>Add People</h3>
+            <h3 className="text-black font-Roboto text-lg font-normal leading-normal flex px-4 py-2 items-start">
+              Add People
+            </h3>
           </div>
-        </IconButton>
-        <div className="controlframe">
+        </IconButton>{" "}
+        <div className="controlframe flex flex-col items-center p-2">
           <HdrStrongIcon style={{ fill: "#5F6368" }} />
-          <h3>Room Controls</h3>
+          <h3 className="text-black font-Roboto text-lg font-normal leading-normal flex px-4 py-2 items-start">
+            Room Controls
+          </h3>
         </div>
       </div>
-      <h1 className="Inroom">In room</h1>
-      <div className="clients">
+      <h1 className="Inroom text-gray-600 font-Roboto text-lg font-normal leading-normal pl-5">
+        In room
+      </h1>
+      <div className="clients flex items-center pt-2 pb-3">
         {clients.map((client) => (
           <Client
             key={client.socketId}

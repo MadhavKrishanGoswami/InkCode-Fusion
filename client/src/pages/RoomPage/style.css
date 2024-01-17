@@ -1,7 +1,7 @@
 .Room {
   background-color: #1f2228;
-  width: 100vw;
   height: 100vh;
+  width: 100%;
 }
 .InkCode {
   color: #fff;

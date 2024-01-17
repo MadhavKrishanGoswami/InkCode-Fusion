@@ -26,22 +26,24 @@ const MountComponents = ({ socket, roomId, userName }) => {
           <PeopleIcon style={{ fill: "#FFFFFF" }} onClick={handleShowPeople} />
         </IconButton>
       </div>
-      <div className={`component-wrapper ${showChat ? "visible" : ""}`}>
+      {showChat && (
         <Chat
           socket={socket}
           roomId={roomId}
           userName={userName}
           setShowChat={setShowChat}
+          isVisible={showChat}
         />
-      </div>
-      <div className={`component-wrapper ${showPeople ? "visible" : ""}`}>
+      )}
+      {showPeople && (
         <People
           roomId={roomId}
           socket={socket}
           setShowPeople={handleShowPeople}
           userName={userName}
+          isVisible={showPeople}
         />
-      </div>
+      )}
     </div>
   );
 };

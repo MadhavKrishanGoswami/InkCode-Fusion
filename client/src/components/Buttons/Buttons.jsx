@@ -1,14 +1,33 @@
 import React, { useState } from "react";
 import { IconButton } from "@mui/material";
-import PeopleIcon from "@mui/icons-material/People";
-import ChatIcon from "@mui/icons-material/Chat";
-import Chat from "../Chats/Chats";
-import People from "../People/people";
+import DrawRoundedIcon from "@mui/icons-material/DrawRounded";
+import ScreenShareRoundedIcon from "@mui/icons-material/ScreenShareRounded";
+import StopScreenShareRoundedIcon from "@mui/icons-material/StopScreenShareRounded";
 import "./style.css";
+
 const Buttons = ({ leaveRoom }) => {
+  const [isScreenShareOn, setScreenShareOn] = useState(true);
+  // Toggle screenshare state
+  const toggleScreenShare = () => {
+    setScreenShareOn((prevScreenShareState) => !prevScreenShareState);
+  };
+  const Whiteboard = () => {};
   return (
     <div className="buttons">
       <div className="butcontrol">
+        <IconButton onClick={toggleScreenShare}>
+          {isScreenShareOn ? (
+            <ScreenShareRoundedIcon
+              className="text-6xl"
+              style={{ fill: "#FFFFFF" }}
+            />
+          ) : (
+            <StopScreenShareRoundedIcon style={{ fill: "#FFFFFF" }} />
+          )}
+        </IconButton>
+        <IconButton>
+          <DrawRoundedIcon style={{ fill: "#FFFFFF" }} onClick={Whiteboard} />
+        </IconButton>
         <IconButton>
           <div className="leave" onClick={leaveRoom}>
             <span>Leave</span>{" "}
@@ -18,5 +37,4 @@ const Buttons = ({ leaveRoom }) => {
     </div>
   );
 };
-
 export default Buttons;

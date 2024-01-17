@@ -1,8 +1,8 @@
-.Hendding-container {
+/*.Hendding-container {
   position: relative;
   left: 2.96%; /* Adjusted for smaller left offset */
-  width: 90%; /* Adjusted width to 90% of the screen */
-  height: 52.85vh;
+/*width: 90%; /* Adjusted width to 90% of the screen */
+/*height: 52.85vh;
   top: 6vw;
 }
 .Heading {
@@ -44,14 +44,14 @@
   font-weight: 600;
   line-height: normal;
   background-color: black;
-}
+}/*
 /* GitHub */
-.auto-layer-column {
+/*.auto-layer-column {
   position: relative;
   height: 16.28%;
   left: 4.93%; /* Adjusted for smaller left offset */
-  top: 70.07%; /* Adjusted for smaller top offset */
-}
+/*top: 70.07%; /* Adjusted for smaller top offset */
+/*}
 .madhav-krishan-goswami {
   position: absolute;
   width: 29.58%;
@@ -75,7 +75,7 @@
   left: 0;
   z-index: 4;
   overflow: hidden;
-}
+}*/
 .vector {
   position: absolute;
   width: 100%;
@@ -86,7 +86,7 @@
   background-size: contain; /* Ensures the SVG is contained within its container */
   z-index: 5;
 }
-.text-2 {
+/*.text-2 {
   position: absolute;
   width: 40.46%;
   height: 6.28%;
@@ -100,4 +100,4 @@
   text-align: left;
   z-index: 6;
   word-break: break-word;
-}
+}*/

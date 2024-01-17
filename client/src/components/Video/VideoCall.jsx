@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import AgoraRTC from "agora-rtc-sdk-ng";
 import { VideoPlayer } from "./VideoPlayer";
-import "./style.css";
+import Controls from "./controls";
+
+//import "./Video.css";
 const VideoRoom = ({ roomId }) => {
   const APP_ID = process.env.AGORA_APP_ID || "d702f637f7b34bde9607a32f20812a66";
   const TOKEN = null;
@@ -81,44 +83,26 @@ const VideoRoom = ({ roomId }) => {
   }, []);
 
   return (
-    <div>
-      <div id="video-grid">
+    <div className="VideoCall flex flex-col absolute w-[40vw] lg:w-[45vw] top-[14vw] left-[50vw] z-[100]">
+      <div className="grid gap-4 grid-rows-3 grid-cols-3 lg:gri overflow-hidden">
         {users.map((user) => (
           <VideoPlayer key={user.uid} user={user} />
         ))}
       </div>
-
-      <div style={{ marginTop: "10px" }}>
-        <button
-          onClick={toggleMic}
-          style={{
-            padding: "10px",
-            margin: "5px",
-            backgroundColor: isMicEnabled ? "#4CAF50" : "#f44336",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
-        >
-          {isMicEnabled ? "Mute Microphone" : "Unmute Microphone"}
-        </button>
-
-        <button
-          onClick={toggleCamera}
-          style={{
-            padding: "10px",
-            margin: "5px",
-            backgroundColor: isCameraEnabled ? "#4CAF50" : "#f44336",
-            color: "white",
-            border: "none",
-            borderRadius: "4px",
-            cursor: "pointer",
-          }}
-        >
-          {isCameraEnabled ? "Turn Off Camera" : "Turn On Camera"}
-        </button>
+      <div className="fixed bottom-[1.6vw] right-[29.9vw]">
+        <Controls
+          toggleMic={toggleMic}
+          toggleCamera={toggleCamera}
+          isMicEnabled={isMicEnabled}
+          isCameraEnabled={isCameraEnabled}
+          className="mt-4"
+        />
       </div>
+      {/*<div className="w-[40vw] h-[10vw] bg-black">video</div>
+      <div className="w-[40vw] h-[10vw]">video</div>
+      <div className="w-[40vw] h-[10vw]">video</div>
+      <div className="w-[40vw] h-[10vw]">video</div>
+        <div className="w-[40vw] h-[10vw]">video</div>*/}
     </div>
   );
 };
