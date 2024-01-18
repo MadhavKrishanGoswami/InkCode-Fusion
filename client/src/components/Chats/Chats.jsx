@@ -3,7 +3,6 @@ import ScrollToBottom from "react-scroll-to-bottom";
 import ACTIONS from "../../Actions";
 import CloseIcon from "@mui/icons-material/Close";
 import SendIcon from "@mui/icons-material/Send";
-//import "./Chats.css";
 
 const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
   const [currentMessage, setCurrentMessage] = useState("");
@@ -43,90 +42,66 @@ const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
   }, []);
 
   return (
-    <div
-      className="chat-window flex flex-col absolute z-50 left-[72%] top-[5%] w-1/4  
-    h-[85%] flex-shrink-0 rounded-2xl bg-white"
-    >
-      <div className="Header w-full flex items-center justify-center">
-        <h1
-          className="PrivateRooms text-ChatText font-Roboto text-base xl:text-xl 
-        font-medium pl-9"
-        >
-          In-room messages
-        </h1>
-        <CloseIcon
-          className="CloseIcon cursor-pointer ml-auto"
-          onClick={() => setShowChat(false)}
-        />
-      </div>
-      <div className="chatTtitle flex w-full py-3 px-4 justify-between items-center">
-        <div
-          className="chatTtitleInner flex flex-col w-full h-12 justify-center items-center 
-        rounded bg-ChatBg"
-        >
-          <h1
-            className="chatTtitleInnerh1 flex items-center text-ChatText font-Roboto text-sm 
-          xl:text-base font-normal"
-          >
-            Main Meet Messages
-          </h1>
+    <div className={`${isVisible ? "visible" : "hidden"}`}>
+      <div className="flex flex-col absolute z-50 right-[2%] top-[5%] w-[24%] h-[85%] flex-shrink-0 rounded-2xl bg-white">
+        {" "}
+        <div className="p-6 pr-3 pb-1 pl-5 flex w-full">
+          <span className="font-Roboto text-base font-bold leading-normal ml-1">
+            In-room messages
+          </span>
+          <CloseIcon
+            className="ml-auto cursor-pointer scale-120 mr-2"
+            onClick={() => setShowChat(false)}
+          />
         </div>
-      </div>
-      <div className="chat-body flex-1 overflow-auto relative ">
-        <ScrollToBottom
-          className="message-container w-full h-full text-base font-Roboto 
-        px-1 mt-6 font-normal"
-        >
-          <div
-            className="info flex mx-auto px-3 py-2 items-start gap-10 rounded-4 bg-ChatBg 
-          w-64 xl:w-72 ml-1 mr-1 mb-0.5"
-          >
-            <span
-              className="infotext text-center text-ChatText font-Roboto text-xs xl:text-sm 
-            font-Normal"
-            >
-              Messages can only be seen by people in the call and are deleted
-              when the call ends.
+        <div className="flex w-full py-4 px-4 justify-between items-center">
+          <div className="flex flex-col w-full h-16 justify-center items-center rounded bg-ChatBg">
+            <span className="flex items-center text-ChatText font-Roboto text-sm xl:text-base font-normal">
+              Main Meet Messages
             </span>
           </div>
-          {messageList.map((messageContent) => {
-            return (
-              <div
-                className="message"
-                id={userName === messageContent.author ? "you" : "other"}
-              >
-                <div>
-                  <div className="message-content">
-                    <p>{messageContent.message}</p>
+        </div>
+        <div className="chat-body flex-1 overflow-auto relative">
+          <ScrollToBottom className="message-container w-full h-full text-base font-Roboto px-1 mt-6 font-normal">
+            <div className="info flex mx-auto px-3 py-2 items-start gap-10 rounded-4 bg-ChatBg w-64 xl:w-72 ml-1 mr-1 mb-0.5">
+              <span className="text-center text-ChatText font-Roboto text-xs xl:text-sm font-Normal">
+                Messages can only be seen by people in the call and are deleted
+                when the call ends.
+              </span>
+            </div>
+            {messageList.map((messageContent) => {
+              return (
+                <div
+                  className={`message ${
+                    userName === messageContent.author ? "you" : "other"
+                  }`}
+                >
+                  <div>
+                    <div className="message-content">
+                      <p>{messageContent.message}</p>
+                    </div>
                   </div>
-                  {/*<div className="message-meta text">
-                      <p id="time">{messageContent.time}</p>
-                      <p id="author">{messageContent.author}</p>
-                    </div>*/}
                 </div>
-              </div>
-            );
-          })}
-        </ScrollToBottom>
-      </div>
-      <div
-        className="chat-footer flex items-center relative w-11/12  my-auto mx-0 rounded-lg 
-      bg-gray-50"
-      >
-        <input
-          type="text"
-          className="message-input w-full h-full border-none outline-none px-4 py-3 mt-2 mb-2 
-          rounded-3xl bg-gray-50 text-base font-roboto font-normal text-gray-800"
-          value={currentMessage}
-          placeholder="Send a message to everyone"
-          onChange={(event) => {
-            setCurrentMessage(event.target.value);
-          }}
-          onKeyPress={(event) => {
-            event.key === "Enter" && sendMessage();
-          }}
-        />
-        <SendIcon onClick={sendMessage} />
+              );
+            })}
+            <div ref={messagesEndRef} />
+          </ScrollToBottom>
+        </div>
+        <div className="flex items-center relative w-[98%] mb-1 h-[3.2rem] bg-gray-50 rounded-3xl bg-[#F1F3F4] mx-auto">
+          <input
+            type="text"
+            className="w-full h-full border-none outline-none px-4 py-3 mt-2 mb-2 text-base font-roboto font-normal bg-transparent"
+            value={currentMessage}
+            placeholder="Send a message to everyone"
+            onChange={(event) => {
+              setCurrentMessage(event.target.value);
+            }}
+            onKeyPress={(event) => {
+              event.key === "Enter" && sendMessage();
+            }}
+          />
+          <SendIcon onClick={sendMessage} className="mx-2" />
+        </div>
       </div>
     </div>
   );

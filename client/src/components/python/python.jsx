@@ -4,12 +4,12 @@ import React from "react";
 const python = () => {
   return (
     <div
-      className="language relative mt-2 flex px-3 pl-3 items-center md:w-[10vw] lg:w-[9vw]
-     xl:w-[7vw] h-8 ml-[1.7vw] rounded-full mb-2 bg-Darkblue"
+      className="relative mt-2 flex px-3 pl-3 items-center md:w-[10vw] lg:w-[9vw]
+     xl:w-[7vw] h-12 ml-[1.7vw] rounded-full mb-2 bg-Darkblue justify-center items-center"
     >
-      <h1 className="python absolute text-white font-Syne pt-2 text-lg font-bold">
+      <span className="absolute text-white font-Syne text-2xl mr-1">
         Python
-      </h1>
+      </span>
     </div>
   );
 };

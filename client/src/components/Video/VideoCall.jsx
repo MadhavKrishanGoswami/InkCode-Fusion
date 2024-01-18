@@ -4,7 +4,7 @@ import { VideoPlayer } from "./VideoPlayer";
 import Controls from "./controls";
 
 //import "./Video.css";
-const VideoRoom = ({ roomId }) => {
+const VideoRoom = ({ roomId, leaveRoom }) => {
   const APP_ID = process.env.AGORA_APP_ID || "d702f637f7b34bde9607a32f20812a66";
   const TOKEN = null;
   const CHANNEL = roomId;
@@ -17,7 +17,6 @@ const VideoRoom = ({ roomId }) => {
   const [localTracks, setLocalTracks] = useState([]);
   const [isMicEnabled, setIsMicEnabled] = useState(true);
   const [isCameraEnabled, setIsCameraEnabled] = useState(true);
-
   const [tracks, setTracks] = useState([]);
 
   const toggleMic = () => {
@@ -84,25 +83,19 @@ const VideoRoom = ({ roomId }) => {
 
   return (
     <div className="VideoCall flex flex-col absolute w-[40vw] lg:w-[45vw] top-[14vw] left-[50vw] z-[100]">
-      <div className="grid gap-4 grid-rows-3 grid-cols-3 lg:gri overflow-hidden">
+      <div className="grid  grid-rows-3 grid-cols-3 lg:gri overflow-hidden">
         {users.map((user) => (
           <VideoPlayer key={user.uid} user={user} />
         ))}
       </div>
-      <div className="fixed bottom-[1.6vw] right-[29.9vw]">
+      <div className="fixed bottom-[0.9vw] right-[25vw]">
         <Controls
           toggleMic={toggleMic}
           toggleCamera={toggleCamera}
           isMicEnabled={isMicEnabled}
           isCameraEnabled={isCameraEnabled}
-          className="mt-4"
         />
       </div>
-      {/*<div className="w-[40vw] h-[10vw] bg-black">video</div>
-      <div className="w-[40vw] h-[10vw]">video</div>
-      <div className="w-[40vw] h-[10vw]">video</div>
-      <div className="w-[40vw] h-[10vw]">video</div>
-        <div className="w-[40vw] h-[10vw]">video</div>*/}
     </div>
   );
 };

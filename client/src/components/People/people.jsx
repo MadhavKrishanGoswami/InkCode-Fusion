@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Client from "./clients";
-import "./style.css";
 import CloseIcon from "@mui/icons-material/Close";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import HdrStrongIcon from "@mui/icons-material/HdrStrong";
@@ -28,46 +27,49 @@ const People = ({ roomId, socket, setShowPeople, userName, isVisible }) => {
     toast.success("Share the meeting invite with your friends! 🚀");
   };
   return (
-    <div className="People-wrapper flex flex-col absolute z-50 left-[72%] top-[5%] w-1/4  h-[85%] flex-shrink-0 rounded-2xl bg-white ">
-      <div className="Header flex w-full">
-        <h1 className="PrivateRooms font-Roboto text-xl font-medium leading-normal">
-          People
-        </h1>
-        <CloseIcon
-          className="CloseIcon cursor-pointer ml-auto"
-          onClick={() => setShowPeople(false)}
-        />
-      </div>
-      <div className="addPeopl-div flex w-full ml-1 justify-between items-center">
-        <IconButton>
-          <div
-            className="addframe flex flex-col h-full w-full"
-            onClick={copyRoomId}
-          >
-            <PersonAddIcon />
-            <h3 className="text-black font-Roboto text-lg font-normal leading-normal flex px-4 py-2 items-start">
-              Add People
-            </h3>
-          </div>
-        </IconButton>{" "}
-        <div className="controlframe flex flex-col items-center p-2">
-          <HdrStrongIcon style={{ fill: "#5F6368" }} />
-          <h3 className="text-black font-Roboto text-lg font-normal leading-normal flex px-4 py-2 items-start">
-            Room Controls
-          </h3>
-        </div>
-      </div>
-      <h1 className="Inroom text-gray-600 font-Roboto text-lg font-normal leading-normal pl-5">
-        In room
-      </h1>
-      <div className="clients flex items-center pt-2 pb-3">
-        {clients.map((client) => (
-          <Client
-            key={client.socketId}
-            userName={client.userName}
-            You={client.userName === userName}
+    <div className={`${isVisible ? "visible" : "hidden"}`}>
+      <div className="flex flex-col absolute z-50 right-[2%] top-[5%] w-[24%] h-[85%] flex-shrink-0 rounded-2xl bg-white">
+        {" "}
+        <div className="p-6 pr-3 pb-1 pl-5 flex w-full">
+          <span className="font-Roboto text-base font-bold leading-normal ml-1">
+            People
+          </span>
+          <CloseIcon
+            className="ml-auto cursor-pointer scale-120 mr-2"
+            onClick={() => setShowPeople(false)}
           />
-        ))}
+        </div>
+        <div className=" mx-auto flex w-full justify-between items-center">
+          <IconButton>
+            <div
+              className="p-[8px] flex flex-col h-full w-full items-center justify-center rounded-xl cursor-pointer"
+              onClick={copyRoomId}
+            >
+              <PersonAddIcon className="scale-125" />
+              <span className="text-black font-Roboto text-base  font-normal leading-normal flex px-4 py-3 items-start">
+                Add People
+              </span>
+            </div>
+          </IconButton>{" "}
+          <div className=" flex flex-col items-center p-2 mr-10">
+            <HdrStrongIcon style={{ fill: "#5F6368" }} className="scale-125" />
+            <span className="text-black font-Roboto text-base font-normal leading-normal flex  py-3 items-start">
+              Room Controls
+            </span>
+          </div>
+        </div>
+        <span className=" text-gray-600 font-Roboto text-base font-normal leading-normal pl-5">
+          In room
+        </span>
+        <div className="  items-center pt-2 pb-3">
+          {clients.map((client) => (
+            <Client
+              key={client.socketId}
+              userName={client.userName}
+              You={client.userName === userName}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

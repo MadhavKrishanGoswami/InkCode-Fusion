@@ -1,15 +1,13 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import "./style.css";
 import toast from "react-hot-toast";
 import ACTIONS from "../../Actions";
 import io from "socket.io-client";
 import Editor from "../../components/Editor/Editor";
-import Whiteboard from "../../components/WhiteBoard/Whiteboard";
 import VideoCall from "../../components/Video/VideoCall";
 import MeetingTitle from "../../components/MeetingTitle/MeetingTitle";
 import Python from "../../components/python/python";
 import Nav from "../../components/nav/nav";
-import Buttons from "../../components/Buttons/Buttons";
 import {
   useLocation,
   useNavigate,
@@ -88,11 +86,9 @@ const Room = () => {
       <Nav />
       <MeetingTitle />
       <Python />
-      <Buttons leaveRoom={leaveRoom} />
       <MountComponents socket={socket} roomId={roomId} userName={userName} />
-      {/* <Whiteboard socket={socket} /> */}
       <Editor socket={socket} roomId={roomId} />
-      <VideoCall roomId={roomId} />
+      <VideoCall roomId={roomId} leaveRoom={leaveRoom} />
     </div>
   );
 };

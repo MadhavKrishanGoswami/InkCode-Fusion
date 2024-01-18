@@ -6,6 +6,8 @@ import "codemirror/addon/edit/closebrackets";
 import Codemirror from "codemirror";
 import ACTIONS from "../../Actions";
 import Output from "./output";
+import { IconButton } from "@mui/material";
+
 //import "./Editor.css";
 const Editor = ({ socket, roomId }) => {
   const editorRef = useRef(null);
@@ -44,6 +46,8 @@ const Editor = ({ socket, roomId }) => {
         wrapper.style.padding = "8px"; // Add padding
         wrapper.style.height = "48vh"; // Set height
         wrapper.style.width = "45%"; // Set width
+        //increase font size
+        editorRef.current.getWrapperElement().style["font-size"] = "19px";
 
         // Get gutter element and apply custom style for line strip color
         const gutter = wrapper.getElementsByClassName("CodeMirror-gutters")[0];
@@ -78,14 +82,17 @@ const Editor = ({ socket, roomId }) => {
   };
 
   return (
-    <div className="Editor-Wrapper ml-[1.5vw] mt-[0.5vw]">
+    <div className=" ml-[1.5vw] mt-[0.5vw]">
       <textarea id="realTimeEditor" className="Editor-Text"></textarea>
       <div
-        onClick={runCode}
-        className="runButton flex absolute justify-center items-center top-[65%] left-[37%]
+        className=" flex absolute justify-center items-center top-[65%] left-[37%]
          text-RunText border-[1px] border-StartBg font-Syne text-[1.4vw] shadow-Runbg shadow-sm bg-Runbg rounded-[2.5vw] w-[6vw] h-[6vh] cursor-pointer"
       >
-        Run
+        <IconButton onClick={runCode}>
+          <span className="  text-RunText font-Syne text-[1.4vw] cursor-pointer w-[100%] h-[100%]">
+            RUN
+          </span>
+        </IconButton>
       </div>
       <Output socket={socket} roomId={roomId} codeRef={codeRef} />
     </div>

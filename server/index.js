@@ -62,10 +62,11 @@ io.on("connection", (socket) => {
   socket.on(ACTIONS.RUN_CODE, ({ code, roomId }) => {
     PythonShell.runString(code)
       .then((data) => {
-        socket.in(roomId).emit(ACTIONS.OUTPUT, { data: data.toString() });
+        io.to(roomId).emit(ACTIONS.OUTPUT, { data: data.toString() });
+        console.log(data.toString());
       })
       .catch((err) => {
-        socket.in(roomId).emit(ACTIONS.OUTPUT, { data: err.toString() });
+        io.to(roomId).emit(ACTIONS.OUTPUT, { data: err.toString() });
       });
   });
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 //import "./Video.css";
-export const VideoPlayer = ({ user }) => {
+export const VideoPlayer = ({ user, userName }) => {
   const ref = useRef();
 
   useEffect(() => {
@@ -9,7 +9,7 @@ export const VideoPlayer = ({ user }) => {
 
   return (
     <div
-      className="grid rounded-[2.5rem] overflow-hidden md:h[10vw] lg:h-[11vw]"
+      className="grid rounded-[1rem] overflow-hidden md:h[12vw] lg:h-[11vw] lg:w-[16vw]"
       ref={ref}
     ></div>
   );
