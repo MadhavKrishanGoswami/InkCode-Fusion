@@ -8,6 +8,8 @@ import VideoCall from "../../components/Video/VideoCall";
 import MeetingTitle from "../../components/MeetingTitle/MeetingTitle";
 import Python from "../../components/python/python";
 import Nav from "../../components/nav/nav";
+import { motion } from "framer-motion";
+
 import {
   useLocation,
   useNavigate,
@@ -83,12 +85,30 @@ const Room = () => {
   // Render the Room component
   return (
     <div className="Room overflow-hidden h-full">
-      <Nav />
-      <MeetingTitle />
-      <Python />
-      <MountComponents socket={socket} roomId={roomId} userName={userName} />
-      <Editor socket={socket} roomId={roomId} />
-      <VideoCall roomId={roomId} leaveRoom={leaveRoom} />
+      <motion.div
+        initial={{ y: -1000 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 1, type: "ease-in" }} // Change the transition type to "ease-in"
+      >
+        <Nav />
+        <MeetingTitle />
+      </motion.div>
+      <motion.div
+        initial={{ y: 1000 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, type: "ease-in" }} // Change the transition type to "ease-in"
+      >
+        <Python />
+        <MountComponents socket={socket} roomId={roomId} userName={userName} />
+        <Editor socket={socket} roomId={roomId} />
+      </motion.div>
+      <motion.div
+        initial={{ y: 1000 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.5, type: "ease-in" }} // Change the transition type to "ease-in"
+      >
+        <VideoCall roomId={roomId} leaveRoom={leaveRoom} />
+      </motion.div>
     </div>
   );
 };

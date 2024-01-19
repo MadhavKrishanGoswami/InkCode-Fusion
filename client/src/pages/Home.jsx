@@ -1,11 +1,16 @@
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
-import Cursor from "./GradientBubbles/GradientBubbles";
+import { motion } from "framer-motion";
 const Home = () => {
   const Navigate = useNavigate();
   return (
-    <div>
-      <Cursor />
+    <motion.div
+      initial={{ opacity: 0, x: 100 }} // Set initial opacity to 0 and x position to 100
+      animate={{ opacity: 1, x: 0 }} // Animate opacity to 1 and x position to 0
+      exit={{ opacity: 0, x: -100 }} // Animate opacity to 0 and x position to -100 on exit
+      transition={{ duration: 0.15, ease: "easeOut" }} // Set transition duration and easing function
+    >
+      {" "}
       <div className="Hendding-container relative font-Inter top-[6vw] w-[90%] h-[52.85vh] left-[4.96%]">
         <h1 className="Heading relative text-[10vw] text-Tblack leading-[100%] tracking-tighter font-semibold">
           InkCode
@@ -36,7 +41,7 @@ const Home = () => {
           </span>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default Home;

@@ -5,7 +5,7 @@ import Controls from "./controls";
 import { motion, useDragControls } from "framer-motion";
 
 //import "./Video.css";
-const VideoRoom = ({ roomId, leaveRoom }) => {
+const VideoRoom = ({ roomId }) => {
   const APP_ID = process.env.AGORA_APP_ID || "d702f637f7b34bde9607a32f20812a66";
   const TOKEN = null;
   const CHANNEL = roomId;
@@ -22,13 +22,17 @@ const VideoRoom = ({ roomId, leaveRoom }) => {
   const [tracks, setTracks] = useState([]);
 
   const toggleMic = () => {
-    localTracks[0].setEnabled(!isMicEnabled);
-    setIsMicEnabled(!isMicEnabled);
+    if (localTracks[0]) {
+      localTracks[0].setEnabled(!isMicEnabled);
+      setIsMicEnabled(!isMicEnabled);
+    }
   };
 
   const toggleCamera = () => {
-    localTracks[1].setEnabled(!isCameraEnabled);
-    setIsCameraEnabled(!isCameraEnabled);
+    if (localTracks[1]) {
+      localTracks[1].setEnabled(!isCameraEnabled);
+      setIsCameraEnabled(!isCameraEnabled);
+    }
   };
 
   const handleUserJoined = async (user, mediaType) => {
@@ -98,7 +102,12 @@ const VideoRoom = ({ roomId, leaveRoom }) => {
         className="grid grid-rows-3 grid-cols-3 gap-7 overflow-hidden"
       >
         {users.map((user) => (
-          <VideoPlayer key={user.uid} user={user} />
+          <VideoPlayer
+            key={user.uid}
+            user={user}
+            isMicEnabled={isMicEnabled}
+            isCameraEnabled={isCameraEnabled}
+          />
         ))}
       </motion.div>
       <div className="fixed bottom-[0.9vw] right-[25vw]">

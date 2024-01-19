@@ -20,7 +20,7 @@ const Output = ({ socket }) => {
   return (
     <div
       className="flex w-[45%] h-[22vh] mt-6 px-4 py-3 gap-6 flex-col items-start
-     flex-shrink-0 rounded-3xl bg-Darkblue shadow-md shadow-TSblack"
+     flex-shrink-0 rounded-3xl bg-Darkblue shadow-md shadow-TSblack z-50"
     >
       {isLoading ? (
         <div>Loading...</div>
@@ -33,8 +33,8 @@ const Output = ({ socket }) => {
             className=" relative resize-none top-6 h-4/5 w-full flex-shrink-0 text-Output rounded-xl
          p-0 m-0 outline-none border-none bg-Darkblue overflow-hidden text-xl text-white"
           />
-          <span className="outputText absolute text-lg px-0 font-bold text-Output  ">
-            Output changed
+          <span className=" absolute text-lg px-0 font-bold text-Output  ">
+            Output
           </span>
         </>
       )}
