@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AgoraRTC from "agora-rtc-sdk-ng";
 import { VideoPlayer } from "./VideoPlayer";
 import Controls from "./controls";
+import { motion, useDragControls } from "framer-motion";
 
 //import "./Video.css";
 const VideoRoom = ({ roomId, leaveRoom }) => {
@@ -12,6 +13,7 @@ const VideoRoom = ({ roomId, leaveRoom }) => {
     mode: "rtc",
     codec: "vp8",
   });
+  const controls = useDragControls();
 
   const [users, setUsers] = useState([]);
   const [localTracks, setLocalTracks] = useState([]);
@@ -83,11 +85,22 @@ const VideoRoom = ({ roomId, leaveRoom }) => {
 
   return (
     <div className="VideoCall flex flex-col absolute w-[40vw] lg:w-[45vw] top-[14vw] left-[50vw] z-[100]">
-      <div className="grid  grid-rows-3 grid-cols-3 lg:gri overflow-hidden">
+      <motion.div
+        style={{
+          cursor: "grab",
+        }}
+        drag
+        dragConstraints={{ top: -250, right: 250, bottom: 250, left: -250 }}
+        dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
+        dragElastic={0.56}
+        whileTap={{ cursor: "grabbing" }}
+        dragControls={controls}
+        className="grid grid-rows-3 grid-cols-3 gap-7 overflow-hidden"
+      >
         {users.map((user) => (
           <VideoPlayer key={user.uid} user={user} />
         ))}
-      </div>
+      </motion.div>
       <div className="fixed bottom-[0.9vw] right-[25vw]">
         <Controls
           toggleMic={toggleMic}

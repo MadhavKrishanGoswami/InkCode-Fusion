@@ -94,7 +94,7 @@ const CreateRoomForm = () => {
       </div>
       <button
         className="CreateButton flex relative justify-center items-center flex-shrink-0 top-[5vw]
-         w-[19vw] h-[9vh] text-white font-Syne text-3xl font-normal font-500 leading-normal rounded-full bg-mustard"
+         w-[19vw] h-[9vh] text-white font-Syne text-3xl font-normal font-500 leading-normal rounded-full bg-mustard transition duration-300 ease-in-out transform hover:scale-105"
         onClick={joinRoom}
       >
         Create Room

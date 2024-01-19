@@ -59,7 +59,7 @@ const JoinRoomForm = () => {
       <button
         onClick={joinRoom}
         className="JoinButton flex relative justify-center items-center flex-shrink-0 top-[5vw]
-        w-[19vw] h-[9vh] text-white font-Syne text-3xl font-normal font-500 leading-normal rounded-full bg-mustard"
+        w-[19vw] h-[9vh] text-white font-Syne text-3xl font-normal font-500 leading-normal transition duration-300 ease-in-out transform hover:scale-105 rounded-full bg-mustard"
       >
         Join Room
       </button>

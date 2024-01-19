@@ -17,11 +17,6 @@ const Output = ({ socket }) => {
     }
   }, [socket]);
 
-  const handleRun = () => {
-    setIsLoading(true);
-    // Perform the run operation here
-  };
-
   return (
     <div
       className="flex w-[45%] h-[22vh] mt-6 px-4 py-3 gap-6 flex-col items-start
@@ -43,7 +38,6 @@ const Output = ({ socket }) => {
           </span>
         </>
       )}
-      <button onClick={handleRun}>Run</button>
     </div>
   );
 };

@@ -90,7 +90,7 @@ const Editor = ({ socket, roomId }) => {
       >
         <IconButton onClick={runCode}>
           <span className="  text-RunText font-Syne text-[1.4vw] cursor-pointer w-[100%] h-[100%]">
-            RUN
+            Run
           </span>
         </IconButton>
       </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from "react";
 //import "./Video.css";
 export const VideoPlayer = ({ user, userName }) => {
-  const ref = useRef();
+  const ref = useRef(null);
 
   useEffect(() => {
     user.videoTrack.play(ref.current);

@@ -43,7 +43,10 @@ const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
 
   return (
     <div className={`${isVisible ? "visible" : "hidden"}`}>
-      <div className="flex flex-col absolute z-50 right-[2%] top-[5%] w-[24%] h-[85%] flex-shrink-0 rounded-2xl bg-white">
+      <div
+        className="flex flex-col absolute z-50 right-[2%] top-[5%] w-[24%] h-[85%] flex-shrink-0
+       rounded-2xl bg-white"
+      >
         {" "}
         <div className="p-6 pr-3 pb-1 pl-5 flex w-full">
           <span className="font-Roboto text-base font-bold leading-normal ml-1">
@@ -56,15 +59,27 @@ const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
         </div>
         <div className="flex w-full py-4 px-4 justify-between items-center">
           <div className="flex flex-col w-full h-16 justify-center items-center rounded bg-ChatBg">
-            <span className="flex items-center text-ChatText font-Roboto text-sm xl:text-base font-normal">
+            <span
+              className="flex items-center text-ChatText font-Roboto text-sm xl:text-base 
+            font-normal"
+            >
               Main Meet Messages
             </span>
           </div>
         </div>
         <div className="chat-body flex-1 overflow-auto relative">
-          <ScrollToBottom className="message-container w-full h-full text-base font-Roboto px-1 mt-6 font-normal">
-            <div className="info flex mx-auto px-3 py-2 items-start gap-10 rounded-4 bg-ChatBg w-64 xl:w-72 ml-1 mr-1 mb-0.5">
-              <span className="text-center text-ChatText font-Roboto text-xs xl:text-sm font-Normal">
+          <ScrollToBottom
+            className="message-container w-full h-full text-base font-Roboto px-1 mt-6 
+          font-normal"
+          >
+            <div
+              className="info flex mx-auto px-3 py-2 items-start gap-10 rounded-4 bg-ChatBg w-64 
+            xl:w-72 ml-1 mr-1 mb-0.5"
+            >
+              <span
+                className="text-center text-ChatText font-Roboto text-xs xl:text-sm 
+              font-Normal"
+              >
                 Messages can only be seen by people in the call and are deleted
                 when the call ends.
               </span>
@@ -87,10 +102,14 @@ const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
             <div ref={messagesEndRef} />
           </ScrollToBottom>
         </div>
-        <div className="flex items-center relative w-[98%] mb-1 h-[3.2rem] bg-gray-50 rounded-3xl bg-[#F1F3F4] mx-auto">
+        <div
+          className="flex items-center relative w-[98%] mb-1 h-[3.2rem] bg-gray-50 rounded-3xl
+         bg-[#F1F3F4] mx-auto"
+        >
           <input
             type="text"
-            className="w-full h-full border-none outline-none px-4 py-3 mt-2 mb-2 text-base font-roboto font-normal bg-transparent"
+            className="w-full h-full border-none outline-none px-4 py-3 mt-2 mb-2 text-base 
+            font-roboto font-normal bg-transparent"
             value={currentMessage}
             placeholder="Send a message to everyone"
             onChange={(event) => {
