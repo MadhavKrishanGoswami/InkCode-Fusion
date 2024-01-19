@@ -34,7 +34,7 @@ const Output = ({ socket }) => {
          p-0 m-0 outline-none border-none bg-Darkblue overflow-hidden text-xl text-white"
           />
           <span className="outputText absolute text-lg px-0 font-bold text-Output  ">
-            OutPut
+            Output changed
           </span>
         </>
       )}
