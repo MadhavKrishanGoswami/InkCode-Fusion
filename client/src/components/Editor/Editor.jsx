@@ -86,7 +86,7 @@ const Editor = ({ socket, roomId }) => {
       <textarea id="realTimeEditor" className="Editor-Text"></textarea>
       <div
         className=" flex absolute justify-center items-center top-[65%] left-[37%]
-         text-RunText border-[1px] border-StartBg font-Syne text-[1.4vw] shadow-Runbg shadow-sm bg-Runbg rounded-[2.5vw] w-[6vw] h-[6vh] cursor-pointer"
+         text-RunText border-[1px] border-StartBg font-Syne text-[1.4vw] rounded-[2.5vw] w-[6vw] h-[6vh] bg-[#3C4043] shadow-md shadow-black hover:bg-[#313538] cursor-pointer"
       >
         <IconButton onClick={runCode}>
           <span className="  text-RunText font-Syne text-[1.4vw] cursor-pointer w-[100%] h-[100%]">
@@ -98,5 +98,4 @@ const Editor = ({ socket, roomId }) => {
     </div>
   );
 };
-
 export default Editor;

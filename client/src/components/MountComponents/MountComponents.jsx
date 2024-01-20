@@ -20,23 +20,29 @@ const MountComponents = ({ socket, roomId, userName }) => {
   return (
     <div>
       <div className="controls">
-        <IconButton>
-          <ChatIcon
-            style={{ fill: "#FFFFFF" }}
-            onClick={handleShowChat}
-            className="scale-101"
-          />
-        </IconButton>
-        <IconButton>
-          <PeopleIcon
-            style={{ fill: "#FFFFFF" }}
-            onClick={handleShowPeople}
-            className="scale-101"
-          />
-        </IconButton>
-        <IconButton>
-          <SecurityIcon style={{ fill: "#FFFFFF" }} className="scale-101" />
-        </IconButton>
+        <div className="w-10 h-10 rounded-full hover:bg-Darkblue">
+          <IconButton>
+            <ChatIcon
+              style={{ fill: "#FFFFFF" }}
+              onClick={handleShowChat}
+              className="scale-101"
+            />
+          </IconButton>
+        </div>
+        <div className="w-10 h-10 rounded-full hover:bg-Darkblue">
+          <IconButton>
+            <PeopleIcon
+              style={{ fill: "#FFFFFF" }}
+              onClick={handleShowPeople}
+              className="scale-101 items-center justify-center"
+            />
+          </IconButton>
+        </div>
+        <div className="w-10 h-10 rounded-full hover:bg-Darkblue">
+          <IconButton>
+            <SecurityIcon style={{ fill: "#FFFFFF" }} className="scale-101" />
+          </IconButton>
+        </div>
       </div>
       <Chat
         socket={socket}

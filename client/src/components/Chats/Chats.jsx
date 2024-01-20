@@ -51,7 +51,7 @@ const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
     <motion.div className={`${isVisible ? "visible" : "hidden"}`}>
       <div
         className="flex flex-col absolute z-50 right-[2%] top-[5%] w-[24%] h-[85%] flex-shrink-0
-       rounded-2xl bg-white"
+       rounded-2xl bg-white shadow-xl shadow-black"
       >
         {" "}
         <div className="p-6 pr-3 pb-1 pl-5 flex w-full">
@@ -109,7 +109,7 @@ const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
           </ScrollToBottom>
         </div>
         <div
-          className="flex items-center relative w-[98%] mb-1 h-[3.2rem] bg-gray-50 rounded-3xl
+          className="flex items-center relative w-[95%] mb-3 h-[3.2rem] bg-gray-50 rounded-3xl
          bg-[#F1F3F4] mx-auto"
         >
           <input

@@ -37,8 +37,8 @@ const JoinRoomForm = () => {
       <div className="input flex flex-col gap-y-[3.5vw]">
         <input
           type="text"
-          className="flex flex-col h-[3.4vw] w-[25vw] pl-6 flex-shrink-0 rounded-[12.79px] border-[1.827px] 
-          border-solid border-LightBorder font-Syne text-[0.9vw] font-normal font-500 
+          className="flex flex-col h-[3.4vw] w-[25vw] pl-5 flex-shrink-0 rounded-[12.79px] border-[1.827px] 
+          border-solid border-LightBorder font-Syne text-[1rem] font-normal font-500 
           leading-normal bg-StartBg text-ALightgrey"
           placeholder="Enter your Name"
           onChange={(e) => setUserName(e.target.value)}
@@ -47,8 +47,8 @@ const JoinRoomForm = () => {
         />
         <input
           type="text"
-          className="flex flex-col h-[3.4vw] w-[25vw] pl-6 flex-shrink-0 rounded-[12.79px] border-[1.827px] 
-          border-solid border-LightBorder font-Syne text-[0.9vw] font-normal font-500 
+          className="flex flex-col h-[3.4vw] w-[25vw] pl-5 flex-shrink-0 rounded-[12.79px] border-[1.827px] 
+          border-solid border-LightBorder font-Syne text-[1rem] font-normal font-500 
           leading-normal bg-StartBg text-ALightgrey"
           placeholder="Enter room code"
           onChange={(e) => setRoomId(e.target.value)}
@@ -59,7 +59,7 @@ const JoinRoomForm = () => {
       <button
         onClick={joinRoom}
         className="JoinButton flex relative justify-center items-center flex-shrink-0 top-[5vw]
-        w-[19vw] h-[9vh] text-white font-Syne text-3xl font-normal font-500 leading-normal transition duration-300 ease-in-out transform hover:scale-105 rounded-full bg-mustard"
+        w-[19vw] h-[9vh] text-white font-Syne text-3xl font-normal font-500 leading-normal shadow-md shadow-black transition duration-300 ease-in-out transform hover:scale-105 rounded-full bg-mustard"
       >
         Join Room
       </button>

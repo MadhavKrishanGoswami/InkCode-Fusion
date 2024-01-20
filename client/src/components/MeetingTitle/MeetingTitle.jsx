@@ -16,7 +16,7 @@ const MeetingTitle = () => {
   }, []);
 
   return (
-    <div className=" relative flex items-center py-6 ml-[1.7vw] mb-3 mt-[1.2vw] w-[26%] h-[10.4vh] rounded-[18px] bg-lightGrey border border-Border">
+    <div className=" relative flex items-center py-6 ml-[1.7vw] mb-4 mt-[1.2vw] w-[26%] h-[10.4vh] rounded-[18px] bg-lightGrey border border-Border shadow-md shadow-black">
       <img
         src={meetingpng}
         alt="meeting"
@@ -25,11 +25,11 @@ const MeetingTitle = () => {
       <div class="absolute w-0.5 h-[3vw] ml-[5.7vw] bg-lightergrey"></div>
       <h1
         contenteditable="true"
-        className="absolute ml-[6.7vw] text-darkGrey top-[1.1vw] font-Inter text-[1.2vw] font-medium"
+        className="absolute ml-[6.7vw] text-darkGrey top-[0.9vw] font-Inter text-[1.2vw] font-medium"
       >
         Interview(Technical Round)
       </h1>
-      <h2 className="absolute py-1 text-gray-500 font-Inter text-[1.1vw] top-[3vw] text-DTgrey ml-[6.6vw] font-medium">
+      <h2 className="absolute py-1 text-gray-500 font-Inter text-[1.1vw] top-[2.7vw] text-DTgrey ml-[6.5vw] font-medium">
         {" "}
         {date.toLocaleString("default", { month: "long" })} {date.getDate()}
         th, {date.getFullYear()} | {currentTime.getHours()}:

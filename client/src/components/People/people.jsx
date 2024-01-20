@@ -28,7 +28,7 @@ const People = ({ roomId, socket, setShowPeople, userName, isVisible }) => {
   };
   return (
     <div className={`${isVisible ? "visible" : "hidden"}`}>
-      <div className="flex flex-col absolute z-50 right-[2%] top-[5%] w-[24%] h-[85%] flex-shrink-0 rounded-2xl bg-white">
+      <div className="flex flex-col absolute z-50 right-[2%] top-[5%] w-[24%] h-[84%] shadow-xl shadow-black flex-shrink-0 rounded-2xl bg-white">
         {" "}
         <div className="p-6 pr-3 pb-1 pl-5 flex w-full">
           <span className="font-Roboto text-base font-bold leading-normal ml-1">
