@@ -18,7 +18,7 @@ const MountComponents = ({ socket, roomId, userName }) => {
   };
 
   return (
-    <div>
+    <div className="">
       <div className="controls">
         <div className="w-10 h-10 rounded-full hover:bg-Darkblue">
           <IconButton>

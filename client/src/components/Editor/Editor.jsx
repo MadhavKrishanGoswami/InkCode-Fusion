@@ -84,6 +84,7 @@ const Editor = ({ socket, roomId }) => {
   return (
     <div className=" ml-[1.5vw] mt-[0.5vw]">
       <textarea id="realTimeEditor" className="Editor-Text"></textarea>
+      <Output socket={socket} roomId={roomId} codeRef={codeRef} />
       <div
         className=" flex absolute justify-center items-center top-[65%] left-[37%]
          text-RunText border-[1px] border-StartBg font-Syne text-[1.4vw] rounded-[2.5vw] w-[6vw] h-[6vh] bg-[#3C4043] shadow-md shadow-black hover:bg-[#313538] cursor-pointer"
@@ -94,7 +95,6 @@ const Editor = ({ socket, roomId }) => {
           </span>
         </IconButton>
       </div>
-      <Output socket={socket} roomId={roomId} codeRef={codeRef} />
     </div>
   );
 };

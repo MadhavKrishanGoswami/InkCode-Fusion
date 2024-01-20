@@ -11,8 +11,8 @@ const Home = () => {
       transition={{ duration: 0.15, ease: "easeOut" }} // Set transition duration and easing function
     >
       {" "}
-      <div className="Hendding-container relative font-Inter top-[6vw] w-[90%] h-[52.85vh] left-[4.96%]">
-        <h1 className="Heading relative text-[10vw] text-Tblack leading-[100%] tracking-tighter font-semibold">
+      <div className=" relative font-Inter top-[6vw] w-[90%] h-[52.85vh] left-[4.96%]">
+        <h1 className=" relative text-[10vw] text-Tblack leading-[100%] tracking-tighter font-semibold">
           InkCode
         </h1>
         <h2 className="Tagline text-[4.2vw] text-Tblack tracking-tighter font-normal">

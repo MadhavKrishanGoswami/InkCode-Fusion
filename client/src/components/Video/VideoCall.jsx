@@ -83,9 +83,16 @@ const VideoRoom = ({ roomId, leaveRoom, showChat, showPeople }) => {
   return (
     <>
       <div className="VideoCall flex flex-row space-x-6 absolute top-[14vw] left-[50vw] z-[100]">
-        {users.map((user) => (
-          <VideoPlayer key={user.uid} user={user} />
-        ))}
+        {users.map(
+          (user) =>
+            isCameraEnabled && (
+              <VideoPlayer
+                key={user.uid}
+                user={user}
+                isCameraEnabled={isCameraEnabled}
+              />
+            )
+        )}
       </div>
       <div className="fixed bottom-[0.9vw] right-[25vw]">
         <Controls
