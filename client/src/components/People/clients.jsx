@@ -5,7 +5,7 @@ import "./style.css";
 const Clients = ({ userName, You }) => {
   return (
     <div className="client">
-      <UserAvatar />
+      <UserAvatar userName={userName} />
       <span className="username">{userName}</span>
       {You && <span className="username"> (You)</span>}
     </div>

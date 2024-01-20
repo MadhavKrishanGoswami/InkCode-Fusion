@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./style.css";
 import toast from "react-hot-toast";
 import ACTIONS from "../../Actions";
@@ -9,6 +9,8 @@ import MeetingTitle from "../../components/MeetingTitle/MeetingTitle";
 import Python from "../../components/python/python";
 import Nav from "../../components/nav/nav";
 import { motion } from "framer-motion";
+import NotificationRoomIn from "../Assets/Notification/Notification-RoomIn.mp3";
+import NotificationRoomOut from "../Assets/Notification/Notification-RoomOut.mp3";
 
 import {
   useLocation,
@@ -55,12 +57,16 @@ const Room = () => {
         if (userName !== location.state?.userName) {
           toast.success(`${userName} joined the room`);
           console.log(`${userName} joined the room`); // Just for debugging
+          const audio = new Audio(NotificationRoomIn);
+          audio.play();
         }
       });
       // Event listener for user leaving the room
       socket.on(ACTIONS.DISCONNECTED, ({ socketId, userName }) => {
         toast.success(`${userName} left the room`);
         console.log(`${userName} left the room`); // Just for debugging
+        const audio = new Audio(NotificationRoomOut);
+        audio.play();
       });
     };
 

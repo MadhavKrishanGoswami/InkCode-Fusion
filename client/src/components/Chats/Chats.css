@@ -136,10 +136,11 @@
   margin-top: 20px;
   font-weight: 400;
   line-height: normal;
+  width: auto;
 }
 
-#you,
-#other {
+.you,
+.other {
   margin-top: 20px;
   padding: 3px 9px;
   max-width: 50%;
@@ -147,19 +148,15 @@
   position: relative;
 }
 
-#other {
+.other {
   float: left;
   margin-right: auto;
-  -webkit-border-radius: 10px 10px 10px 0px;
-  -moz-border-radius: 10px 10px 10px 0px;
-  -o-border-radius: 10px 10px 10px 0px;
-  -ms-border-radius: 10px 10px 10px 0px;
   border-radius: 12px 12px 12px 0px;
   background-color: #e5e5ea;
   color: black;
 }
 
-#other:before {
+.other:before {
   border-bottom: 10px solid #e5e5ea;
   border-left: 9px solid rgba(0, 0, 0, 0);
   position: absolute;
@@ -168,22 +165,18 @@
   content: "";
 }
 
-#you {
+.you {
   float: right;
-  margin-left: auto;
+  margin-left: 100%;
   text-align: right;
-  -webkit-border-radius: 10px 10px 0px 10px;
-  -moz-border-radius: 10px 10px 0px 10px;
-  -o-border-radius: 10px 10px 0px 10px;
-  -ms-border-radius: 10px 10px 0px 10px;
   border-radius: 12px 12px 0px 12px;
   background-color: #0b93f6;
   color: white;
 }
 
-#you:before {
+.you:before {
   border-bottom: 9px solid #0b93f6;
-  border-right: 9px solid rgba(0, 0, 0, 0);
+  /* border-right: 9px solid rgba(0, 0, 0, 0); */
   position: absolute;
   bottom: 0;
   right: -8px;

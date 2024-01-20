@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import MicRoundedIcon from "@mui/icons-material/MicRounded";
 import MicOffRoundedIcon from "@mui/icons-material/MicOffRounded";
 import VideocamRoundedIcon from "@mui/icons-material/VideocamRounded";
@@ -54,7 +54,6 @@ const Controls = ({
         </div>
       </IconButton>
       <IconButton>
-        {" "}
         <div
           className="w-[7vw] h-[6vh] flex justify-center items-center flex-shrink-0 rounded-[73px] bg-[#ea4335] text-[#ffffff] cursor-pointer font-Inter text-base font-normal  ml-16"
           onClick={leaveRoom}

@@ -3,6 +3,9 @@ import ScrollToBottom from "react-scroll-to-bottom";
 import ACTIONS from "../../Actions";
 import CloseIcon from "@mui/icons-material/Close";
 import SendIcon from "@mui/icons-material/Send";
+import { motion } from "framer-motion";
+import "./Chats.css";
+import NotificationMessage from "../../pages/Assets/Notification/Notification-Message.mp3";
 
 const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
   const [currentMessage, setCurrentMessage] = useState("");
@@ -34,6 +37,9 @@ const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
     if (socket) {
       socket.on(ACTIONS.RECEIVE_MESSAGE, (data) => {
         setMessageList((list) => [...list, data]);
+        const audio = new Audio(NotificationMessage);
+        audio.volume = 0.1; // Set the volume to 50%
+        audio.play();
       });
     }
   }, [socket]);
@@ -42,7 +48,7 @@ const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
   }, []);
 
   return (
-    <div className={`${isVisible ? "visible" : "hidden"}`}>
+    <motion.div className={`${isVisible ? "visible" : "hidden"}`}>
       <div
         className="flex flex-col absolute z-50 right-[2%] top-[5%] w-[24%] h-[85%] flex-shrink-0
        rounded-2xl bg-white"
@@ -69,7 +75,7 @@ const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
         </div>
         <div className="chat-body flex-1 overflow-auto relative">
           <ScrollToBottom
-            className="message-container w-full h-full text-base font-Roboto px-1 mt-6 
+            className=" w-full h-full text-base font-Roboto px-1 mt-6 
           font-normal"
           >
             <div
@@ -122,7 +128,7 @@ const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
           <SendIcon onClick={sendMessage} className="mx-2" />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 export default Chat;

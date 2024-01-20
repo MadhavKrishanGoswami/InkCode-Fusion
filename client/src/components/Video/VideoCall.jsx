@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import AgoraRTC from "agora-rtc-sdk-ng";
 import { VideoPlayer } from "./VideoPlayer";
 import Controls from "./controls";
-import { motion, useDragControls } from "framer-motion";
 
 //import "./Video.css";
-const VideoRoom = ({ roomId }) => {
+const VideoRoom = ({ roomId, leaveRoom, showChat, showPeople }) => {
   const APP_ID = process.env.AGORA_APP_ID || "d702f637f7b34bde9607a32f20812a66";
   const TOKEN = null;
   const CHANNEL = roomId;
@@ -13,7 +12,6 @@ const VideoRoom = ({ roomId }) => {
     mode: "rtc",
     codec: "vp8",
   });
-  const controls = useDragControls();
 
   const [users, setUsers] = useState([]);
   const [localTracks, setLocalTracks] = useState([]);
@@ -22,17 +20,13 @@ const VideoRoom = ({ roomId }) => {
   const [tracks, setTracks] = useState([]);
 
   const toggleMic = () => {
-    if (localTracks[0]) {
-      localTracks[0].setEnabled(!isMicEnabled);
-      setIsMicEnabled(!isMicEnabled);
-    }
+    localTracks[0].setEnabled(!isMicEnabled);
+    setIsMicEnabled(!isMicEnabled);
   };
 
   const toggleCamera = () => {
-    if (localTracks[1]) {
-      localTracks[1].setEnabled(!isCameraEnabled);
-      setIsCameraEnabled(!isCameraEnabled);
-    }
+    localTracks[1].setEnabled(!isCameraEnabled);
+    setIsCameraEnabled(!isCameraEnabled);
   };
 
   const handleUserJoined = async (user, mediaType) => {
@@ -75,7 +69,6 @@ const VideoRoom = ({ roomId }) => {
         ]);
         client.publish(tracks);
       });
-
     return () => {
       for (let localTrack of localTracks) {
         localTrack.stop();
@@ -88,37 +81,22 @@ const VideoRoom = ({ roomId }) => {
   }, []);
 
   return (
-    <div className="VideoCall flex flex-col absolute w-[40vw] lg:w-[45vw] top-[14vw] left-[50vw] z-[100]">
-      <motion.div
-        style={{
-          cursor: "grab",
-        }}
-        drag
-        dragConstraints={{ top: -250, right: 250, bottom: 250, left: -250 }}
-        dragTransition={{ bounceStiffness: 600, bounceDamping: 20 }}
-        dragElastic={0.56}
-        whileTap={{ cursor: "grabbing" }}
-        dragControls={controls}
-        className="grid grid-rows-3 grid-cols-3 gap-7 overflow-hidden"
-      >
+    <>
+      <div className="VideoCall flex flex-row space-x-6 absolute top-[14vw] left-[50vw] z-[100]">
         {users.map((user) => (
-          <VideoPlayer
-            key={user.uid}
-            user={user}
-            isMicEnabled={isMicEnabled}
-            isCameraEnabled={isCameraEnabled}
-          />
+          <VideoPlayer key={user.uid} user={user} />
         ))}
-      </motion.div>
+      </div>
       <div className="fixed bottom-[0.9vw] right-[25vw]">
         <Controls
           toggleMic={toggleMic}
           toggleCamera={toggleCamera}
           isMicEnabled={isMicEnabled}
           isCameraEnabled={isCameraEnabled}
+          leaveRoom={leaveRoom}
         />
       </div>
-    </div>
+    </>
   );
 };
 export default VideoRoom;
