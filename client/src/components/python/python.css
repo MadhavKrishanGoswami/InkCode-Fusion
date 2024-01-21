@@ -1,0 +1,23 @@
+.language {
+  position: relative;
+  margin-top: 0.9vw;
+  margin-left: 1.5vw;
+  display: flex;
+  background-color: #111316;
+  padding-left: 1.5vw;
+  align-items: center;
+  width: 9vw;
+  height: 4.5vh;
+  border-radius: 30px;
+}
+.python {
+  position: absolute;
+  color: #fff;
+  font-family: Syne;
+  padding-top: 0.5vh;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
