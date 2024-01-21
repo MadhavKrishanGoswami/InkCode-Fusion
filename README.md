@@ -20,11 +20,6 @@ InkCode Fusion is a comprehensive web application designed as a one-stop solutio
 - Ability to initiate video and voice calls for face-to-face interaction.
 - Supports multiple participants for collaborative discussions.
 
-### Screen Sharing
-
-- Capability to share screens for showcasing code, designs, or presentations.
-- Enhances collaborative work and visual demonstration.
-
 ### Live Code Execution
 
 - Run and test code within the application environment.
@@ -45,11 +40,10 @@ InkCode Fusion is a comprehensive web application designed as a one-stop solutio
 
 ## Usage
 
-1. Register or log in to access the InkCode Fusion platform.
-2. Create or join a room to collaborate with others.
-3. Explore and utilize the various features available.
-4. Start a video/voice call, use the code editor, whiteboard, and chat functionality.
-5. Run and test code snippets within the platform.
+1. Create or join a room to collaborate with others.
+2. Explore and utilize the various features available.
+3. Start a video/voice call, use the code editor, whiteboard, and chat functionality.
+4. Run and test code snippets within the platform.
 
 ## Contributions
 
