@@ -1,54 +1,81 @@
-# InkCode Fusion
+# Turborepo starter
 
-InkCode Fusion is a comprehensive web application designed as a one-stop solution for technical interviews and collaborative coding sessions. It offers a versatile platform that combines a suite of powerful features aimed at facilitating seamless communication, code collaboration, and interactive problem-solving.
+This is an official starter Turborepo.
 
-## Features
+## Using this example
 
-### Real-time Code Editor
+Run the following command:
 
-- Synced code editor allowing multiple users to code simultaneously.
-- Code synchronization enables instant updates across all connected users.
-- Support for various programming languages with syntax highlighting.
+```sh
+npx create-turbo@latest
+```
 
-### Chat Feature
+## What's inside?
 
-- Integrated chat feature for real-time communication among all participants.
-- Chat history maintained for seamless interaction during and after sessions.
+This Turborepo includes the following packages/apps:
 
-### Video/Voice Calls
+### Apps and Packages
 
-- Ability to initiate video and voice calls for face-to-face interaction.
-- Supports multiple participants for collaborative discussions.
+- `docs`: a [Next.js](https://nextjs.org/) app
+- `web`: another [Next.js](https://nextjs.org/) app
+- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
-### Live Code Execution
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
 
-- Run and test code within the application environment.
-- Immediate execution and visualization of the code output.
+### Utilities
 
-## Technologies Used
+This Turborepo has some additional tools already setup for you:
 
-- Frontend: MERN stack (MongoDB, Express.js, React.js, Node.js)
-- Frontend Libraries: React, Tailwind CSS, CodeMirror
-- Backend: Node.js, Socket.IO, Agora (for video calls)
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Prettier](https://prettier.io) for code formatting
 
-## Setup
+### Build
 
-1. Clone the repository.
-2. Navigate to the project directory.
-3. Install dependencies using `npm install`.
-4. Start the server using `npm start`.
+To build all apps and packages, run the following command:
 
-## Usage
+```
+cd my-turborepo
+pnpm build
+```
 
-1. Create or join a room to collaborate with others.
-2. Explore and utilize the various features available.
-3. Start a video/voice call, use the code editor, whiteboard, and chat functionality.
-4. Run and test code snippets within the platform.
+### Develop
 
-## Contributions
+To develop all apps and packages, run the following command:
 
-Contributions and feature requests are welcome. Feel free to submit issues or pull requests.
+```
+cd my-turborepo
+pnpm dev
+```
 
-## License
+### Remote Caching
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+
+By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+
+```
+cd my-turborepo
+npx turbo login
+```
+
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+
+```
+npx turbo link
+```
+
+## Useful Links
+
+Learn more about the power of Turborepo:
+
+- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
+- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
+- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
+- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
+- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
+- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
