@@ -1,11 +1,11 @@
-import express from "express";
-import { PythonShell } from "python-shell";
-import http from "http";
-import { Server } from "socket.io";
-import ACTIONS from "./Actions";
-import cors from "cors";
-
+const express = require("express");
 const app = express();
+const fs = require("fs");
+const { PythonShell } = require("python-shell");
+const http = require("http");
+const { Server } = require("socket.io");
+const ACTIONS = require("./Actions");
+const cors = require("cors");
 app.use(cors());
 
 // Create an HTTP server using the Express app
@@ -20,17 +20,15 @@ const io = new Server(server, {
 });
 
 // Map to store the association between user socket IDs and their usernames
-const userSocketMap: { [socketId: string]: string } = {};
+const userSocketMap = {};
 
 // Function to get all connected clients in a specific room
-function getAllConnectedClients(
-  roomId: string
-): { socketId: string; userName: string }[] {
+function getAllConnectedClients(roomId) {
   return Array.from(io.sockets.adapter.rooms.get(roomId) || []).map(
     (socketId) => {
       return {
-        socketId: socketId as string,
-        userName: userSocketMap[socketId as string],
+        socketId,
+        userName: userSocketMap[socketId],
       };
     }
   );
@@ -61,18 +59,16 @@ io.on("connection", (socket) => {
   socket.on(ACTIONS.SEND_MESSAGE, (data) => {
     socket.in(data.room).emit(ACTIONS.RECEIVE_MESSAGE, data);
   });
-  socket.on(
-    ACTIONS.RUN_CODE,
-    ({ code, roomId }: { code: string; roomId: string }) => {
-      PythonShell.runString(code)
-        .then((data: any[]) => {
-          io.to(roomId).emit(ACTIONS.OUTPUT, { data: data.toString() });
-        })
-        .catch((err: Error) => {
-          io.to(roomId).emit(ACTIONS.OUTPUT, { data: err.toString() });
-        });
-    }
-  );
+  socket.on(ACTIONS.RUN_CODE, ({ code, roomId }) => {
+    PythonShell.runString(code)
+      .then((data) => {
+        io.to(roomId).emit(ACTIONS.OUTPUT, { data: data.toString() });
+        console.log(data.toString());
+      })
+      .catch((err) => {
+        io.to(roomId).emit(ACTIONS.OUTPUT, { data: err.toString() });
+      });
+  });
 
   socket.on(ACTIONS.CODE_CHANGE, ({ roomId, code }) => {
     socket.in(roomId).emit(ACTIONS.CODE_CHANGE, { code });
@@ -87,9 +83,9 @@ io.on("connection", (socket) => {
         socketId: socket.id,
         userName: userSocketMap[socket.id],
       });
-      socket.leave(roomId);
     });
     delete userSocketMap[socket.id];
+    socket.leave();
   });
 });
 

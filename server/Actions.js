@@ -10,6 +10,6 @@ const ACTIONS = {
   DRAW: "draw",
   RUN_CODE: "run_code",
   OUTPUT: "output",
-} as const;
+};
 
-export default ACTIONS;
+module.exports = ACTIONS;
