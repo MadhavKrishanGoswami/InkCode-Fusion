@@ -8,6 +8,10 @@ const ACTIONS = require("./Actions");
 const cors = require("cors");
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("Server is up and running!");
+});
+
 // Create an HTTP server using the Express app
 const server = http.createServer(app);
 
