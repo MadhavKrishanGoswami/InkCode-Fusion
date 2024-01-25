@@ -25,7 +25,7 @@ const options = {
   timeout: 10000,
   transports: ["websocket"],
 };
-const server = process.env.REACT_APP_BACKEND_URL;
+const server = process.env.BACKEND_URL || "http://localhost:4000";
 const socket = io(server, options);
 
 const Room = () => {
