@@ -1,6 +1,5 @@
 import React from "react";
 import UserAvatar from "./Avatar";
-import "./style.css";
 
 const Clients = ({ userName, You }) => {
   return (

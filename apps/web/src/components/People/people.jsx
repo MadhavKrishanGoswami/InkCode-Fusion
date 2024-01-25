@@ -61,7 +61,7 @@ const People = ({ roomId, socket, setShowPeople, userName, isVisible }) => {
         <span className=" text-gray-600 font-Roboto text-base font-normal leading-normal pl-5">
           In room
         </span>
-        <div className="  items-center pt-2 pb-3">
+        <div className=" items-center pt-2 pb-3">
           {clients.map((client) => (
             <Client
               key={client.socketId}
