@@ -1,0 +1,34 @@
+.FORM {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 5vw;
+  column-gap: 12vw; /* Adjusted column-gap for better responsiveness */
+}
+.CreatCard,
+.JoinCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 31vw; /* Adjusted width using viewport width */
+  height: 41vw; /* Adjusted height using viewport width */
+  border-radius: 3vw; /* Adjusted border-radius using viewport width */
+  background: #1e1e1e;
+}
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 3.5vw;
+  flex-shrink: 0;
+  color: #d9d9d9;
+  text-align: center;
+  font-family: Inter;
+  font-size: 2vw; /* Adjusted font-size using viewport width */
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: capitalize;
+}
