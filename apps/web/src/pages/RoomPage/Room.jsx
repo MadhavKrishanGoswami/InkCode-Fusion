@@ -25,7 +25,7 @@ const options = {
   timeout: 10000,
   transports: ["websocket"],
 };
-const server = process.env.BACKEND_URL || "http://localhost:4000";
+const server = "https://inkcode-fusion-production.up.railway.app/";
 const socket = io(server, options);
 
 const Room = () => {

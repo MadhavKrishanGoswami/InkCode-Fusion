@@ -5,7 +5,7 @@ import Controls from "./controls";
 
 //import "./Video.css";
 const VideoRoom = ({ roomId, leaveRoom, showChat, showPeople }) => {
-  const APP_ID = process.env.AGORA_APP_ID || "d702f637f7b34bde9607a32f20812a66";
+  const APP_ID = "d702f637f7b34bde9607a32f20812a66";
   const TOKEN = null;
   const CHANNEL = roomId;
   const client = AgoraRTC.createClient({
