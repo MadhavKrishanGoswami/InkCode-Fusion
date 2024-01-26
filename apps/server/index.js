@@ -64,7 +64,14 @@ io.on("connection", (socket) => {
     socket.in(data.room).emit(ACTIONS.RECEIVE_MESSAGE, data);
   });
   socket.on(ACTIONS.RUN_CODE, ({ code, roomId }) => {
-    io.to(roomId).emit(ACTIONS.OUTPUT, { data: "Hello World" });
+    PythonShell.runString("print('HELLO WORLD')")
+      .then((data) => {
+        io.to(roomId).emit(ACTIONS.OUTPUT, { data: "HELLO WORLD" });
+        console.log("HELLO WORLD");
+      })
+      .catch((err) => {
+        io.to(roomId).emit(ACTIONS.OUTPUT, { data: err.toString() });
+      });
   });
 
   socket.on(ACTIONS.CODE_CHANGE, ({ roomId, code }) => {
