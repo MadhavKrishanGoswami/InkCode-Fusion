@@ -11,11 +11,11 @@ const Home = () => {
       transition={{ duration: 0.15, ease: "easeOut" }} // Set transition duration and easing function
     >
       {" "}
-      <div className=" relative font-Inter top-[6vw] w-[90%] h-[52.85vh] left-[4.96%]">
-        <h1 className=" relative text-[10vw] text-Tblack leading-[100%] tracking-tighter font-semibold">
+      <div className=" relative font-Inter top-[4vw] w-[90%] h-[52.85vh] left-[4.96%]">
+        <h1 className=" relative text-[9.5vw] text-Tblack leading-[100%] tracking-tighter font-semibold">
           InkCode
         </h1>
-        <h2 className="Tagline text-[4.2vw] text-Tblack tracking-tighter font-normal">
+        <h2 className="Tagline text-[3.8vw] ml-2 text-Tblack tracking-tighter font-normal">
           Elevate your Technical
           <br />
           Interviews Seamlessly!
@@ -23,13 +23,13 @@ const Home = () => {
         <button
           className="StartButton flex flex-shrink-0 font-Inter items-center justify-center font-semibold
            relative px-4 py-2 rounded-full text-White bg-black md:w-[15%] md:h-[13%] lg:w-[15%] lg:h-[13%]
-            xl:w-[15%] xl:h-[14%] text-[1.4vw] top-[25%] left-[3.25%] leading-[90%] transition duration-300 ease-in-out transform hover:scale-105"
+            xl:w-[15%] xl:h-[14%] text-[1.4vw] top-[20%] left-[3.25%] leading-[90%] transition duration-300 ease-in-out transform hover:scale-105"
           onClick={() => Navigate("/Start")}
         >
           Start Now
         </button>
 
-        <div className="auto-layer-column relative h-[25%] w-[90%] top-[65%]">
+        <div className="auto-layer-column fixed bottom-20 h-auto w-[90%]">
           <span className="madhav-krishan-goswami absolute text-[1.3vw] font-semibold">
             Madhav Krishan Goswami
           </span>

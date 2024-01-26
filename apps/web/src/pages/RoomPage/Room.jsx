@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import "./style.css";
 import toast from "react-hot-toast";
 import ACTIONS from "../../Actions";
@@ -25,7 +25,7 @@ const options = {
   timeout: 10000,
   transports: ["websocket"],
 };
-const server = "https://inkcode-fusion-production.up.railway.app/";
+const server = "https://inkcode-fusion-server.up.railway.app/";
 const socket = io(server, options);
 
 const Room = () => {

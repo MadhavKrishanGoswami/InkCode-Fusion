@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { BrowserRouter, useLocation } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import AnimatedRoutes from "./components/Transition/AnimatedRoutes";
 
 import { Toaster } from "react-hot-toast";

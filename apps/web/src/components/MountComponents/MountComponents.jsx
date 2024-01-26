@@ -5,6 +5,7 @@ import { IconButton } from "@mui/material";
 import PeopleIcon from "@mui/icons-material/People";
 import ChatIcon from "@mui/icons-material/Chat";
 import SecurityIcon from "@mui/icons-material/Security";
+import toast from "react-hot-toast";
 import "./style.css";
 
 const MountComponents = ({ socket, roomId, userName }) => {
@@ -16,7 +17,9 @@ const MountComponents = ({ socket, roomId, userName }) => {
   const handleShowPeople = () => {
     setShowPeople(!showPeople);
   };
-
+  const handleClick = () => {
+    toast.success("Your connections are secure!", { duration: 2000 });
+  };
   return (
     <div className="">
       <div className="flex absolute justify-center items-center gap-[1vw] top-[48vw] left-[89vw]">
@@ -40,7 +43,11 @@ const MountComponents = ({ socket, roomId, userName }) => {
         </div>
         <div className="w-10 h-10 rounded-full hover:bg-Darkblue">
           <IconButton>
-            <SecurityIcon style={{ fill: "#FFFFFF" }} className="scale-101" />
+            <SecurityIcon
+              style={{ fill: "#FFFFFF" }}
+              className="scale-101"
+              onClick={handleClick}
+            />
           </IconButton>
         </div>
       </div>
