@@ -22,7 +22,7 @@ const Home = () => {
         </h2>
         <button
           className="StartButton flex flex-shrink-0 font-Inter items-center justify-center font-semibold
-           relative px-4 py-2 rounded-full text-white bg-black md:w-[15%] md:h-[13%] lg:w-[15%] lg:h-[13%]
+           relative px-4 py-2 rounded-full text-White bg-black md:w-[15%] md:h-[13%] lg:w-[15%] lg:h-[13%]
             xl:w-[15%] xl:h-[14%] text-[1.4vw] top-[25%] left-[3.25%] leading-[90%] transition duration-300 ease-in-out transform hover:scale-105"
           onClick={() => Navigate("/Start")}
         >

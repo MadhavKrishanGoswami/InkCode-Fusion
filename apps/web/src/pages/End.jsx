@@ -38,7 +38,7 @@ const End = () => {
           Start a new Meeting?
         </h2>
         <button
-          className=" fixed w-[12vw] h-[3.4vw] rounded-full text-white
+          className=" fixed w-[12vw] h-[3.4vw] rounded-full text-White
              font-Inter font-semibold bg-black text-[1.4vw] ml-4 md:ml-8 top-[50vh] left-[40vw] 
              transition duration-300 ease-in-out transform hover:scale-105"
           onClick={() => Navigate("/Start")}

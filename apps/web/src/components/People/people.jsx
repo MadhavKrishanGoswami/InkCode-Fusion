@@ -28,10 +28,10 @@ const People = ({ roomId, socket, setShowPeople, userName, isVisible }) => {
   };
   return (
     <div className={`${isVisible ? "visible" : "hidden"}`}>
-      <div className="flex flex-col absolute z-50 right-[2%] top-[5%] w-[24%] h-[84%] shadow-xl shadow-black flex-shrink-0 rounded-2xl bg-white">
+      <div className="flex flex-col absolute z-50 right-[2%] top-[5%] w-[24%] max-w-sm h-[84%] shadow-xl shadow-black flex-shrink-0 rounded-2xl bg-White">
         {" "}
         <div className="p-6 pr-3 pb-1 pl-5 flex w-full">
-          <span className="font-Roboto text-base font-bold leading-normal ml-1">
+          <span className="font-Roboto text-base font-medium leading-normal ml-1">
             People
           </span>
           <CloseIcon
@@ -51,17 +51,17 @@ const People = ({ roomId, socket, setShowPeople, userName, isVisible }) => {
               </span>
             </div>
           </IconButton>{" "}
-          <div className=" flex flex-col items-center p-2 mr-10">
+          <div className="flex flex-col items-center p-2 mr-10">
             <HdrStrongIcon style={{ fill: "#5F6368" }} className="scale-125" />
             <span className="text-black font-Roboto text-base font-normal leading-normal flex  py-3 items-start">
               Room Controls
             </span>
           </div>
         </div>
-        <span className=" text-gray-600 font-Roboto text-base font-normal leading-normal pl-5">
+        <span className="text-gray-600 font-Roboto text-base font-normal leading-normal pl-5">
           In room
         </span>
-        <div className=" items-center pt-2 pb-3">
+        <div className="items-center pt-2 pb-3">
           {clients.map((client) => (
             <Client
               key={client.socketId}

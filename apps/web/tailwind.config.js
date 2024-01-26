@@ -22,6 +22,7 @@ module.exports = {
       Runbg: "#1f2228",
       ChatText: "#202124",
       ChatBg: "#f1f3f4",
+      White: "#FFFFFF",
     },
     extend: {
       spacing: {},

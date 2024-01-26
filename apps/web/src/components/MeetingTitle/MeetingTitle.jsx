@@ -16,7 +16,7 @@ const MeetingTitle = () => {
   }, []);
 
   return (
-    <div className=" relative flex items-center py-6 ml-[1.7vw] mb-4 mt-[1.2vw] w-[26%] h-[10.4vh] rounded-[18px] bg-lightGrey border border-Border shadow-md shadow-black">
+    <div className="relative flex items-center py-6 ml-[1.7vw] mb-4 mt-[1.2vw] w-[26%] h-[10.4vh] rounded-[18px] bg-lightGrey border border-Border shadow-md shadow-black">
       <img
         src={meetingpng}
         alt="meeting"
