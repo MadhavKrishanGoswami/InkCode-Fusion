@@ -1,6 +1,6 @@
 # InkCode Fusion
 
-InkCode Fusion is a comprehensive web application designed as a one-stop solution for technical interviews and collaborative coding sessions. It offers a versatile platform that combines a suite of powerful features aimed at facilitating seamless communication, code collaboration, and interactive problem-solving.
+InkCode Fusion is a comprehensive web application designed as a one-stop solution for technical interviews and collaborative coding sessions. It offers a versatile platform that combines a suite of powerful features aimed at facilitating seamless communication, code collaboration, and interactive problem-solving. This application is built using Electron.js and organized in a monorepo structure using Turborepo.
 
 ## Features
 
@@ -30,13 +30,15 @@ InkCode Fusion is a comprehensive web application designed as a one-stop solutio
 - Frontend: MERN stack (MongoDB, Express.js, React.js, Node.js)
 - Frontend Libraries: React, Tailwind CSS, CodeMirror
 - Backend: Node.js, Socket.IO, Agora (for video calls)
+- Application Framework: Electron.js
+- Monorepo: Turborepo
 
 ## Setup
 
 1. Clone the repository.
 2. Navigate to the project directory.
-3. Install dependencies using `npm install`.
-4. Start the server using `npm start`.
+3. Install dependencies using `yarn install`.
+4. Start the server using `yarn dev`.
 
 ## Usage
 
@@ -51,4 +53,4 @@ Contributions and feature requests are welcome. Feel free to submit issues or pu
 
 ## License
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+This project is licensed under the MIT License.
