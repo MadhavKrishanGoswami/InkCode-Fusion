@@ -1,4 +1,4 @@
-.join-room-form {
+/*.join-room-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,14 +6,14 @@
   position: relative;
   top: 8vw;
   column-gap: 10vw; /* Adjusted column-gap for better responsiveness */
-}
+/*}
 .JoinButton {
   display: flex;
   position: relative;
   top: 5vw;
   width: 19vw; /* Adjusted width using viewport width */
-  height: 5vw; /* Adjusted height using viewport width */
-  justify-content: center;
+/*height: 5vw; /* Adjusted height using viewport width */
+/*justify-content: center;
   align-items: center;
   flex-shrink: 0;
   color: #fff;
@@ -37,7 +37,7 @@
 .form-input {
   display: flex;
   width: 25vw; /* Adjusted width using viewport width */
-  height: 4vw;
+/*height: 4vw;
   flex-direction: column;
   flex-shrink: 0;
   border-radius: 12.79px;
@@ -55,4 +55,4 @@
   display: flex;
   flex-direction: column;
   row-gap: 3.1vw;
-}
+}*/

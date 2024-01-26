@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-//import "./JoinRoomForm.css";
 
 const JoinRoomForm = () => {
   // State variables to store user input
@@ -31,10 +30,10 @@ const JoinRoomForm = () => {
 
   return (
     <form
-      className="join-room-form flex flex-col justify-center items-center relative gap-x-[8vw] 
+      className="flex flex-col justify-center items-center relative gap-x-[8vw] 
     top-[8vw]"
     >
-      <div className="input flex flex-col gap-y-[3.5vw]">
+      <div className="flex flex-col gap-y-[3.5vw]">
         <input
           type="text"
           className="flex flex-col h-[3.4vw] w-[25vw] pl-5 flex-shrink-0 rounded-[12.79px] border-[1.827px] 
@@ -58,8 +57,8 @@ const JoinRoomForm = () => {
       </div>
       <button
         onClick={joinRoom}
-        className="JoinButton flex relative justify-center items-center flex-shrink-0 top-[5vw]
-        w-[19vw] h-[9vh] text-white font-Syne text-3xl font-normal font-500 leading-normal shadow-md shadow-black transition duration-300 ease-in-out transform hover:scale-105 rounded-full bg-mustard"
+        className="flex relative justify-center items-center flex-shrink-0 top-[5vw]
+        w-[19vw] h-[9vh] text-White font-Syne text-3xl font-medium font-500 leading-normal shadow-md shadow-black transition duration-300 ease-in-out transform hover:scale-105 rounded-full bg-mustard"
       >
         Join Room
       </button>

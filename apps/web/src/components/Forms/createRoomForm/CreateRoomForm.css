@@ -1,4 +1,4 @@
-.CreateRoomForm {
+/*.CreateRoomForm {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -6,14 +6,14 @@
   position: relative;
   top: 8vw;
   column-gap: 10vw; /* Adjusted column-gap for better responsiveness */
-}
+/*}
 .CreateButton {
   display: flex;
   position: relative;
   top: 5vw;
   width: 19vw; /* Adjusted width using viewport width */
-  height: 5vw; /* Adjusted height using viewport width */
-  justify-content: center;
+/*height: 5vw; /* Adjusted height using viewport width */
+/*justify-content: center;
   align-items: center;
   flex-shrink: 0;
   color: #fff;
@@ -36,8 +36,8 @@
 }
 .form-input {
   width: 0vw; /* Adjusted width using viewport width */
-  height: 0vw; /* Adjusted height using viewport width */
-  padding: 10.986px 19.733px;
+/*height: 0vw; /* Adjusted height using viewport width */
+/*padding: 10.986px 19.733px;
   border-radius: 12.724px;
   border: 1.818px solid #f1f1f1;
   color: #bcbcbc;
@@ -105,4 +105,4 @@
   height: 41px;
   padding: 9px 2.897px;
   flex-shrink: 0;
-}
+}*/

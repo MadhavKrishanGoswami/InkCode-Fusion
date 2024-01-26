@@ -19,7 +19,7 @@ const MountComponents = ({ socket, roomId, userName }) => {
 
   return (
     <div className="">
-      <div className="controls">
+      <div className="flex absolute justify-center items-center gap-[1vw] top-[48vw] left-[89vw]">
         <div className="w-10 h-10 rounded-full hover:bg-Darkblue">
           <IconButton>
             <ChatIcon
