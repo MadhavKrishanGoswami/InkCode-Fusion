@@ -21,7 +21,7 @@ const People = ({ roomId, socket, setShowPeople, userName, isVisible }) => {
     e.preventDefault();
     navigator.clipboard.writeText(
       userName +
-        " Invited You To a InkCode Meeting 🚀:\n\nJoin the meeting at https://inkcode.io/\nRoomId ID: " +
+        " Invited You To a InkCode Meeting 🚀:\n\nJoin the meeting at https://inkcodefusion.vercel.app/\nRoomId ID: " +
         roomId
     );
     toast.success("Share the meeting invite with your friends! 🚀");
