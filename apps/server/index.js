@@ -1,12 +1,27 @@
 const express = require("express");
 const app = express();
-const fs = require("fs");
-const { PythonShell } = require("python-shell");
 const http = require("http");
 const { Server } = require("socket.io");
 const ACTIONS = require("./Actions");
 const cors = require("cors");
+const redis = require("redis");
+
 app.use(cors());
+
+const client = redis.createClient();
+const subClient = redis.createClient();
+async function startRedis() {
+  try {
+    await client.connect();
+    console.log("Connected to Redis");
+    await subClient.connect();
+    console.log("Connected to Redis for subscribing");
+  } catch (error) {
+    console.error("Failed to connect to Redis", error);
+  }
+}
+
+startRedis();
 
 app.get("/", (req, res) => {
   res.send("Server is up and running!");
@@ -34,7 +49,7 @@ function getAllConnectedClients(roomId) {
         socketId,
         userName: userSocketMap[socketId],
       };
-    }
+    },
   );
 }
 
@@ -63,15 +78,30 @@ io.on("connection", (socket) => {
   socket.on(ACTIONS.SEND_MESSAGE, (data) => {
     socket.in(data.room).emit(ACTIONS.RECEIVE_MESSAGE, data);
   });
-  socket.on(ACTIONS.RUN_CODE, ({ code, roomId }) => {
-    io.to(roomId).emit(ACTIONS.OUTPUT, { data: "Hello World" });
+  socket.on(ACTIONS.RUN_CODE, async ({ code, roomId }) => {
+    try {
+      await client.lPush("codeForProcessing", JSON.stringify({ code, roomId }));
+      console.log("Code pushed to Redis queue for processing");
+    } catch (error) {
+      console.error("Redis error:", error);
+    }
+
+    subClient.subscribe("task_updates", function (message, channel) {
+      console.log("Subscribed to task_updates channel");
+      console.log("Received message in channel %s: %s", channel, message);
+      const { messageRoomId, codeOutput } = JSON.parse(message);
+      console.log("messageRoomId", messageRoomId);
+      console.log("roomId", roomId);
+      console.log("codeOutput", codeOutput);
+      if (messageRoomId === roomId) {
+        socket.in(roomId).emit(ACTIONS.OUTPUT, { data: codeOutput });
+        console.log("Output sent to room", roomId);
+      }
+    });
   });
 
   socket.on(ACTIONS.CODE_CHANGE, ({ roomId, code }) => {
     socket.in(roomId).emit(ACTIONS.CODE_CHANGE, { code });
-  });
-  socket.on(ACTIONS.DRAW, (data) => {
-    socket.broadcast.emit(ACTIONS.DRAW, data);
   });
   socket.on("disconnecting", () => {
     const rooms = [...socket.rooms];

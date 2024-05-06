@@ -25,7 +25,7 @@ const options = {
   timeout: 10000,
   transports: ["websocket"],
 };
-const server = "https://inkcode-fusion-server.up.railway.app/";
+const server = "localhost:4000";
 const socket = io(server, options);
 
 const Room = () => {

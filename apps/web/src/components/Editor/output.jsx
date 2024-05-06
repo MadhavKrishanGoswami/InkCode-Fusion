@@ -13,6 +13,7 @@ const Output = ({ socket }) => {
         setOutput(data);
         setIsLoading(false);
         console.log(data);
+        console.log("Output received");
       });
     }
   }, [socket]);
