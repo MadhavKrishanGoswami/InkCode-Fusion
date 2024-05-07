@@ -29,9 +29,14 @@ InkCode Fusion is a comprehensive web application designed as a one-stop solutio
 
 - Frontend: MERN stack (MongoDB, Express.js, React.js, Node.js)
 - Frontend Libraries: React, Tailwind CSS, CodeMirror
-- Backend: Node.js, Socket.IO, Agora (for video calls)
+- Backend: Node.js, Socket.IO, Agora (for video calls), Redis
 - Application Framework: Electron.js
 - Monorepo: Turborepo
+
+
+## Architecture
+
+![Untitled-2024-05-05-2157](https://github.com/MadhavKrishanGoswami/InkCode-Fusion/assets/116915826/c5942d4b-c75b-4789-ab23-5bef7f9f596f)
 
 ## Setup
 
