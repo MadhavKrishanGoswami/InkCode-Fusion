@@ -38,12 +38,21 @@ InkCode Fusion is a comprehensive web application designed as a one-stop solutio
 
 ![Untitled-2024-05-05-2157](https://github.com/MadhavKrishanGoswami/InkCode-Fusion/assets/116915826/c5942d4b-c75b-4789-ab23-5bef7f9f596f)
 
+
 ## Setup
+
+### Prerequisites
+
+- [Docker](https://www.docker.com/get-started) must be installed on your machine.
+
+### Running the Application
 
 1. Clone the repository.
 2. Navigate to the project directory.
-3. Install dependencies using `yarn install`.
-4. Start the server using `yarn dev`.
+3. Start the application using Docker Compose:
+   ```bash
+   docker-compose up --build
+
 
 ## Usage
 
