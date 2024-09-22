@@ -1,8 +1,15 @@
 import { createClient } from "redis";
 
 
-const client  = createClient();
-const pubClient = createClient();
+
+const client = createClient({
+  url: 'redis://redis:6379'  // The URL should match the service name in your Docker Compose
+});
+
+const pubClient = createClient({
+  url: 'redis://redis:6379'
+});
+
 async function processCode(submission: string) {
   const { code, roomId } = JSON.parse(submission);
   console.log(`Processing code for room: ${roomId}`);

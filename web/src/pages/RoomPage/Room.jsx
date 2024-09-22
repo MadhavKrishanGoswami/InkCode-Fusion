@@ -23,9 +23,14 @@ const options = {
   "force new connection": true,
   reconnectionAttempt: "Infinity",
   timeout: 10000,
-  transports: ["websocket"],
+  transports: ["websocket", 'polling'],
+  cors: {
+    origin: '*',  // Allow all origins
+    methods: ['GET', 'POST'],
+    credentials: true,
+  },
 };
-const server = "localhost:4000";
+const server = 'localhost:4000';
 const socket = io(server, options);
 
 const Room = () => {

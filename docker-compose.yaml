@@ -1,0 +1,48 @@
+services:
+  redis:
+    container_name: redis
+    ports:
+      - 6379:6379
+    image: redis
+    networks:
+      - inkcode-servers
+  web:
+    image: inkcode-web
+    build:
+      context: ./web/
+      dockerfile: Dockerfile
+    init: true
+    networks:
+      - inkcode-frontend
+    ports:
+      - 3000:3000
+    depends_on:
+      - server
+  server:
+    image: inkcode-server
+    build:
+      context: ./server/
+      dockerfile: Dockerfile
+    init: true
+    networks:
+      - inkcode-servers
+    ports:
+      - 4000:4000
+    depends_on:
+      - redis
+      - worker
+  worker:
+    image: inkcode-worker
+    build:
+      context: ./worker/
+      dockerfile: Dockerfile
+    init: true
+    networks:
+      - inkcode-servers
+    depends_on:
+      - redis
+    ports:
+      - 5001:5001
+networks:
+  inkcode-servers:
+  inkcode-frontend:
