@@ -31,7 +31,6 @@ InkCode Fusion is a comprehensive web application designed as a one-stop solutio
 - Frontend Libraries: React, Tailwind CSS, CodeMirror
 - Backend: Node.js, Socket.IO, Agora (for video calls), Redis
 - Application Framework: Electron.js
-- Monorepo: Turborepo
 
 
 ## Architecture
