@@ -63,7 +63,6 @@ InkCode Fusion is a comprehensive web application designed as a one-stop solutio
 ## Contributions
 
 Contributions and feature requests are welcome. Feel free to submit issues or pull requests.
-
 ## License
 
 This project is licensed under the MIT License.
