@@ -27,7 +27,7 @@ InkCode Fusion is a comprehensive web application designed as a one-stop solutio
 
 ## Technologies Used
 
-- Frontend: MERN stack (MongoDB, Express.js, React.js, Node.js)
+- Frontend: MERN stack React.js
 - Frontend Libraries: React, Tailwind CSS, CodeMirror
 - Backend: Node.js, Socket.IO, Agora (for video calls), Redis
 - Application Framework: Electron.js
