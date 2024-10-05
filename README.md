@@ -50,7 +50,7 @@ InkCode Fusion is a comprehensive web application designed as a one-stop solutio
 2. Navigate to the project directory.
 3. Start the application using Docker Compose:
    ```bash
-   docker-compose up --build
+   docker-compose up
 
 
 ## Usage
