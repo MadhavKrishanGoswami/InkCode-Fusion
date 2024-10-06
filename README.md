@@ -84,7 +84,39 @@ InkCode Fusion is a comprehensive web application designed as a one-stop solutio
 
 ## Contributions
 
-Contributions and feature requests are welcome. Feel free to submit issues or pull requests.
+1. **Fork the Repository**
+   - Navigate to the [InkCode Fusion repository](https://github.com/MadhavKrishanGoswami/InkCode-Fusion).
+   - Click the "Fork" button to create a copy of the repository in your GitHub account.
+
+2. **Clone the Repository**
+   - Clone the forked repository to your local machine:
+   ```bash
+   git clone https://github.com/<your-username>/InkCode-Fusion.git
+   cd InkCode-Fusion
+   ```
+
+3. **Create a New Branch**
+   - Create a new branch for your feature or bug fix:
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+4. Make your changes and commit them
+
+   ```bash
+   git commit -m 'add you commit message'
+   ```
+
+5. Push to the branch
+
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+6. Go to [the repository](https://github/MadhavKrishanGoswami/InkCode-Fusion/pulls) and [make a Pull Request](https://docs.github.com/en/free-pro-team@latest/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+
+> For major changes, please open an issue first to discuss what you would like to change.
+
+Read [contributing guidelines](./CONTRIBUTING.md) to start making contributions
 
 ## License
 
