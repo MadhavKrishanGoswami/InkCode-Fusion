@@ -52,7 +52,7 @@ InkCode Fusion is a comprehensive web application designed as a one-stop solutio
 
 2. **Clone the Repository**
    ```bash
-   git clone https://github.com/your-username/InkCode-Fusion.git
+   git clone https://github.com/MadhavKrishanGoswami/InkCode-Fusion.git
    cd InkCode-Fusion
    ```
 
