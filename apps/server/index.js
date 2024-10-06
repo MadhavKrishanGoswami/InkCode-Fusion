@@ -9,10 +9,10 @@ const redis = require("redis");
 app.use(cors());
 
 const client = redis.createClient({
-  // url: 'redis://redis:6379'  // The URL should match the service name in your Docker Compose
+  url: 'redis://redis:6379'  // The URL should match the service name in your Docker Compose
 });
 const subClient = redis.createClient({
-  // url: 'redis://redis:6379'  // The URL should match the service name in your Docker Compose
+  url: 'redis://redis:6379'  // The URL should match the service name in your Docker Compose
 });
 async function startRedis() {
   try {
@@ -83,6 +83,11 @@ io.on("connection", (socket) => {
     socket.in(data.room).emit(ACTIONS.RECEIVE_MESSAGE, data);
   });
   socket.on(ACTIONS.RUN_CODE, async ({ code, roomId }) => {
+    if (!code || !code.trim().endsWith(")")) {
+      socket.in(roomId).emit(ACTIONS.OUTPUT, { data: "SyntaxError: incomplete code" });
+      return;
+    }
+
     try {
       await client.lPush("codeForProcessing", JSON.stringify({ code, roomId }));
       console.log("Code pushed to Redis queue for processing");

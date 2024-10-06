@@ -12,7 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "redis": "^4.6.13"
+    "@types/node": "^22.7.4",
+    "child_process": "^1.0.2",
+    "redis": "^4.7.0"
   },
   "devDependencies": {
     "tsc": "^2.0.4",
