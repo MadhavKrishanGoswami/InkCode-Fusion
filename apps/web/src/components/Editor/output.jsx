@@ -10,11 +10,23 @@ const Output = ({ socket }) => {
     if (socket) {
       console.log("Checking for socket");
       socket.on(ACTIONS.OUTPUT, ({ data }) => {
-        setOutput(data);
+        setOutput(data.output || data);
         setIsLoading(false);
         console.log(data);
         console.log("Output received");
       });
+
+      socket.on("task_update", (message)=> {
+        const parsedMessage = JSON.parse(message);
+        setOutput(parsedMessage.codeOutput.output || parsedMessage.codeOutput.error)
+        setIsLoading(false)
+      })
+    }
+    return () =>{
+      if (socket) {
+        socket.off(ACTIONS.OUTPUT);
+        socket.off("task_update")
+      }
     }
   }, [socket]);
 
@@ -30,7 +42,7 @@ const Output = ({ socket }) => {
           <textarea
             type="text"
             readOnly
-            value={output}
+            value={typeof output === "string" ? output : JSON.stringify(output.error, null, 2)}
             className=" relative resize-none top-6 h-4/5 w-full flex-shrink-0 text-Output rounded-xl
          p-0 m-0 mt-2 outline-none border-none bg-Darkblue overflow-hidden text-xl text-white"
           />
