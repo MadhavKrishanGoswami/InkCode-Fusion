@@ -41,6 +41,11 @@ InkCode Fusion is a comprehensive web application designed as a one-stop solutio
 ### Prerequisites
 
 - [Docker](https://www.docker.com/get-started) must be installed on your machine.
+- **Yarn** must be installed. If you don't have Yarn installed, you can do so using npm:
+
+   ```bash
+   npm install --global yarn
+   ```
 
 ### Running the Application
 
