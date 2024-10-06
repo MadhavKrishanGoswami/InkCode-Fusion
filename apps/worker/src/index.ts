@@ -3,11 +3,11 @@ import { createClient } from "redis";
 
 
 const client = createClient({
-  url: 'redis://redis:6379'  // The URL should match the service name in your Docker Compose
+  // url: 'redis://redis:6379'  // The URL should match the service name in your Docker Compose
 });
 
 const pubClient = createClient({
-  url: 'redis://redis:6379'
+  // url: 'redis://redis:6379'
 });
 
 async function processCode(submission: string) {

@@ -9,7 +9,7 @@ services:
   web:
     image: inkcode-web
     build:
-      context: ./web/
+      context: ./apps/web/
       dockerfile: Dockerfile
     init: true
     networks:
@@ -21,7 +21,7 @@ services:
   server:
     image: inkcode-server
     build:
-      context: ./server/
+      context: ./apps/server/
       dockerfile: Dockerfile
     init: true
     networks:
@@ -34,7 +34,7 @@ services:
   worker:
     image: inkcode-worker
     build:
-      context: ./worker/
+      context: ./apps/worker/
       dockerfile: Dockerfile
     init: true
     networks:
