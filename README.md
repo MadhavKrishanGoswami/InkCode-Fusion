@@ -2,7 +2,7 @@
 
 **InkCode Fusion** is a cutting-edge web application tailored for technical interviews and collaborative coding sessions. It merges real-time code collaboration, seamless communication, and interactive problem-solving features into one unified platform. Built with **Electron.js** and structured using **Turborepo**, InkCode Fusion empowers teams to collaborate effectively, making it the go-to tool for coding interviews, pair programming, and coding bootcamps.
 
-![Logo or Banner](./apps/web/public/Architecture.webp)
+![Logo or Banner](https://github.com/MadhavKrishanGoswami/InkCode-Fusion/assets/116915826/c5942d4b-c75b-4789-ab23-5bef7f9f596f)
 
 ---
 
