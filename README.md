@@ -1,8 +1,6 @@
-# InkCode Fusion
-
-**InkCode Fusion** is a cutting-edge web application tailored for technical interviews and collaborative coding sessions. It merges real-time code collaboration, seamless communication, and interactive problem-solving features into one unified platform. Built with **Electron.js** and structured using **Turborepo**, InkCode Fusion empowers teams to collaborate effectively, making it the go-to tool for coding interviews, pair programming, and coding bootcamps.
-
-![Logo or Banner](https://github.com/MadhavKrishanGoswami/InkCode-Fusion/assets/116915826/c5942d4b-c75b-4789-ab23-5bef7f9f596f)
+<p align="center">
+  <h1 align="center">InkCode Fusion</h3>
+  <p align="center">InkCode Fusion is an all-in-one web application designed for technical interviews and collaborative coding. It provides a versatile platform with powerful features for seamless communication, code collaboration, and interactive problem-solving.
 
 ---
 
@@ -30,6 +28,14 @@
 
 ---
 
+## 🧱 Application Architecture
+
+The architecture of **InkCode Fusion** is designed for scalability and real-time collaboration. Here's a high-level overview:
+
+![Architecture Diagram](https://github.com/MadhavKrishanGoswami/InkCode-Fusion/assets/116915826/c5942d4b-c75b-4789-ab23-5bef7f9f596f)
+
+---
+
 ## 🛠️ Technologies Used
 
 ### Frontend:
@@ -49,13 +55,6 @@
 
 ---
 
-## 🧱 Application Architecture
-
-The architecture of **InkCode Fusion** is designed for scalability and real-time collaboration. Here's a high-level overview:
-
-![Architecture Diagram](https://github.com/MadhavKrishanGoswami/InkCode-Fusion/assets/116915826/c5942d4b-c75b-4789-ab23-5bef7f9f596f)
-
----
 
 ## 🔧 Getting Started
 
