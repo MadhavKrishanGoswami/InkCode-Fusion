@@ -1,10 +1,10 @@
-# InkCode Fusion 
+<h3> # InkCode Fusion </h3>
 
-InkCode Fusion is a comprehensive web application designed as a one-stop solution for technical interviews and collaborative coding sessions. It offers a versatile platform that combines a suite of powerful features aimed at facilitating seamless communication, code collaboration, and interactive problem-solving. This application is built using Electron.js and organized in a monorepo structure using Turborepo.
+<b> InkCode Fusion is a comprehensive web application designed as a one-stop solution for technical interviews and collaborative coding sessions. It offers a versatile platform that combines a suite of powerful features aimed at facilitating seamless communication, code collaboration, and interactive problem-solving. This application is built using Electron.js and organized in a monorepo structure using Turborepo. </b>
 
-## Features
+ <h5> ## Features </h5>
 
-### Real-time Code Editor
+### Real-time Code Editor 
 
 - Synced code editor allowing multiple users to code simultaneously.
 - Code synchronization enables instant updates across all connected users.
