@@ -1,91 +1,155 @@
-# InkCode Fusion 
+# InkCode Fusion
 
-InkCode Fusion is a comprehensive web application designed as a one-stop solution for technical interviews and collaborative coding sessions. It offers a versatile platform that combines a suite of powerful features aimed at facilitating seamless communication, code collaboration, and interactive problem-solving. This application is built using Electron.js and organized in a monorepo structure using Turborepo.
+**InkCode Fusion** is a cutting-edge web application tailored for technical interviews and collaborative coding sessions. It merges real-time code collaboration, seamless communication, and interactive problem-solving features into one unified platform. Built with **Electron.js** and structured using **Turborepo**, InkCode Fusion empowers teams to collaborate effectively, making it the go-to tool for coding interviews, pair programming, and coding bootcamps.
 
-## Features
+![Logo or Banner](https://github.com/MadhavKrishanGoswami/InkCode-Fusion/assets/116915826/c5942d4b-c75b-4789-ab23-5bef7f9f596f)
 
-### Real-time Code Editor
+---
 
-- Synced code editor allowing multiple users to code simultaneously.
-- Code synchronization enables instant updates across all connected users.
-- Support for various programming languages with syntax highlighting.
+## 🚀 Key Features
 
-### Chat Feature
+### 💻 Real-time Code Editor
+- **Multi-user Synchronization**: Collaborate with others in real-time as the code editor syncs across all connected users.
+- **Support for Multiple Languages**: Write code in various programming languages with real-time syntax highlighting.
+- **Code History**: Navigate through the code history for seamless version control during your session.
 
-- Integrated chat feature for real-time communication among all participants.
-- Chat history maintained for seamless interaction during and after sessions.
+### 💬 Integrated Chat
+- **Real-time Messaging**: Communicate with your team using an in-built chat feature while coding.
+- **Persistent Chat History**: Chat logs are maintained for reviewing discussions and suggestions post-session.
 
-### Video/Voice Calls
+### 🎥 Video/Voice Calls
+- **Face-to-Face Collaboration**: Initiate video and voice calls directly within the platform to discuss ideas and solve problems.
+- **Multiple Participants Support**: Have group discussions with multiple users in a single session.
 
-- Ability to initiate video and voice calls for face-to-face interaction.
-- Supports multiple participants for collaborative discussions.
+### ⚡ Live Code Execution
+- **Instant Code Execution**: Run code instantly and see the results without leaving the application.
+- **Multi-Language Support**: Supports code execution in various languages like Python, JavaScript, and more.
 
-### Live Code Execution
+### 🧑‍🤝‍🧑 Collaborative Whiteboard (Planned)
+- **Interactive Whiteboard**: Collaborate on diagrams and visual representations while coding.
 
-- Run and test code within the application environment.
-- Immediate execution and visualization of the code output.
+---
 
-## Technologies Used
+## 🛠️ Technologies Used
 
-- **Frontend:** MERN stack, React.js
-- **Frontend Libraries:** React, Tailwind CSS, CodeMirror
-- **Backend:** Node.js, Socket.IO, Agora (for video calls), Redis
-- **Application Framework:** Electron.js 
+### Frontend:
+- **Framework**: MERN stack (React.js)
+- **Libraries**: React, Tailwind CSS, CodeMirror
+- **UI Enhancements**: Tailwind CSS for sleek, responsive UI design
 
-## Architecture
+### Backend:
+- **Server**: Node.js
+- **Real-time Features**: Socket.IO for real-time communication and collaboration
+- **Video/Voice**: Agora SDK
+- **Database/Cache**: Redis for session management
 
-![Untitled-2024-05-05-2157](https://github.com/MadhavKrishanGoswami/InkCode-Fusion/assets/116915826/c5942d4b-c75b-4789-ab23-5bef7f9f596f)
+### Application Framework:
+- **Desktop Application**: Electron.js
+- **Monorepo Management**: Turborepo for efficient project structure and builds
 
-## Setup
+---
+
+## 🧱 Application Architecture
+
+The architecture of **InkCode Fusion** is designed for scalability and real-time collaboration. Here's a high-level overview:
+
+![Architecture Diagram](https://github.com/MadhavKrishanGoswami/InkCode-Fusion/assets/116915826/c5942d4b-c75b-4789-ab23-5bef7f9f596f)
+
+---
+
+## 🔧 Getting Started
+
+To run **InkCode Fusion** on your local machine, follow these steps:
 
 ### Prerequisites
+- **Docker**: Make sure Docker is installed on your machine. [Install Docker](https://www.docker.com/get-started)
+- **Yarn**: If not installed, install Yarn using npm:
+  ```bash
+  npm install --global yarn
+  
+  ```
 
-- [Docker](https://www.docker.com/get-started) must be installed on your machine.
-- **Yarn** must be installed. If you don't have Yarn installed, you can do so using npm:
+## Installation and Setup
+1. Clone the Repository
+   - Start by cloning the repository:
+     ```bash
+     git clone https://github.com/MadhavKrishanGoswami/InkCode-Fusion.git
+     cd InkCode-Fusion
+     
+     ```
+2. Run Redis Using Docker
+   - Redis is required for real-time session management. Start Redis using Docker:
+     ```bash
+     
+     docker run --rm --name redis -p 6379:6379 redis
+     
+     ```
+3. Install Dependencies and Initialize Turborepo
+   - Install the project dependencies using Yarn (recommended for Turborepo-based projects):
+     ```bash
+     
+     yarn install
+     
+     ```
+4. Run the Application in Development Mode
+   - Start the application using the development script:
+     ```bash
+     
+     yarn dev
+     
+     ```
+5. Access the Application
+   - Open your browser and navigate to http://localhost:3000 to access the frontend interface.
+  
+## 📖 Usage Instructions
 
-   ```bash
-   npm install --global yarn
-   ```
+### Create or Join a Room
+You can either create a new room or join an existing one to start collaborating with your peers.
 
-### Running the Application
+### Utilize the Features
+- **Code Editor**: Collaborate with your peers in the real-time synced editor.
+- **Chat**: Discuss your approach or ask questions through the chat interface.
+- **Video/Voice Call**: Initiate a video or voice call to communicate effectively.
+- **Run Code**: Execute and test your code snippets within the platform.
 
-1. **Run Redis using Docker**  
-   To run the application, you need a Redis instance running. Start Redis quickly using Docker:
-   ```bash
-   docker run --rm --name redis -p 6379:6379 redis
-   ```
+### Future Feature Updates
+Stay tuned for future updates, including the interactive whiteboard and more advanced code collaboration features!
 
-2. **Clone the Repository**
-   ```bash
-   git clone https://github.com/MadhavKrishanGoswami/InkCode-Fusion.git
-   cd InkCode-Fusion
-   ```
+---
 
-3. **Install Dependencies and Setup Turborepo**
-   Once inside the project directory, install dependencies using Yarn (recommended for Turborepo):
-   ```bash
-   yarn install
-   ```
+## 👥 Contributing
 
-4. **Start the Application in Development Mode**
-   Run the application in development mode using the following command:
-   ```bash
-   yarn dev
-   ```
-5. **Access the Frontend**
-   The frontend will be running on [http://localhost:3000](http://localhost:3000)
-   
-### Usage
+We welcome contributions from the community! To contribute to **InkCode Fusion**, please follow these steps:
 
-1. Create or join a room to collaborate with others.
-2. Explore and utilize the various features available.
-3. Start a video/voice call, use the code editor, whiteboard, and chat functionality.
-4. Run and test code snippets within the platform.
+1. Fork the repository.
+2. Create a new branch for your feature/bug fix.
+3. Submit a pull request detailing your changes.
 
-## Contributions
+Feel free to check out the **Issues** section for feature requests, bugs, or to suggest improvements.
 
-Contributions and feature requests are welcome. Feel free to submit issues or pull requests.
+---
 
-## License
+## 👀 Our Contributors
 
-This project is licensed under the MIT License.
+- We extend our heartfelt gratitude for your invaluable contribution to our project! Your efforts play a pivotal role in elevating this project to greater heights.
+- Make sure you show some love by giving ⭐ to our repository.
+
+<div align="center">
+
+  <a href="https://github.com/MadhavKrishanGoswami/InkCode-Fusion">
+    <img src="https://contrib.rocks/image?repo=MadhavKrishanGoswami/InkCode-Fusion&&max=100" />
+  </a>
+</div>
+
+---
+
+## 📝 License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more details.
+
+---
+
+## 🤝 Acknowledgments
+
+- Thanks to all the developers and contributors who have made this project possible.
+- Special thanks to [Agora](https://www.agora.io/) for their SDK integration.
