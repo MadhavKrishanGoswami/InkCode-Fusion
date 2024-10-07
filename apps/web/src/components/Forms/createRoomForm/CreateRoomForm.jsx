@@ -82,21 +82,22 @@ const CreateRoomForm = () => {
       <div className="input flex flex-col gap-y-[3.5vw]">
         <input
           type="text"
-          className="flex flex-col h-[3.4vw] w-[25vw] pl-5 flex-shrink-0 rounded-[12.79px] border-[1.827px] 
-          border-solid border-LightBorder font-Syne text-[1rem] font-normal font-500 
+          className="flex flex-col h-[3.4vw] w-[25vw] pl-5 flex-shrink-0 rounded-3xl border-[1.827px] 
+          border-solid border-darkGrey font-Syne text-[1rem] font-normal font-500 
           leading-normal bg-StartBg text-ALightgrey"
           placeholder="Enter your Name"
           onChange={(e) => setUserName(e.target.value)}
           value={userName}
           onKeyUp={handleInputEnter}
         />
+        
         <div className="flex flex-col">
           <div className="relative inline-flex items-center ">
             <div className="relative inline-flex items-center">
               <input
                 type="text"
-                className="h-[3.4vw] w-[25vw] flex flex-col pl-5 flex-shrink-0 rounded-[12.79px] 
-                border-[1.827px] border-solid border-LightBorder text-ALightgrey font-Syne text-[1rem]
+                className="h-[3.4vw] w-[25vw] flex flex-col pl-5 flex-shrink-0 rounded-3xl 
+                border-[1.827px] border-solid border-darkGrey text-ALightgrey font-[Poppins] text-[1rem]
                 font-normal leading-normal bg-StartBg"
                 disabled
                 placeholder="Generate room code"
@@ -107,15 +108,18 @@ const CreateRoomForm = () => {
                 }
                 onKeyUp={handleInputEnter}
               />
+              {roomId?
               <button
                 onClick={copyRoomId}
-                className="flex text-White absolute font-Inter right-[7.5vw] font-normal leading-normal"
+                className="flex py-1.5 px-3 bg-StartBg rounded text-White absolute font-[Poppins] right-[7.5vw] font-normal leading-normal"
               >
                 Copy
               </button>
+              :null
+              }
               <button
-                className="flex absolute items-center py-3 px-10 justify-center right-[1vw] text-White font-Inter text-14 w-[5vw] h-[2vw]
-                font-normal font-400 leading-normal rounded-[45px] flex-shrink-0 transition duration-300 ease-in-out transform hover:scale-105 bg-mustard"
+                className="flex absolute items-center py-1.5 px-3 justify-center right-[1vw] text-White font-[Poppins] text-14
+                font-normal font-400 leading-normal rounded-3xl flex-shrink-0 transition duration-300 ease-in-out transform hover:scale-105 bg-none border border-mustard"
                 type="button"
                 onClick={createNewRoom}
               >
@@ -127,7 +131,7 @@ const CreateRoomForm = () => {
       </div>
       <button
         className="flex relative justify-center items-center flex-shrink-0 top-[5vw]
-         w-[19vw] h-[9vh] text-White font-Syne text-3xl font-normal font-500 leading-normal rounded-full bg-mustard transition duration-300 ease-in-out transform hover:scale-105 shadow-md shadow-black"
+         px-8 py-2 text-White font-[Poppins] text-2xl font-medium font-500 leading-normal rounded-3xl bg-none border-4 border-DTgrey transition duration-300 ease-in-out transform hover:scale-105 shadow-md shadow-black"
         onClick={joinRoom}
       >
         Create Room
