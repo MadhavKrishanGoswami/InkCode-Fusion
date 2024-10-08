@@ -92,7 +92,8 @@ const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
               xl:w-52 mb-0.5 justify-center w-[full] "
               >
                 <span
-                  className="text-center rounded-sm bg-ChatBg font-roboto text-xs xl:text-xs font-normal w-[75%] p-1 shadow-[0_0_2px_rgba(0,0,0,0.3)]"
+                  className="text-center text-ChatText font-Roboto text-xs xl:text-xs
+              font-Normal w-[75%]"
                 >
                   Messages can only be seen by people in the call and are deleted
                   when the call ends.
