@@ -75,51 +75,51 @@ const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
         <div className="flex w-full py-4 px-4 justify-between items-center">
           <div className="flex flex-col w-full h-10 justify-center items-center rounded bg-ChatBg">
             <span
-              className="flex items-center text-ChatText font-Roboto text-sm xl:text-sm 
+              className="flex items-center font-Roboto text-sm xl:text-sm 
             font-normal"
             >
               Main Meet Messages
             </span>
           </div>
         </div>
-        <div className=" chat-body no-scrollbar flex overflow-hidden relative p-1">
-          <ScrollToBottom
-            className=" scrollToBottom  h-full no-scrollbar custom-scrollbar text-sm font-Roboto mt-6  
-          font-normal "
-          >
+        <div className=" w-full chat-body no-scrollbar flex overflow-hidden relative ">
+          <ScrollToBottom className=" scrollToBottom w-full h-full no-scrollbar custom-scrollbar text-sm font-Roboto mt-6 font-normal ">
 
-          {/* Div especial */}
-          <div className="app-message">
-          <div
-              className=" flex px-1 py-2 gap-5 rounded-4  
-            xl:w-52 mb-0.5 justify-center w-[full] bg-ChatText"
-            >
-              <span
-                className="text-center text-ChatText  bg-ChatBg font-Roboto text-xs xl:text-xs
-              font-Normal w-[75%] p-1"
+            {/* Div especial */}
+            <div className="app-message ">
+            <div
+                className=" flex px-1 py-2 gap-5 rounded-4  
+              xl:w-52 mb-0.5 justify-center w-[full] "
               >
-                Messages can only be seen by people in the call and are deleted
-                when the call ends.
-              </span>
-            </div>
-          </div>
-            
-            {messageList.map((messageContent) => {
-              return (
-                <div
-                  className={` message ${
-                    userName === messageContent.author ? "you" : "other"
-                  }`}
+                <span
+                  className="text-center rounded-sm bg-ChatBg font-roboto text-xs xl:text-xs font-normal w-[75%] p-1 shadow-[0_0_2px_rgba(0,0,0,0.3)]"
                 >
-                  <div>
-                    <div className="message-content">
-                      <p>{messageContent.message}</p>
+                  Messages can only be seen by people in the call and are deleted
+                  when the call ends.
+                </span>
+              </div>
+            </div>
+              
+              {messageList.map((messageContent) => {
+                return (
+                  <div className="flex justify-end">
+                    <div
+                      className={` message ${
+                        userName === messageContent.author ? "you" : "other"
+                      }`}
+                    >
+                      <div>
+                        <div className="message-content">
+                          <p>{messageContent.message}</p>
+                        </div>
+                      </div>
                     </div>
+
+
+                    <div ref={messagesEndRef} />
                   </div>
-                </div>
-              );
-            })}
-            <div ref={messagesEndRef} />
+                );
+              })}
           </ScrollToBottom>
         </div>
         <div

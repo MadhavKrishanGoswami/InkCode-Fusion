@@ -170,6 +170,7 @@
   display: inline-block; /* to ensure that the content controls the width */
   word-wrap: break-word;
 
+  position: relative;
 }
 
 
@@ -210,9 +211,10 @@
 }
 
 .chat-body {
-  max-height: 100%;
+  height: 80%;
   overflow-y: hidden;
   overflow-x: hidden;
+
 }
 
 
@@ -261,3 +263,7 @@
   padding: 1rem;
   
 }
+
+
+
+
