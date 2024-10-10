@@ -129,24 +129,51 @@
 }*/
 
 /* CHAT */
+
 .message-container {
+  max-height: 80%;
+  overflow-y: auto; /* -rm any extra y scrolling */
+  overflow-x: hidden; /* //  //   //   x    //    */
+
+  word-wrap: break-word;
+}
+
+.message-container {
+
   font: 14px;
   font-family: sans-serif;
-  padding: 0 10px;
-  margin-top: 20px;
   font-weight: 400;
   line-height: normal;
   width: auto;
+
+  overflow: hidden; 
 }
+
+
+.app-message{
+  width: 100%;
+  display: flex;       
+  justify-content: center; 
+  align-items: center;
+}
+
 
 .you,
 .other {
-  margin-top: 20px;
-  padding: 3px 9px;
-  max-width: 50%;
+  margin-bottom: .6rem;
+  padding: 8px 12px;
+  max-width: 70%; /*50% -> 80%*/
   clear: both;
   position: relative;
+
+
+  display: inline-block; /* to ensure that the content controls the width */
+  word-wrap: break-word;
+
+  position: relative;
 }
+
+
 
 .other {
   float: left;
@@ -167,8 +194,8 @@
 
 .you {
   float: right;
-  margin-left: 100%;
-  text-align: right;
+  margin-left: 0;
+  text-align: left;
   border-radius: 12px 12px 0px 12px;
   background-color: #0b93f6;
   color: white;
@@ -176,9 +203,67 @@
 
 .you:before {
   border-bottom: 9px solid #0b93f6;
-  /* border-right: 9px solid rgba(0, 0, 0, 0); */
+  border-right: 9px solid rgba(0, 0, 0, 0);
   position: absolute;
   bottom: 0;
   right: -8px;
   content: "";
 }
+
+.chat-body {
+  height: 80%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+}
+
+
+
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none; /* für WebKit */
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* // Internet Explorer nd Edge */
+  scrollbar-width: none; /* für Firefox */
+}
+
+
+
+
+
+
+
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px; 
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: white; 
+  border-radius: 10px; 
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: #cccccc; 
+}
+
+/* f/ Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin; /* Deixa a scrollbar fina */
+  scrollbar-color: white transparent; 
+}
+
+.scrollToBottom{
+  padding: 1rem;
+  
+}
+
+
+
+
