@@ -157,15 +157,3 @@ To run **InkCode Fusion** on your local machine, follow these steps:
 ## License
 
 By contributing, you agree that your contributions will be licensed under the MIT License.
-
-
-### Explanation:
-
-- **Setting Up the Project**: Provides steps for forking, cloning, and creating a new branch.
-- **Code of Conduct**: References a `CODE_OF_CONDUCT.md` file (you might want to create this as well).
-- **Issues**: Guidelines for reporting bugs and feature requests.
-- **Pull Requests**: Clear instructions for submitting pull requests.
-- **Commit Messages**: Encourages good commit practices with examples.
-- **Coding Guidelines**: Instructs contributors on the tech stack and coding styles to follow.
-- **Development Workflow**: Explains how to run the development server and tests.
-- **License**: States the project license.
