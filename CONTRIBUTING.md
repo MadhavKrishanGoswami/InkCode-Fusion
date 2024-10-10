@@ -9,7 +9,7 @@ Thank you for taking the time to contribute to **InkCode Fusion**! We are excite
 4. [Pull Requests](#pull-requests)
 5. [Commit Messages](#commit-messages)
 6. [Coding Guidelines](#coding-guidelines)
-7. [Development Workflow](#development-workflow)
+7. [Getting Started](#getting-started)
 8. [License](#license)
 
 ---
@@ -92,33 +92,67 @@ Please note that this project adheres to a [Code of Conduct](CODE_OF_CONDUCT.md)
 
 - Ensure that your code adheres to the existing code style of the project.
 - We use the following stack and styles:
-  - **Tech Stack**: Python (Django) for backend, React for frontend.
-  - **Linting**: Follow [PEP 8](https://www.python.org/dev/peps/pep-0008/) for Python code.
-  - **Testing**: Write unit tests for your code. Ensure that all tests pass before submitting the pull request.
 
-## Development Workflow
+### **Tech Stack**:
 
-### Running the Development Environment
+#### Frontend:
+- **Framework**: MERN stack (React.js)
+- **Libraries**: React, Tailwind CSS, CodeMirror
+- **UI Enhancements**: Tailwind CSS for sleek, responsive UI design
 
-1. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-2. **Start the development server**:
-   ```bash
-   python manage.py runserver
-3. **For the frontend, navigate to the frontend folder and run**:
-   ```bash
-   npm install
-   npm start
+#### Backend:
+- **Server**: Node.js
+- **Real-time Features**: Socket.IO for real-time communication and collaboration
+- **Video/Voice**: Agora SDK
+- **Database/Cache**: Redis for session management
 
-### Running Tests
+#### Application Framework:
+- **Desktop Application**: Electron.js
+- **Monorepo Management**: Turborepo for efficient project structure and builds
 
-1. **To run tests for the backend**:
-   ```bash
-   python manage.py test
-2. **To run tests for the frontend**:
-   ``bash
-   npm test
+## Getting Started
+
+To run **InkCode Fusion** on your local machine, follow these steps:
+
+### Prerequisites
+- **Docker**: Make sure Docker is installed on your machine. [Install Docker](https://www.docker.com/get-started)
+- **Yarn**: If not installed, install Yarn using npm:
+  ```bash
+  npm install --global yarn
+  
+  ```
+
+## Installation and Setup
+1. Clone the Repository
+   - Start by cloning the repository:
+     ```bash
+     git clone https://github.com/MadhavKrishanGoswami/InkCode-Fusion.git
+     cd InkCode-Fusion
+     
+     ```
+2. Run Redis Using Docker
+   - Redis is required for real-time session management. Start Redis using Docker:
+     ```bash
+     
+     docker run --rm --name redis -p 6379:6379 redis
+     
+     ```
+3. Install Dependencies and Initialize Turborepo
+   - Install the project dependencies using Yarn (recommended for Turborepo-based projects):
+     ```bash
+     
+     yarn install
+     
+     ```
+4. Run the Application in Development Mode
+   - Start the application using the development script:
+     ```bash
+     
+     yarn dev
+     
+     ```
+5. Access the Application
+   - Open your browser and navigate to http://localhost:3000 to access the frontend interface.
 
 ## License
 
@@ -135,8 +169,3 @@ By contributing, you agree that your contributions will be licensed under the MI
 - **Coding Guidelines**: Instructs contributors on the tech stack and coding styles to follow.
 - **Development Workflow**: Explains how to run the development server and tests.
 - **License**: States the project license.
-
-
-
-
-
