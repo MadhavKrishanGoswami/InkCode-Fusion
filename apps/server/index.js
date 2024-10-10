@@ -53,7 +53,7 @@ function getAllConnectedClients(roomId) {
         socketId,
         userName: userSocketMap[socketId],
       };
-    },
+    }
   );
 }
 
@@ -107,6 +107,13 @@ io.on("connection", (socket) => {
   socket.on(ACTIONS.CODE_CHANGE, ({ roomId, code }) => {
     socket.in(roomId).emit(ACTIONS.CODE_CHANGE, { code });
   });
+
+  socket.on(ACTIONS.TITLE_CHANGE, ({ roomId, title }) => {
+    // Broadcast the title change to all clients in the room, except the sender
+    socket.broadcast.to(roomId).emit(ACTIONS.TITLE_CHANGE, { title });
+    socket.in(roomId).emit(ACTIONS.TITLE_CHANGE, { title });
+  });
+
   socket.on("disconnecting", () => {
     const rooms = [...socket.rooms];
     rooms.forEach((roomId) => {

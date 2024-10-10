@@ -10,6 +10,7 @@ const ACTIONS = {
   DRAW: "draw",
   RUN_CODE: "run_code",
   OUTPUT: "output",
+  TITLE_CHANGE: "title_change",
 };
 
 module.exports = ACTIONS;

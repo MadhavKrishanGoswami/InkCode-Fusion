@@ -23,14 +23,14 @@ const options = {
   "force new connection": true,
   reconnectionAttempt: "Infinity",
   timeout: 10000,
-  transports: ["websocket", 'polling'],
+  transports: ["websocket", "polling"],
   cors: {
-    origin: '*',  // Allow all origins
-    methods: ['GET', 'POST'],
+    origin: "*", // Allow all origins
+    methods: ["GET", "POST"],
     credentials: true,
   },
 };
-const server = 'localhost:4000';
+const server = "localhost:4000";
 const socket = io(server, options);
 
 const Room = () => {
@@ -102,7 +102,7 @@ const Room = () => {
         transition={{ duration: 1, type: "ease-in" }} // Change the transition type to "ease-in"
       >
         <Nav />
-        <MeetingTitle />
+        <MeetingTitle socket={socket} roomId={roomId} />
       </motion.div>
       <motion.div
         initial={{ y: 1000 }}

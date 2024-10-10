@@ -1,9 +1,28 @@
 import React, { useEffect, useState } from "react";
 import meetingpng from "../../pages/Assets/images/meeting-logo.png";
+import ACTIONS from "../../Actions";
 const date = new Date();
 
-const MeetingTitle = () => {
+const MeetingTitle = ({ socket, roomId }) => {
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [title, setTitle] = useState("Interview(Technical Round)");
+
+  useEffect(() => {
+    if (socket) {
+      // Listen for title updates from the server
+      socket.on(ACTIONS.TITLE_CHANGE, ({ title }) => {
+        setTitle(title); // Update the title with the new value
+      });
+    }
+  }, [socket, roomId]);
+
+  const handleTitleChange = (e) => {
+    const newTitle = e.target.textContent;
+    setTitle(newTitle);
+    if (socket && roomId) {
+      socket.emit(ACTIONS.TITLE_CHANGE, { roomId, title: newTitle });
+    }
+  };
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -25,9 +44,11 @@ const MeetingTitle = () => {
       <div class="absolute w-0.5 h-[3vw] ml-[5.7vw] bg-lightergrey"></div>
       <h1
         contenteditable="true"
+        suppressContentEditableWarning={true}
+        onBlur={handleTitleChange}
         className="absolute ml-[6.7vw] text-darkGrey top-[0.9vw] font-Inter text-[1.2vw] font-medium"
       >
-        Interview(Technical Round)
+        {title}
       </h1>
       <h2 className="absolute py-1 text-gray-500 font-Inter text-[1.1vw] top-[2.7vw] text-DTgrey ml-[6.5vw] font-medium">
         {" "}
