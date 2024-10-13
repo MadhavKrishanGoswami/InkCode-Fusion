@@ -83,6 +83,11 @@ io.on("connection", (socket) => {
     socket.in(data.room).emit(ACTIONS.RECEIVE_MESSAGE, data);
   });
   socket.on(ACTIONS.RUN_CODE, async ({ code, roomId }) => {
+    if (!code || !code.trim().endsWith(")")) {
+      socket.in(roomId).emit(ACTIONS.OUTPUT, { data: "SyntaxError: incomplete code" });
+      return;
+    }
+
     try {
       await client.lPush("codeForProcessing", JSON.stringify({ code, roomId }));
       console.log("Code pushed to Redis queue for processing");
@@ -107,13 +112,6 @@ io.on("connection", (socket) => {
   socket.on(ACTIONS.CODE_CHANGE, ({ roomId, code }) => {
     socket.in(roomId).emit(ACTIONS.CODE_CHANGE, { code });
   });
-
-  socket.on(ACTIONS.TITLE_CHANGE, ({ roomId, title }) => {
-    // Broadcast the title change to all clients in the room, except the sender
-    socket.broadcast.to(roomId).emit(ACTIONS.TITLE_CHANGE, { title });
-    socket.in(roomId).emit(ACTIONS.TITLE_CHANGE, { title });
-  });
-
   socket.on("disconnecting", () => {
     const rooms = [...socket.rooms];
     rooms.forEach((roomId) => {

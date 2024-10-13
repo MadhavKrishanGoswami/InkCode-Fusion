@@ -9,9 +9,11 @@
     "dev": "npm run build && npm run start"
   },
   "keywords": [],
+  "type": "module",
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "piston-client": "^1.0.2",
     "redis": "^4.6.13"
   },
   "devDependencies": {

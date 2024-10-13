@@ -1,1 +1,1 @@
-{"root":["./src/index.ts"],"version":"5.6.2"}
+{"root":["./src/index.ts","./types/piston-client.d.ts"],"version":"5.6.2"}
