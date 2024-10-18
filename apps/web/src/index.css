@@ -22,6 +22,7 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
 @layer base {
   html {
     font-family: "Inter", sans-serif;
