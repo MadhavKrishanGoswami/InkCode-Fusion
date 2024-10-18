@@ -1,5 +1,5 @@
 import { createClient } from "redis";
-
+import piston from "piston-client"
 
 
 const client = createClient({
@@ -10,14 +10,30 @@ const pubClient = createClient({
   // url: 'redis://redis:6379'
 });
 
+const RESTRICTED_MODULES = ['os', 'subprocess', 'sys', 'builtins', 'importlib'];
+const MAX_EXECUTION_TIME = 5000; // 5 seconds
+const MAX_MEMORY = '50M'; // 50 megabytes
+
 async function processCode(submission: string) {
   const { code, roomId } = JSON.parse(submission);
   console.log(`Processing code for room: ${roomId}`);
   console.log(`Code: ${code}`);
 
-  // Simulate processing time
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-  const codeOutput = "{ \"output\": \"Dummy Output from worker\" }";
+  const escapedCode = code.replace(/\\/g, '\\\\').replace(/`/g, '\\`').replace(/\$/g, '\\$')
+
+  for (const module of RESTRICTED_MODULES) {
+    if (escapedCode.includes(`import ${module}`) || escapedCode.includes(`from ${module}`)) {
+      const error = `Error: cant use ${module}`;
+      console.error("restricetd USEAGE", module)
+      await pubClient.publish("task_updates", JSON.stringify({ messageRoomId: roomId, codeOutput: { error } }))
+      return;
+    }
+  }
+  // Execute the Python code
+
+  const client = piston();
+  const codeOutput = await client.execute('python', escapedCode, { language: '3.9.4 ' });
+
   const messageRoomId = roomId;
   console.log(`Code processed for room: ${messageRoomId} with output: ${codeOutput}`);
   // Send the output to the room
