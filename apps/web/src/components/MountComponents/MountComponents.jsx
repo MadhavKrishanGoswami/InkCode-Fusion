@@ -21,8 +21,8 @@ const MountComponents = ({ socket, roomId, userName }) => {
     toast.success("Your connections are secure!", { duration: 2000 });
   };
   return (
-    <div className="">
-      <div className="flex absolute justify-center items-center gap-[1vw] top-[48vw] left-[89vw]">
+    <div className="w-full h-full bg-lightergrey">
+      <div className="flex absolute bottom-0 right-5 justify-center items-center gap-[1vw]">
         <div className="w-10 h-10 rounded-full hover:bg-Darkblue">
           <IconButton>
             <ChatIcon

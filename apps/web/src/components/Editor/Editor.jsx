@@ -45,7 +45,7 @@ const Editor = ({ socket, roomId }) => {
         wrapper.style.borderRadius = "30px";
         wrapper.style.padding = "8px"; // Add padding
         wrapper.style.height = "48vh"; // Set height
-        wrapper.style.width = "45%"; // Set width
+        wrapper.style.width = "100%"; // Set width
         //increase font size
         editorRef.current.getWrapperElement().style["font-size"] = "19px";
 
@@ -82,19 +82,20 @@ const Editor = ({ socket, roomId }) => {
   };
 
   return (
-    <div className=" ml-[1.5vw] mt-[0.5vw]">
-      <textarea id="realTimeEditor" className="Editor-Text"></textarea>
-      <Output socket={socket} roomId={roomId} codeRef={codeRef} />
-      <div
-        className=" flex absolute justify-center items-center top-[65%] left-[37%]
-         text-RunText border-[1px] border-StartBg font-Syne text-[1.4vw] rounded-[2.5vw] w-[6vw] h-[6vh] bg-[#3C4043] shadow-md shadow-black hover:bg-[#313538] cursor-pointer"
-      >
-        <IconButton onClick={runCode}>
-          <span className="  text-RunText font-Syne text-[1.4vw] cursor-pointer w-[100%] h-[100%]">
-            Run
-          </span>
-        </IconButton>
+    <div className="ml-[1.5vw] mt-[0.5vw] pb-10">
+      <div className="relative w-[50%]">
+        <textarea
+          id="realTimeEditor"
+          className="Editor-Text relative"
+        ></textarea>
+        <button
+          onClick={runCode}
+          className="absolute bottom-5 right-5 px-6 py-2 bg-darkGrey text-RunText text-base font-Syne cursor-pointer rounded-lg"
+        >
+          Run
+        </button>
       </div>
+      <Output socket={socket} roomId={roomId} codeRef={codeRef} />
     </div>
   );
 };
