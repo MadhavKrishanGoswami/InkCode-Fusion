@@ -18,22 +18,24 @@ const Output = ({ socket }) => {
 
       socket.on("task_update", (message) => {
         const parsedMessage = JSON.parse(message);
-        setOutput(parsedMessage.codeOutput.run || parsedMessage.codeOutput.error)
-        setIsLoading(false)
-      })
+        setOutput(
+          parsedMessage.codeOutput.run || parsedMessage.codeOutput.error
+        );
+        setIsLoading(false);
+      });
     }
 
     return () => {
       if (socket) {
         socket.off(ACTIONS.OUTPUT);
-        socket.off("task_update")
+        socket.off("task_update");
       }
-    }
+    };
   }, [socket]);
 
   return (
     <div
-      className="flex w-[45%] h-[22vh] mt-6 px-4 py-3 gap-6 flex-col items-start
+      className="flex w-[50%] h-[22vh] mt-6 px-4 py-3 gap-6 flex-col items-start
      flex-shrink-0 rounded-3xl bg-Darkblue shadow-md shadow-black"
     >
       {isLoading ? (
@@ -45,10 +47,11 @@ const Output = ({ socket }) => {
             readOnly
             value={
               output
-                ? `${output.stdout}` || `${output.stderr.split("\n").slice(1).join("\n")}`
+                ? `${output.stdout}` ||
+                  `${output.stderr.split("\n").slice(1).join("\n")}`
                 : ""
             }
-            className=" relative resize-none top-6 h-4/5 w-full flex-shrink-0 text-Output rounded-xl
+            className="resize-none top-6 h-4/5 w-full flex-shrink-0 text-Output rounded-xl
          p-0 m-0 mt-2 outline-none border-none bg-Darkblue overflow-hidden text-xl text-white"
           />
           <span className="outputText absolute text-lg px-0 font-bold text-Output  ">

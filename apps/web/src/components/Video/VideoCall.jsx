@@ -82,7 +82,7 @@ const VideoRoom = ({ roomId, leaveRoom, showChat, showPeople }) => {
 
   return (
     <>
-      <div className="VideoCall flex flex-row space-x-6 absolute top-[14vw] left-[50vw] z-[100]">
+      <div className="VideoCall flex flex-row space-x-6 absolute top-[20%] left-[52%] z-[100]">
         {users.map(
           (user) =>
             isCameraEnabled && (
@@ -94,7 +94,7 @@ const VideoRoom = ({ roomId, leaveRoom, showChat, showPeople }) => {
             )
         )}
       </div>
-      <div className="fixed bottom-[0.9vw] right-[25vw]">
+      <div className="fixed bottom-1 right-60">
         <Controls
           toggleMic={toggleMic}
           toggleCamera={toggleCamera}
