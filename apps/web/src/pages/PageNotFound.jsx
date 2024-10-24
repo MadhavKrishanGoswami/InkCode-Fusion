@@ -1,5 +1,3 @@
-import { Button } from "@mui/material";
-import { ArrowLeft, Search } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { motion } from "framer-motion";
