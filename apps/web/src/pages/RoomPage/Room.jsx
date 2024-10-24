@@ -95,14 +95,16 @@ const Room = () => {
 
   // Render the Room component
   return (
-    <div className="Room overflow-hidden h-full">
+    <div className="Room h-full">
       <motion.div
         initial={{ y: -1000 }}
         animate={{ y: 0 }}
         transition={{ duration: 1, type: "ease-in" }} // Change the transition type to "ease-in"
       >
-        <Nav />
-        <MeetingTitle socket={socket} roomId={roomId} />
+        <div className="h-20 flex items-center pt-2">
+          <Nav />
+          <MeetingTitle socket={socket} roomId={roomId} />
+        </div>
       </motion.div>
       <motion.div
         initial={{ y: 1000 }}
