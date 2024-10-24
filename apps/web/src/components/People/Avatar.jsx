@@ -1,10 +1,9 @@
 import React from "react";
-import NiceAvatar, { genConfig } from "react-nice-avatar";
-const UserAvatar = () => {
-  const config = genConfig();
+const UserAvatar = (userName) => {
+  const source = `https://api.dicebear.com/9.x/pixel-art/svg?seed=${userName.userName}`;
   return (
     <div>
-      <NiceAvatar style={{ width: "2.8vw", height: "2.8vw" }} {...config} />
+      <img src={source} className="w-[2.8vw] h-[2.8vw]" alt="Avatar"/>
     </div>
   );
 };
