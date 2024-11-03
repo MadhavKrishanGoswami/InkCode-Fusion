@@ -4,19 +4,6 @@
 
 ---
 
-## 📋 Participating Programs
-
-| Name                  | Logo                                                      | Purpose                                                                                                      |
-|-----------------------|-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| GSSoC'2024-Extd       | ![GSSoC Logo](assets/GSSoC-Ext.png)             | The coding period is from October 1st to October 30th, during which contributors make contributions and earn points on the platform. |
-| Hacktoberfest 2024    | ![Hacktoberfest Logo](assets/hacktoberfest.png) | Hacktoberfest is a month-long October event welcoming all skill levels to join the open-source community.     |
-
----
-
-## 📈 GitHub Repository Stats
-| 🌟 **Stars** | 🍴 **Forks** | 🐛 **Issues** | 🔔 **Open PRs** | 🔕 **Closed PRs** | 🛠️ **Languages** | ✅ **Contributors** |
-|--------------|--------------|---------------|-----------------|------------------|------------------|------------------|
-| ![GitHub stars](https://img.shields.io/github/stars/MadhavKrishanGoswami/InkCode-Fusion) | ![forks](https://img.shields.io/github/forks/MadhavKrishanGoswami/InkCode-Fusion) | ![issues](https://img.shields.io/github/issues/MadhavKrishanGoswami/InkCode-Fusion?color=32CD32) | ![pull requests](https://img.shields.io/github/issues-pr/MadhavKrishanGoswami/InkCode-Fusion?color=FFFF8F) | ![Closed PRs](https://img.shields.io/github/issues-pr-closed/MadhavKrishanGoswami/InkCode-Fusion?color=20B2AA) | ![Languages](https://img.shields.io/github/languages/count/MadhavKrishanGoswami/InkCode-Fusion?color=20B2AA) | ![Contributors](https://img.shields.io/github/contributors/MadhavKrishanGoswami/InkCode-Fusion?color=00FA9A) |
 
 ## 🚀 Key Features
 
@@ -129,6 +116,19 @@ You can either create a new room or join an existing one to start collaborating 
 Stay tuned for future updates, including the interactive whiteboard and more advanced code collaboration features!
 
 ---
+## 📋 Participating Programs
+
+| Name                  | Logo                                                      | Purpose                                                                                                      |
+|-----------------------|-----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| GSSoC'2024-Extd       | ![GSSoC Logo](assets/GSSoC-Ext.png)             | The coding period is from October 1st to October 30th, during which contributors make contributions and earn points on the platform. |
+| Hacktoberfest 2024    | ![Hacktoberfest Logo](assets/hacktoberfest.png) | Hacktoberfest is a month-long October event welcoming all skill levels to join the open-source community.     |
+
+---
+
+## 📈 GitHub Repository Stats
+| 🌟 **Stars** | 🍴 **Forks** | 🐛 **Issues** | 🔔 **Open PRs** | 🔕 **Closed PRs** | 🛠️ **Languages** | ✅ **Contributors** |
+|--------------|--------------|---------------|-----------------|------------------|------------------|------------------|
+| ![GitHub stars](https://img.shields.io/github/stars/MadhavKrishanGoswami/InkCode-Fusion) | ![forks](https://img.shields.io/github/forks/MadhavKrishanGoswami/InkCode-Fusion) | ![issues](https://img.shields.io/github/issues/MadhavKrishanGoswami/InkCode-Fusion?color=32CD32) | ![pull requests](https://img.shields.io/github/issues-pr/MadhavKrishanGoswami/InkCode-Fusion?color=FFFF8F) | ![Closed PRs](https://img.shields.io/github/issues-pr-closed/MadhavKrishanGoswami/InkCode-Fusion?color=20B2AA) | ![Languages](https://img.shields.io/github/languages/count/MadhavKrishanGoswami/InkCode-Fusion?color=20B2AA) | ![Contributors](https://img.shields.io/github/contributors/MadhavKrishanGoswami/InkCode-Fusion?color=00FA9A) |
 
 ## 👥 Contributing
 
