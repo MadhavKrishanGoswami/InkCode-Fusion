@@ -5,18 +5,15 @@ import CloseIcon from "@mui/icons-material/Close";
 import SendIcon from "@mui/icons-material/Send";
 import { motion } from "framer-motion";
 import "./Chats.css";
-import NotificationMessage from "../../pages/Assets/Notification/Notification-Message.mp3";
+import NotificationMessage from "../../assets/Notification/Notification-Message.mp3";
 
 import preventHorizontalScroll from "../../preventHorizontalScroll";
 
-
-
 const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
-
   useEffect(() => {
-    preventHorizontalScroll(); 
+    preventHorizontalScroll();
   }, []);
-  
+
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   console.log(messageList);
@@ -84,10 +81,9 @@ const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
         </div>
         <div className=" w-full chat-body no-scrollbar flex overflow-hidden relative ">
           <ScrollToBottom className=" scrollToBottom w-full h-full no-scrollbar custom-scrollbar text-sm font-Roboto mt-6 font-normal ">
-
             {/* Div especial */}
             <div className="app-message ">
-            <div
+              <div
                 className=" flex px-1 py-2 gap-5 rounded-4  
               xl:w-52 mb-0.5 justify-center w-[full] "
               >
@@ -95,32 +91,31 @@ const Chat = ({ socket, roomId, userName, setShowChat, isVisible }) => {
                   className="text-center text-ChatText font-Roboto text-xs xl:text-xs
               font-Normal w-[75%]"
                 >
-                  Messages can only be seen by people in the call and are deleted
-                  when the call ends.
+                  Messages can only be seen by people in the call and are
+                  deleted when the call ends.
                 </span>
               </div>
             </div>
-              
-              {messageList.map((messageContent) => {
-                return (
-                  <div className="flex justify-end">
-                    <div
-                      className={` message ${
-                        userName === messageContent.author ? "you" : "other"
-                      }`}
-                    >
-                      <div>
-                        <div className="message-content">
-                          <p>{messageContent.message}</p>
-                        </div>
+
+            {messageList.map((messageContent) => {
+              return (
+                <div className="flex justify-end">
+                  <div
+                    className={` message ${
+                      userName === messageContent.author ? "you" : "other"
+                    }`}
+                  >
+                    <div>
+                      <div className="message-content">
+                        <p>{messageContent.message}</p>
                       </div>
                     </div>
-
-
-                    <div ref={messagesEndRef} />
                   </div>
-                );
-              })}
+
+                  <div ref={messagesEndRef} />
+                </div>
+              );
+            })}
           </ScrollToBottom>
         </div>
         <div

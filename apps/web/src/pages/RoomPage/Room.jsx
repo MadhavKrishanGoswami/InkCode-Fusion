@@ -9,8 +9,8 @@ import MeetingTitle from "../../components/MeetingTitle/MeetingTitle";
 import Python from "../../components/python/python";
 import Nav from "../../components/nav/nav";
 import { motion } from "framer-motion";
-import NotificationRoomIn from "../Assets/Notification/Notification-RoomIn.mp3";
-import NotificationRoomOut from "../Assets/Notification/Notification-RoomOut.mp3";
+import NotificationRoomIn from "../../assets/Notification/Notification-RoomIn.mp3";
+import NotificationRoomOut from "../../assets/Notification/Notification-RoomOut.mp3";
 
 import {
   useLocation,
