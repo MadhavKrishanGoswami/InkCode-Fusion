@@ -5,7 +5,7 @@ import Start from "../../pages/StartPage/Start";
 import Room from "../../pages/RoomPage/Room";
 import End from "../../pages/EndPage/End";
 import { AnimatePresence } from "framer-motion";
-//import Cursor from "../../pages/GradientBubbles/GradientBubbles";
+import PageNotFound from "../../pages/PageNotFound";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -19,6 +19,7 @@ const AnimatedRoutes = () => {
         <Route path="/start" element={<Start />} />
         <Route path="/room/:roomId" element={<Room />} />
         <Route path="/end" element={<End />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </AnimatePresence>
   );

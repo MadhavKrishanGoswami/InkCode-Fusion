@@ -29,4 +29,8 @@
     "three": "^0.170.0",
     "three-globe": "^2.34.4"
   }
+  ],
+  "dependencies": {
+    "lucide-react": "^0.453.0"
+  }
 }
