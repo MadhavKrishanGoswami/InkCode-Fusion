@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import meetingpng from "../../pages/Assets/images/meeting-logo.png";
+import meetingpng from "../../assets/images/meeting-logo.png";
 import ACTIONS from "../../Actions";
 const date = new Date();
 

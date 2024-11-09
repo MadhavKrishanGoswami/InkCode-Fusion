@@ -1,0 +1,22 @@
+.color-pop {
+  position: relative;
+}
+
+.color-pop::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px; /* Adjust as needed */
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    #bd356b 10%,
+    rgba(255, 93, 158, 0.5) 30%,
+    rgba(255, 45, 126, 0.3) 60%,
+    rgba(255, 45, 126, 0) 100%
+  );
+  z-index: -1;
+  border-radius: 50%;
+}

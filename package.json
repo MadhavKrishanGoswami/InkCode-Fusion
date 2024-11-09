@@ -19,5 +19,14 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@react-three/drei": "^9.115.0",
+    "@react-three/fiber": "^8.17.10",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.11.11",
+    "tailwind-merge": "^2.5.4",
+    "three": "^0.170.0",
+    "three-globe": "^2.34.4"
+  }
 }

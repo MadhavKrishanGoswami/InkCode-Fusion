@@ -1,11 +1,11 @@
 import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Home from "../../pages/Home";
-import Start from "../../pages/Start";
+import Home from "../../pages/HomePage/Home";
+import Start from "../../pages/StartPage/Start";
 import Room from "../../pages/RoomPage/Room";
-import End from "../../pages/End";
+import End from "../../pages/EndPage/End";
 import { AnimatePresence } from "framer-motion";
-import Cursor from "../../pages/GradientBubbles/GradientBubbles";
+//import Cursor from "../../pages/GradientBubbles/GradientBubbles";
 
 const AnimatedRoutes = () => {
   const location = useLocation();
@@ -13,7 +13,7 @@ const AnimatedRoutes = () => {
 
   return (
     <AnimatePresence mode="wait">
-      {!isRoomPath && <Cursor />}
+      {!isRoomPath}
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={<Home />} />
         <Route path="/start" element={<Start />} />
