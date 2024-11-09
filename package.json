@@ -27,10 +27,7 @@
     "framer-motion": "^11.11.11",
     "tailwind-merge": "^2.5.4",
     "three": "^0.170.0",
-    "three-globe": "^2.34.4"
-  }
-  ],
-  "dependencies": {
+    "three-globe": "^2.34.4",
     "lucide-react": "^0.453.0"
   }
 }
